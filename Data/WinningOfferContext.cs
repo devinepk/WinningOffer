@@ -1,0 +1,18 @@
+﻿using Microsoft.EntityFrameworkCore;
+using WinningOffer.Models;
+using WinningOffer.Data;
+
+namespace WinningOffer.Data
+{
+    public class WinningOfferContext : DbContext
+    {
+
+        public WinningOfferContext(DbContextOptions<WinningOfferContext> options)
+            : base(options)
+        {
+        }
+
+        public DbSet<Contract> Contract {get; set;}
+
+    }
+}

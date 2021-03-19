@@ -1,0 +1,8 @@
+﻿# Connection strings and API info
+.appsettings.json
+appsettings.json
+appsettings
+
+# Odds and Ends
+# Pick back up here: https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-model?view=aspnetcore-5.0&tabs=visual-studio#scaffold-movie-pages
+TODO.md
