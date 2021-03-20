@@ -38,6 +38,9 @@ namespace WinningOffer
             services.AddDbContext<WinningOfferContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("WinningOfferContext")));
 
+            // Adds the API configuration
+            services.AddSingleton(Configuration.GetSection("Datafiniti"));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

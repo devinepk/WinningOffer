@@ -7,12 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WinningOffer.Data;
 using WinningOffer.Models;
+using RestSharp;
+using Microsoft.IdentityModel.Protocols;
+using System.Collections.Specialized;
+using System.Configuration;
+using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Configuration;
 
 namespace WinningOffer.Controllers
 {
     public class PropertiesController : Controller
     {
         private readonly WinningOfferContext _context;
+        public IConfiguration configuration;
 
         public PropertiesController(WinningOfferContext context)
         {
@@ -54,8 +61,75 @@ namespace WinningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Address,City,PostalCode,Country,DateAdded,DateUpdated,GeoLocation,ImageURLs,MlsNumber,NumBathroom,NumBedroom,Price,SourceURLs,Agent,Company,Phones")] Property @property)
+        public async Task<IActionResult> Create(string Address, string City, string PostalCode, [Bind("Id,Address,City,PostalCode,Country,DateAdded,DateUpdated,GeoLocation,ImageURLs,MlsNumber,NumBathroom,NumBedroom,Price,SourceURLs,Agent,Company,Phones")] Property @property)
         {
+
+           
+            // Make the API call, passing the "Address" in from the view
+
+            //append the entered address to the request
+            var addressentered = "https://api.datafiniti.co/v4/properties/search?address=" + Address;
+
+            //access the api key from the app.config file
+            string bearertoken = string.Empty;
+            var apikeys = ConfigurationManager.GetSection("APIKeys:Datafiniti") as NameValueCollection;
+
+            if (apikeys != null)
+            {
+                bearertoken = apikeys["Datafiniti"].ToString();
+            }
+
+            var client = new RestClient(addressentered);
+            client.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Authorization", bearertoken);
+            request.AddParameter("application/json", "{\r\n    \"query\": \"address:\\\"" + Address + "\\\" AND mlsNumber:* AND statuses.type:\\\"For Sale\\\" AND postalCode:(40067 OR 40022 OR 40065 OR 40003 OR 40076 OR 40057 OR 40019 OR 40601) AND country:(US)\",\r\n    \"num_records\": 1\r\n}", ParameterType.RequestBody);
+
+            IRestResponse response = client.Execute(request);
+
+            //the actual json response
+            string json = response.Content;
+
+            //parse the json response for key/value pairs
+            dynamic api = JObject.Parse(json);
+
+            //build the records
+            var records = api.records;
+            var recordsAddress = api.records[0].address;
+            var recordsMlsNum = api.records[0].mlsNumber;
+
+            var listingBrokerDates = api.records[0].brokers;
+            //find the most recent broker
+            var listingBrokerInfo = listingBrokerDates[listingBrokerDates.Count - 1];
+            var listingBrokerCompanyName = listingBrokerInfo.company; //company name
+            var listingBrokerAgentName = listingBrokerInfo.agent; //agent name
+            var listingBrokerAgentPhoneNumber = listingBrokerInfo.phones; //agent number (not always available)
+
+            //misc property info (image URL and parcel num)
+            var recordsImageLink = api.records[0].imageURLS;
+            var recordsParcelInfo = api.records[0].features[0].value;
+
+            try
+            {
+
+                if (response.Content.Length > 43)
+                {
+
+                                                                                                                                                    
+            
+                }
+                else
+                {
+               
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+              
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(@property);
