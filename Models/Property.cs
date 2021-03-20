@@ -9,44 +9,44 @@ namespace WinningOffer.Models
         public int Id { get; set; }
 
         [Display(Name = "Street Address")]
-        public string address { get; set; }
+        public string Address { get; set; }
 
         [Display(Name = "City")]
-        public string city { get; set; }
+        public string City { get; set; }
 
         [Display(Name = "Zip Code")]
-        public string postalCode { get; set; }
+        public string PostalCode { get; set; }
 
         [Display(Name = "Country")]
-        public string country { get; set; }
+        public string Country { get; set; }
 
-        public string dateAdded { get; set; }
-        public string dateUpdated { get; set; }
-        public string geoLocation { get; set; }
-        public string imageURLs { get; set; }
+        public string DateAdded { get; set; }
+        public string DateUpdated { get; set; }
+        public string GeoLocation { get; set; }
+        public string ImageURLs { get; set; }
 
         [Display(Name = "MLS Number")]
-        public string mlsNumber { get; set; }
+        public string MlsNumber { get; set; }
 
         [Display(Name = "No. of Bathrooms")]
-        public int numBathroom { get; set; }
+        public int NumBathroom { get; set; }
 
         [Display(Name = "No. of Bedrooms")]
-        public int numBedroom { get; set; }
+        public int NumBedroom { get; set; }
 
         [Display(Name = "List Price")]
         [Column(TypeName = "decimal(18,2)")]
-        public int price { get; set; }            
-        public string sourceURLs { get; set; }
+        public int Price { get; set; }            
+        public string SourceURLs { get; set; }
 
         [Display(Name = "Listing Agent")]
-        public string agent { get; set; }
+        public string Agent { get; set; }
 
         [Display(Name = "Listing Broker")]
-        public string company { get; set; }
+        public string Company { get; set; }
 
         [Display(Name = "Agent Phone")]
-        public int phone { get; set; }
+        public int Phone { get; set; }
  
     }
 }

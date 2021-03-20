@@ -54,7 +54,7 @@ namespace WinningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,address,city,postalCode,country,dateAdded,dateUpdated,geoLocation,imageURLs,mlsNumber,numBathroom,numBedroom,price,sourceURLs,agent,company,phones")] Property @property)
+        public async Task<IActionResult> Create([Bind("Id,Address,City,PostalCode,Country,DateAdded,DateUpdated,GeoLocation,ImageURLs,MlsNumber,NumBathroom,NumBedroom,Price,SourceURLs,Agent,Company,Phones")] Property @property)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace WinningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,address,city,postalCode,country,dateAdded,dateUpdated,geoLocation,imageURLs,mlsNumber,numBathroom,numBedroom,price,sourceURLs,agent,company,phones")] Property @property)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Address,City,PostalCode,Country,DateAdded,DateUpdated,GeoLocation,ImageURLs,MlsNumber,NumBathroom,NumBedroom,Price,SourceURLs,Agent,Company,Phones")] Property @property)
         {
             if (id != @property.Id)
             {
