@@ -172,3 +172,8 @@ C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\WinningO
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\WinningOffer\obj\Debug\net5.0\Razor\Views\Contracts\Details.cshtml.g.cs
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\WinningOffer\obj\Debug\net5.0\Razor\Views\Contracts\Edit.cshtml.g.cs
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\WinningOffer\obj\Debug\net5.0\Razor\Views\Contracts\Index.cshtml.g.cs
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\WinningOffer\obj\Debug\net5.0\Razor\Views\Properties\Create.cshtml.g.cs
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\WinningOffer\obj\Debug\net5.0\Razor\Views\Properties\Delete.cshtml.g.cs
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\WinningOffer\obj\Debug\net5.0\Razor\Views\Properties\Details.cshtml.g.cs
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\WinningOffer\obj\Debug\net5.0\Razor\Views\Properties\Edit.cshtml.g.cs
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\WinningOffer\obj\Debug\net5.0\Razor\Views\Properties\Index.cshtml.g.cs

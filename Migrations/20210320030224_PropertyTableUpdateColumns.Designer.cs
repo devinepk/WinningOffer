@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WinningOffer.Data;
 
 namespace WinningOffer.Migrations
 {
     [DbContext(typeof(WinningOfferContext))]
-    partial class WinningOfferContextModelSnapshot : ModelSnapshot
+    [Migration("20210320030224_PropertyTableUpdateColumns")]
+    partial class PropertyTableUpdateColumns
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -89,14 +91,14 @@ namespace WinningOffer.Migrations
                     b.Property<int>("numBedroom")
                         .HasColumnType("int");
 
-                    b.Property<int>("phone")
+                    b.Property<int>("phones")
                         .HasColumnType("int");
 
                     b.Property<string>("postalCode")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("price")
+                        .HasColumnType("int");
 
                     b.Property<string>("sourceURLs")
                         .HasColumnType("nvarchar(max)");

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WinningOffer.Data;
 
 namespace WinningOffer.Migrations
 {
     [DbContext(typeof(WinningOfferContext))]
-    partial class WinningOfferContextModelSnapshot : ModelSnapshot
+    [Migration("20210320022517_PropertyTable")]
+    partial class PropertyTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,54 +54,6 @@ namespace WinningOffer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("agent")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("city")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("company")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("country")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("dateAdded")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("dateUpdated")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("geoLocation")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("imageURLs")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("mlsNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("numBathroom")
-                        .HasColumnType("int");
-
-                    b.Property<int>("numBedroom")
-                        .HasColumnType("int");
-
-                    b.Property<int>("phone")
-                        .HasColumnType("int");
-
-                    b.Property<string>("postalCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("sourceURLs")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

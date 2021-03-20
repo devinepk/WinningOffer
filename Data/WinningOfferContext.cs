@@ -14,5 +14,7 @@ namespace WinningOffer.Data
 
         public DbSet<Contract> Contract {get; set;}
 
+        public DbSet<WinningOffer.Models.Property> Property { get; set; }
+
     }
 }
