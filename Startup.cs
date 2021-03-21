@@ -11,20 +11,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using WinningOffer.Data;
 using Microsoft.EntityFrameworkCore;
+using static WinningOffer.Controllers.PropertiesController;
 
 namespace WinningOffer
 {
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        [Obsolete]
+        
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
@@ -39,7 +42,8 @@ namespace WinningOffer
                 options.UseSqlServer(Configuration.GetConnectionString("WinningOfferContext")));
 
             // Adds the API configuration
-            services.AddSingleton(Configuration.GetSection("Datafiniti"));
+            services.AddOptions();
+            services.Configure<APIKeyOptions>(Configuration.GetSection(APIKeyOptions.SectionName));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

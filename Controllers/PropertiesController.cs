@@ -13,13 +13,26 @@ using System.Collections.Specialized;
 using System.Configuration;
 using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
+using System.IO;
 
 namespace WinningOffer.Controllers
 {
     public class PropertiesController : Controller
     {
         private readonly WinningOfferContext _context;
-        public IConfiguration configuration;
+        
+        public class APIKeyOptions
+        {
+            public const string SectionName = "APIKeys";
+
+            public string Datafiniti { get; set; }
+
+            IOptions<APIKeyOptions> apiKeyOptions;
+
+        }
+
+
 
         public PropertiesController(WinningOfferContext context)
         {
@@ -64,7 +77,12 @@ namespace WinningOffer.Controllers
         public async Task<IActionResult> Create(string Address, string City, string PostalCode, [Bind("Id,Address,City,PostalCode,Country,DateAdded,DateUpdated,GeoLocation,ImageURLs,MlsNumber,NumBathroom,NumBedroom,Price,SourceURLs,Agent,Company,Phones")] Property @property)
         {
 
-           
+            var builder = new ConfigurationBuilder()
+                          .SetBasePath(Directory.GetCurrentDirectory())
+                          .AddJsonFile("appsettings.json");
+            var configuration = builder.Build();
+            var apikeys = configuration["APIKeys:Datafiniti"];
+
             // Make the API call, passing the "Address" in from the view
 
             //append the entered address to the request
@@ -72,11 +90,11 @@ namespace WinningOffer.Controllers
 
             //access the api key from the app.config file
             string bearertoken = string.Empty;
-            var apikeys = ConfigurationManager.GetSection("APIKeys:Datafiniti") as NameValueCollection;
 
+            //var apikeys = ConfigurationManager.GetSection("ApiKeys") as NameValueCollection;
             if (apikeys != null)
             {
-                bearertoken = apikeys["Datafiniti"].ToString();
+                bearertoken = apikeys.ToString();
             }
 
             var client = new RestClient(addressentered);
