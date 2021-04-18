@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WinningOffer.Data;
 
 namespace WinningOffer.Migrations
 {
     [DbContext(typeof(WinningOfferContext))]
-    partial class WinningOfferContextModelSnapshot : ModelSnapshot
+    [Migration("20210414233252_RemovesUnnecessaryFields")]
+    partial class RemovesUnnecessaryFields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,9 +61,6 @@ namespace WinningOffer.Migrations
                     b.Property<string>("Agent")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BlockNum")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
@@ -71,20 +70,20 @@ namespace WinningOffer.Migrations
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("County")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("DeedBook")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageURLs")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LotNum")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("MlsNumber")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NumBathroom")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumBedroom")
+                        .HasColumnType("int");
 
                     b.Property<string>("Page")
                         .HasColumnType("nvarchar(max)");
@@ -101,7 +100,16 @@ namespace WinningOffer.Migrations
                     b.Property<string>("SourceURLs")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SubLotNum")
+                    b.Property<string>("blockNum")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("county")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("lotNum")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("subLotNum")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

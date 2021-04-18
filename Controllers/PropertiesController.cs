@@ -62,6 +62,9 @@ namespace WinningOffer.Controllers
 
             return View(@property);
         }
+        
+
+
 
         // GET: Properties/Create
         public IActionResult Create()
@@ -74,9 +77,12 @@ namespace WinningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string Address, string City, string PostalCode, [Bind("Id,Address,City,PostalCode,Country,DateAdded,DateUpdated,GeoLocation,ImageURLs,MlsNumber,NumBathroom,NumBedroom,Price,SourceURLs,Agent,Company,Phones")] Property @property)
+        public async Task<IActionResult> Create(string Address, string County, [Bind("Id,Address,City,PostalCode,Country,ImageURLs,MlsNumber,Price,ListingAgent, ListingCompany, ListingAgentPhone,SourceURLs,DeedBook, Page, BlockNum,LotNum, SubLotNum,County")] Property @property)
         {
+            // create a new instance of the property object
+            Property newProperty = new Property();
 
+            // Get the api key
             var builder = new ConfigurationBuilder()
                           .SetBasePath(Directory.GetCurrentDirectory())
                           .AddJsonFile("appsettings.json");
@@ -85,74 +91,134 @@ namespace WinningOffer.Controllers
 
             // Make the API call, passing the "Address" in from the view
 
-            //append the entered address to the request
-            var addressentered = "https://api.datafiniti.co/v4/properties/search?address=" + Address;
-
-            //access the api key from the app.config file
-            string bearertoken = string.Empty;
-
-            //var apikeys = ConfigurationManager.GetSection("ApiKeys") as NameValueCollection;
-            if (apikeys != null)
+            //Shelby County Query
+            if (County == "Shelby")
             {
-                bearertoken = apikeys.ToString();
-            }
+                //append the entered address to the request
+                var addressentered = "https://api.datafiniti.co/v4/properties/search?address=" + Address;
 
-            var client = new RestClient(addressentered);
-            client.Timeout = -1;
-            var request = new RestRequest(Method.POST);
-            request.AddHeader("Content-Type", "application/json");
-            request.AddHeader("Authorization", bearertoken);
-            request.AddParameter("application/json", "{\r\n    \"query\": \"address:\\\"" + Address + "\\\" AND mlsNumber:* AND statuses.type:\\\"For Sale\\\" AND postalCode:(40067 OR 40022 OR 40065 OR 40003 OR 40076 OR 40057 OR 40019 OR 40601) AND country:(US)\",\r\n    \"num_records\": 1\r\n}", ParameterType.RequestBody);
+                //access the api key from the app.config file
+                string bearertoken = string.Empty;
 
-            IRestResponse response = client.Execute(request);
-
-            //the actual json response
-            string json = response.Content;
-
-            //parse the json response for key/value pairs
-            dynamic api = JObject.Parse(json);
-
-            //build the records
-            var records = api.records;
-            var recordsAddress = api.records[0].address;
-            var recordsMlsNum = api.records[0].mlsNumber;
-
-            var listingBrokerDates = api.records[0].brokers;
-            //find the most recent broker
-            var listingBrokerInfo = listingBrokerDates[listingBrokerDates.Count - 1];
-            var listingBrokerCompanyName = listingBrokerInfo.company; //company name
-            var listingBrokerAgentName = listingBrokerInfo.agent; //agent name
-            var listingBrokerAgentPhoneNumber = listingBrokerInfo.phones; //agent number (not always available)
-
-            //misc property info (image URL and parcel num)
-            var recordsImageLink = api.records[0].imageURLS;
-            var recordsParcelInfo = api.records[0].features[0].value;
-
-            try
-            {
-
-                if (response.Content.Length > 43)
+                //var apikeys = ConfigurationManager.GetSection("ApiKeys") as NameValueCollection;
+                if (apikeys != null)
                 {
-
-                                                                                                                                                    
-            
+                    bearertoken = apikeys.ToString();
                 }
-                else
+
+                var client = new RestClient(addressentered);
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("Content-Type", "application/json");
+                request.AddHeader("Authorization", bearertoken);
+                request.AddParameter("application/json", "{\r\n    \"query\": \"address:\\\"" + Address + "\\\" AND mlsNumber:* AND statuses.type:\\\"For Sale\\\" AND postalCode:(40067 OR 40022 OR 40065 OR 40003 OR 40076 OR 40057 OR 40019 OR 40601) AND country:(US)\",\r\n    \"num_records\": 1\r\n}", ParameterType.RequestBody);
+
+                IRestResponse response = client.Execute(request);
+
+                //the actual json response
+                string json = response.Content;
+
+                //parse the json response for key/value pairs
+                dynamic api = JObject.Parse(json);
+
+                //build the records
+                var records = api.records;
+                newProperty.Address = api.records[0].address;
+                newProperty.MlsNumber = api.records[0].mlsNumber;
+                newProperty.City = api.records[0].city;
+                newProperty.PostalCode = api.records[0].postalCode;
+                newProperty.Country = api.records[0].country;
+                newProperty.Price = api.records[0].prices[0].amountMax;
+
+                var listingBrokerDates = api.records[0].brokers;
+                //find the most recent broker
+                var listingBrokerInfo = listingBrokerDates[listingBrokerDates.Count - 1];
+                newProperty.ListingCompany = listingBrokerInfo.company; //company name
+                newProperty.ListingAgent = listingBrokerInfo.agent; //agent name
+                newProperty.ListingAgentPhone = listingBrokerInfo.phones[0]; //agent number (not always available)
+
+                //misc property info (image URL and parcel num)
+                newProperty.ImageURLs = api.records[0].imageURLS; //what to do if the record doesn't exist?
+
+                //TODO:
+                var recordsParcelInfo = api.records[0].features[28];
+
+                newProperty.DeedBook = "";// public string DeedBook
+                newProperty.Page = "";// pubic string Page
+                newProperty.BlockNum = "";// public blockNum
+                newProperty.LotNum = recordsParcelInfo.// public lotNum use the Key value method here
+                newProperty.SubLotNum = "";// public subLotNum
+                newProperty.County = County;// county
+
+            }  
+            else if (County == "Jefferson")  //Jeferson County Query
+            {
+                //append the entered address to the request
+                var addressentered = "https://api.datafiniti.co/v4/properties/search?address=" + Address;
+
+                //access the api key from the app.config file
+                string bearertoken = string.Empty;
+
+                //var apikeys = ConfigurationManager.GetSection("ApiKeys") as NameValueCollection;
+                if (apikeys != null)
                 {
-               
+                    bearertoken = apikeys.ToString();
                 }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-              
+
+                var client = new RestClient(addressentered);
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("Content-Type", "application/json");
+                request.AddHeader("Authorization", bearertoken);
+                request.AddParameter("application/json", "{\r\n    \"query\": \"address:\\\"" + Address + "\\\" AND mlsNumber:* AND statuses.type:\\\"For Sale\\\" AND postalCode:(40018 or 40023 or40025 or 40027 or 40041 or 40059 or 40118 or 40201 or 40202 or 40203 or 40204 or 40205 or 40206 or 40207 or 40208 or 40209 or 40210 or 40211 or 40212 or 40213 or 40214 or 40215 or 40216 or 40217 or 40218 or 40219 or 40220 or 40221 or 40222 or 40223 or 40224 or 40225 or 40228 or 40229 or 40231 or 40232 or 40233 or 40241 or 40242 or 40243 or 40245 or 40250 or 40251 or 40252 or 40253 or 40255 or 40256 or 40257 or 40258 or 40259 or 40261 or 40266 or 40268 or 40269 or 40270 or 40272 or 40280 or 40281 or 40282 or 40283 or 40285 or 40287 or 40289 or 40290 or 40291 or 40292 or 40293 or 40294 or 40295 or 40296 or 40297 or 40298 or 40299) AND country:(US)\",\r\n    \"num_records\": 1\r\n}", ParameterType.RequestBody);
+
+                IRestResponse response = client.Execute(request);
+
+                //the actual json response
+                string json = response.Content;
+
+                //parse the json response for key/value pairs
+                dynamic api = JObject.Parse(json);
+
+                //build the records
+                var records = api.records;
+                newProperty.Address = api.records[0].address;
+                newProperty.MlsNumber = api.records[0].mlsNumber;
+                newProperty.City = api.records[0].city;
+                newProperty.PostalCode = api.records[0].postalCode;
+                newProperty.Country = api.records[0].country;
+                newProperty.Price = api.records[0].prices[0].amountMax;
+
+                var listingBrokerDates = api.records[0].brokers;
+                //find the most recent broker
+                var listingBrokerInfo = listingBrokerDates[listingBrokerDates.Count - 1];
+                newProperty.ListingCompany = listingBrokerInfo.company; //company name
+                newProperty.ListingAgent = listingBrokerInfo.agent; //agent name
+                newProperty.ListingAgentPhone = listingBrokerInfo.phones[0]; //agent number (not always available)
+
+                //misc property info (image URL and parcel num)
+                newProperty.ImageURLs = api.records[0].imageURLS; //what to do if the record doesn't exist?
+
+                //TODO:
+                var recordsParcelInfo = api.records[0].features[28];
+
+                newProperty.DeedBook = "";// public string DeedBook
+                newProperty.Page = "";// pubic string Page
+                newProperty.BlockNum = "";// public blockNum
+                newProperty.LotNum = recordsParcelInfo.// public lotNum use the Key value method here
+                newProperty.SubLotNum = "";// public subLotNum
+                newProperty.County = County;// county
+
             }
 
-            if (ModelState.IsValid)
+           
+
+            if (ModelState.IsValid) 
             {
+                _context.Add(newProperty);
                 _context.Add(@property);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                await _context.SaveChangesAsync(); //the changes get saved to the db
+                return RedirectToAction(nameof(Index)); 
             }
             return View(@property);
         }

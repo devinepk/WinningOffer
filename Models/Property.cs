@@ -20,19 +20,10 @@ namespace WinningOffer.Models
         [Display(Name = "Country")]
         public string Country { get; set; }
 
-        public string DateAdded { get; set; }
-        public string DateUpdated { get; set; }
-        public string GeoLocation { get; set; }
         public string ImageURLs { get; set; }
 
         [Display(Name = "MLS Number")]
         public string MlsNumber { get; set; }
-
-        [Display(Name = "No. of Bathrooms")]
-        public int NumBathroom { get; set; }
-
-        [Display(Name = "No. of Bedrooms")]
-        public int NumBedroom { get; set; }
 
         [Display(Name = "List Price")]
         [Column(TypeName = "decimal(18,2)")]
@@ -40,13 +31,21 @@ namespace WinningOffer.Models
         public string SourceURLs { get; set; }
 
         [Display(Name = "Listing Agent")]
-        public string Agent { get; set; }
+        public string ListingAgent { get; set; }
 
         [Display(Name = "Listing Broker")]
-        public string Company { get; set; }
+        public string ListingCompany { get; set; }
 
         [Display(Name = "Agent Phone")]
-        public int Phone { get; set; }
- 
+        public string ListingAgentPhone { get; set; }
+
+        //parcel information
+        public string DeedBook { get; set; }
+        public string Page { get; set; }
+        public string BlockNum { get; set; }
+        public string LotNum { get; set; }
+        public string SubLotNum { get; set; }
+        public string County { get; set; }
+
     }
 }
