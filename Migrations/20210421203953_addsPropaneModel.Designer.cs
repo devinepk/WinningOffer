@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WinningOffer.Data;
 
 namespace WinningOffer.Migrations
 {
     [DbContext(typeof(WinningOfferContext))]
-    partial class WinningOfferContextModelSnapshot : ModelSnapshot
+    [Migration("20210421203953_addsPropaneModel")]
+    partial class addsPropaneModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,9 +61,6 @@ namespace WinningOffer.Migrations
                     b.Property<bool>("ClothesWasher")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<bool>("DishWasher")
                         .HasColumnType("bit");
 
@@ -83,36 +82,6 @@ namespace WinningOffer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Item");
-                });
-
-            modelBuilder.Entity("WinningOffer.Models.Propane", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("Leased")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NotApplication")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NotRemain")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Owned")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("WillRemain")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Propane");
                 });
 
             modelBuilder.Entity("WinningOffer.Models.Property", b =>

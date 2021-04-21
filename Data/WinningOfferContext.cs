@@ -18,5 +18,7 @@ namespace WinningOffer.Data
 
         public DbSet<WinningOffer.Models.Item> Item { get; set; }
 
+        public DbSet<WinningOffer.Models.Propane> Propane { get; set; }
+
     }
 }

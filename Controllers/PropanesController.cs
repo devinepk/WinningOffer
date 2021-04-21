@@ -10,22 +10,22 @@ using WinningOffer.Models;
 
 namespace WinningOffer.Controllers
 {
-    public class ItemsController : Controller
+    public class PropanesController : Controller
     {
         private readonly WinningOfferContext _context;
 
-        public ItemsController(WinningOfferContext context)
+        public PropanesController(WinningOfferContext context)
         {
             _context = context;
         }
 
-        // GET: Items
+        // GET: Propanes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Item.ToListAsync());
+            return View(await _context.Propane.ToListAsync());
         }
 
-        // GET: Items/Details/5
+        // GET: Propanes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace WinningOffer.Controllers
                 return NotFound();
             }
 
-            var item = await _context.Item
+            var propane = await _context.Propane
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (item == null)
+            if (propane == null)
             {
                 return NotFound();
             }
 
-            return View(item);
+            return View(propane);
         }
 
-        // GET: Items/Create
+        // GET: Propanes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Items/Create
+        // POST: Propanes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Refrigerator,DishWasher,OvenRange,WallOven,ClothesWasher,ClothesDryer,Microwave,Other")] Item item)
+        public async Task<IActionResult> Create([Bind("Id,Owned,Leaded,WillRemain,NotRemain,NotApplication")] Propane propane)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(item);
+                _context.Add(propane);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Create", "Propanes");
+                return RedirectToAction(nameof(Index));
             }
-            return View(item);
+            return View(propane);
         }
 
-        // GET: Items/Edit/5
+        // GET: Propanes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace WinningOffer.Controllers
                 return NotFound();
             }
 
-            var item = await _context.Item.FindAsync(id);
-            if (item == null)
+            var propane = await _context.Propane.FindAsync(id);
+            if (propane == null)
             {
                 return NotFound();
             }
-            return View(item);
+            return View(propane);
         }
 
-        // POST: Items/Edit/5
+        // POST: Propanes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Refrigerator,DishWasher,OvenRange,WallOven,ClothesWasher,ClothesDryer,Microwave,Other")] Item item)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Owned,Leaded,WillRemain,NotRemain,NotApplication")] Propane propane)
         {
-            if (id != item.Id)
+            if (id != propane.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace WinningOffer.Controllers
             {
                 try
                 {
-                    _context.Update(item);
+                    _context.Update(propane);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ItemExists(item.Id))
+                    if (!PropaneExists(propane.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace WinningOffer.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(item);
+            return View(propane);
         }
 
-        // GET: Items/Delete/5
+        // GET: Propanes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace WinningOffer.Controllers
                 return NotFound();
             }
 
-            var item = await _context.Item
+            var propane = await _context.Propane
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (item == null)
+            if (propane == null)
             {
                 return NotFound();
             }
 
-            return View(item);
+            return View(propane);
         }
 
-        // POST: Items/Delete/5
+        // POST: Propanes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var item = await _context.Item.FindAsync(id);
-            _context.Item.Remove(item);
+            var propane = await _context.Propane.FindAsync(id);
+            _context.Propane.Remove(propane);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ItemExists(int id)
+        private bool PropaneExists(int id)
         {
-            return _context.Item.Any(e => e.Id == id);
+            return _context.Propane.Any(e => e.Id == id);
         }
     }
 }

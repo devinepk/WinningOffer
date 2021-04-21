@@ -1,0 +1,53 @@
+﻿@model WinningOffer.Models.Propane
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>What about fuel/propane tanks?</h1>
+
+<h4>Progress bar goes here 3/x.</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Owned" /> @Html.DisplayNameFor(model => model.Owned)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Leased" /> @Html.DisplayNameFor(model => model.Leased)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="WillRemain" /> @Html.DisplayNameFor(model => model.WillRemain)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="NotRemain" /> @Html.DisplayNameFor(model => model.NotRemain)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="NotApplication" /> @Html.DisplayNameFor(model => model.NotApplication)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Next" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
