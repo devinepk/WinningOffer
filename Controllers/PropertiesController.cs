@@ -121,34 +121,47 @@ namespace WinningOffer.Controllers
                 //parse the json response for key/value pairs
                 dynamic api = JObject.Parse(json);
 
-                //build the records
-                var records = api.records;
-                newProperty.Address = api.records[0].address;
-                newProperty.MlsNumber = api.records[0].mlsNumber;
-                newProperty.City = api.records[0].city;
-                newProperty.PostalCode = api.records[0].postalCode;
-                newProperty.Country = api.records[0].country;
-                newProperty.Price = api.records[0].prices[0].amountMax;
+               if (api.num_found != 0)
+                {
 
-                var listingBrokerDates = api.records[0].brokers;
-                //find the most recent broker
-                var listingBrokerInfo = listingBrokerDates[listingBrokerDates.Count - 1];
-                newProperty.ListingCompany = listingBrokerInfo.company; //company name
-                newProperty.ListingAgent = listingBrokerInfo.agent; //agent name
-                newProperty.ListingAgentPhone = listingBrokerInfo.phones[0]; //agent number (not always available)
+                    //generate a new GUID
+                    Random rnd = new Random();
+                    //build the records
+                    var records = api.records;
+                    newProperty.Id = rnd.Next();
+                    newProperty.Address = api.records[0].address;
+                    newProperty.MlsNumber = api.records[0].mlsNumber;
+                    newProperty.City = api.records[0].city;
+                    newProperty.PostalCode = api.records[0].postalCode;
+                    newProperty.Country = api.records[0].country;
+                    newProperty.Price = api.records[0].prices[0].amountMax;
 
-                //misc property info (image URL and parcel num)
-                newProperty.ImageURLs = api.records[0].imageURLS; //what to do if the record doesn't exist?
+                    var listingBrokerDates = api.records[0].brokers;
+                    //find the most recent broker
+                    var listingBrokerInfo = listingBrokerDates[listingBrokerDates.Count - 1];
+                    newProperty.ListingCompany = listingBrokerInfo.company; //company name
+                    newProperty.ListingAgent = listingBrokerInfo.agent; //agent name
+                    newProperty.ListingAgentPhone = listingBrokerInfo.phones[0]; //agent number (not always available)
 
-                //TODO:
-                var recordsParcelInfo = api.records[0].features[28];
+                    //misc property info (image URL and parcel num)
+                    newProperty.ImageURLs = api.records[0].imageURLS; //what to do if the record doesn't exist?
 
-                newProperty.DeedBook = "";// public string DeedBook
-                newProperty.Page = "";// pubic string Page
-                newProperty.BlockNum = "";// public blockNum
-                newProperty.LotNum = recordsParcelInfo.// public lotNum use the Key value method here
-                newProperty.SubLotNum = "";// public subLotNum
-                newProperty.County = County;// county
+                    //TODO:
+                    var recordsParcelInfo = api.records[0].features[28];
+
+                    newProperty.DeedBook = "";// public string DeedBook
+                    newProperty.Page = "";// pubic string Page
+                    newProperty.BlockNum = "";// public blockNum
+                    newProperty.LotNum = ""; // public lotNum use the Key value method here
+                    newProperty.SubLotNum = "";// public subLotNum
+                    newProperty.County = County;// county
+
+                } else
+                {
+                    Console.WriteLine("No property found");
+                    return View();
+                }
+
 
             }  
             else if (County == "Jefferson")  //Jeferson County Query
@@ -216,9 +229,9 @@ namespace WinningOffer.Controllers
             if (ModelState.IsValid) 
             {
                 _context.Add(newProperty);
-                _context.Add(@property);
+                //_context.Add(@property);
                 await _context.SaveChangesAsync(); //the changes get saved to the db
-                return RedirectToAction(nameof(Index)); 
+                return RedirectToAction(nameof(Index)); //redirect to adding the appliances + propane tanks
             }
             return View(@property);
         }
