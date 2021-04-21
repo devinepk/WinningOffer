@@ -1,0 +1,68 @@
+﻿@model WinningOffer.Models.Item
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Which appliances are staying?</h1>
+
+<h4>Progress bar goes here 2/x.</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Refrigerator" /> @Html.DisplayNameFor(model => model.Refrigerator)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="DishWasher" /> @Html.DisplayNameFor(model => model.DishWasher)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="OvenRange" /> @Html.DisplayNameFor(model => model.OvenRange)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="WallOven" /> @Html.DisplayNameFor(model => model.WallOven)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ClothesWasher" /> @Html.DisplayNameFor(model => model.ClothesWasher)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ClothesDryer" /> @Html.DisplayNameFor(model => model.ClothesDryer)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Microwave" /> @Html.DisplayNameFor(model => model.Microwave)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Other" class="control-label"></label>
+                <input asp-for="Other" class="form-control" />
+                <span asp-validation-for="Other" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

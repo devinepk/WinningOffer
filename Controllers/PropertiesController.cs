@@ -16,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using System.IO;
 
+
 namespace WinningOffer.Controllers
 {
     public class PropertiesController : Controller
@@ -156,6 +157,9 @@ namespace WinningOffer.Controllers
                     newProperty.SubLotNum = "";// public subLotNum
                     newProperty.County = County;// county
 
+                    DateTime now = DateTime.Now;
+                    newProperty.CreatedDate = now;
+
                 } else
                 {
                     Console.WriteLine("No property found");
@@ -222,6 +226,9 @@ namespace WinningOffer.Controllers
                 newProperty.SubLotNum = "";// public subLotNum
                 newProperty.County = County;// county
 
+                DateTime now = DateTime.Now;
+                newProperty.CreatedDate = now;
+
             }
 
            
@@ -229,10 +236,10 @@ namespace WinningOffer.Controllers
             if (ModelState.IsValid) 
             {
                 _context.Add(newProperty);
-                //_context.Add(@property);
-                await _context.SaveChangesAsync(); //the changes get saved to the db
-                return RedirectToAction(nameof(Index)); //redirect to adding the appliances + propane tanks
+                await _context.SaveChangesAsync(); //the changes get saved to the db 
+                return RedirectToAction("Create", "Items"); //redirect to adding the appliances + propane tanks
             }
+
             return View(@property);
         }
 

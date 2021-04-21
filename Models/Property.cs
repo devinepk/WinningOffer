@@ -46,6 +46,7 @@ namespace WinningOffer.Models
         public string LotNum { get; set; }
         public string SubLotNum { get; set; }
         public string County { get; set; }
+        public DateTime CreatedDate { get; set; }
 
     }
 }

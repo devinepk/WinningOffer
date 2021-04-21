@@ -7,15 +7,16 @@ namespace WinningOffer.Models
 {
     public class Item
     {
-        public bool refrigerator { get; set; }
-        public bool dishWasher { get; set; }
-        public bool ovenRange { get; set; }
-        public bool wallOven { get; set; }
-        public bool clothesWasher { get; set; }
-        public bool clothesDryer { get; set; }
-        public bool microwave { get; set; }
+        
+        public int Id { get; set; }
+        public bool Refrigerator { get; set; }
+        public bool DishWasher { get; set; }
+        public bool OvenRange { get; set; }
+        public bool WallOven { get; set; }
+        public bool ClothesWasher { get; set; }
+        public bool ClothesDryer { get; set; }
+        public bool Microwave { get; set; }
         public string Other { get; set; }
-
 
     }
 }
