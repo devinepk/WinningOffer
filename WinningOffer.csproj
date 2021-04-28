@@ -9,6 +9,11 @@
     <WarningLevel>2</WarningLevel>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\20210319013536_InitialCreate.cs" />
+    <Compile Remove="Migrations\20210319013536_InitialCreate.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />

@@ -11,7 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WinningOffer.Data;
 using Microsoft.EntityFrameworkCore;
-using static WinningOffer.Controllers.PropertiesController;
+
 
 namespace WinningOffer
 {
@@ -43,7 +43,7 @@ namespace WinningOffer
 
             // Adds the API configuration
             services.AddOptions();
-            services.Configure<APIKeyOptions>(Configuration.GetSection(APIKeyOptions.SectionName));
+           // services.Configure<APIKeyOptions>(Configuration.GetSection(APIKeyOptions.SectionName));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

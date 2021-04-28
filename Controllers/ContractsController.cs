@@ -20,21 +20,13 @@ namespace WinningOffer.Controllers
         }
 
         // GET: Contracts
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index()
         {
-            var contracts = from c in _context.Contract
-                            select c;
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                contracts = contracts.Where(s => s.Title.Contains(searchString));
-            }
-            
-            return View(await contracts.ToListAsync());
+            return View(await _context.Contract.ToListAsync());
         }
 
         // GET: Contracts/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
             {
@@ -62,11 +54,11 @@ namespace WinningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,WrittenDate,Address,Price,Rating")] Contract contract)
+        public async Task<IActionResult> Create([Bind("Id,CreatedDate,MlsNumber,Address,City,PostalCode,Country,DeedBook,Page,BlockNum,LotNum,SubLotNum,County,Refrigerator,StoveRange,DishWasher,Microwave,ClothesWasher,ClothesDryer,Other,Propane_Owned,Propane_Leased,Propane_Will_Remain,Propane_NotRemain,Propane_NotApplicable,Purchase_Price,EMD,Cash,LineOfEquity,Gift,Other_Financing,Conventional,FHA,VA,Fixed_Rate,Loan_Length,Interest_Rate,ARM_Limits,Buyer_Loan_Application_Start,EMD_With_ListingBroker,EMD_With_SellingBroker,Lender_Appraisal_Required,Buyer_Appraisal_Required,No_Appraisal_Required,HW,HW_Price,Seller_To_Pay_HW,Buyer_To_Pay_HW,New_Construction_HW,Buyer_Waves_Right_To_HW,Buyer_To_Purchase_HW_Later,Seller_Disclosure_Recieved,No_Lead_Paint,Buyer_Waives_Lead_Paint_Inspection,Contingent_On_Lead_Paint,Lead_Paint_Inspection_Window,Seller_Lead_Paint_Response_Window,As_Is,Buyer_Inspection_Window,Seller_Repair_Request_Response_Window,Last_Best_Request_Window,Contingent_On_Survey,Specific_Closing_Date,Closing_Window,Closing_Window_Soonest,Closing_Window_Latest,Keys_at_Closing,Keys_after_Closing,Active_Lease,Buyer_Title_Insurance,Other_Provisions,HOA_Addendum,Delayed_Possession_Addendum,Contingent_Addendum,Other_Addendum,ImageURLs")] Contract contract)
         {
-
             if (ModelState.IsValid)
             {
+                contract.Id = Guid.NewGuid();
                 _context.Add(contract);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -75,7 +67,7 @@ namespace WinningOffer.Controllers
         }
 
         // GET: Contracts/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
             {
@@ -95,7 +87,7 @@ namespace WinningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,WrittenDate,Address,Price,Rating")] Contract contract)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,CreatedDate,MlsNumber,Address,City,PostalCode,Country,DeedBook,Page,BlockNum,LotNum,SubLotNum,County,Refrigerator,StoveRange,DishWasher,Microwave,ClothesWasher,ClothesDryer,Other,Propane_Owned,Propane_Leased,Propane_Will_Remain,Propane_NotRemain,Propane_NotApplicable,Purchase_Price,EMD,Cash,LineOfEquity,Gift,Other_Financing,Conventional,FHA,VA,Fixed_Rate,Loan_Length,Interest_Rate,ARM_Limits,Buyer_Loan_Application_Start,EMD_With_ListingBroker,EMD_With_SellingBroker,Lender_Appraisal_Required,Buyer_Appraisal_Required,No_Appraisal_Required,HW,HW_Price,Seller_To_Pay_HW,Buyer_To_Pay_HW,New_Construction_HW,Buyer_Waves_Right_To_HW,Buyer_To_Purchase_HW_Later,Seller_Disclosure_Recieved,No_Lead_Paint,Buyer_Waives_Lead_Paint_Inspection,Contingent_On_Lead_Paint,Lead_Paint_Inspection_Window,Seller_Lead_Paint_Response_Window,As_Is,Buyer_Inspection_Window,Seller_Repair_Request_Response_Window,Last_Best_Request_Window,Contingent_On_Survey,Specific_Closing_Date,Closing_Window,Closing_Window_Soonest,Closing_Window_Latest,Keys_at_Closing,Keys_after_Closing,Active_Lease,Buyer_Title_Insurance,Other_Provisions,HOA_Addendum,Delayed_Possession_Addendum,Contingent_Addendum,Other_Addendum,ImageURLs")] Contract contract)
         {
             if (id != contract.Id)
             {
@@ -126,7 +118,7 @@ namespace WinningOffer.Controllers
         }
 
         // GET: Contracts/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
             {
@@ -146,7 +138,7 @@ namespace WinningOffer.Controllers
         // POST: Contracts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var contract = await _context.Contract.FindAsync(id);
             _context.Contract.Remove(contract);
@@ -154,7 +146,7 @@ namespace WinningOffer.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ContractExists(int id)
+        private bool ContractExists(Guid id)
         {
             return _context.Contract.Any(e => e.Id == id);
         }
