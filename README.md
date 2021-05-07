@@ -9,11 +9,12 @@ When I was a real estate agent, time was my most valuable commodity.  Being able
 The technology to do that, however, was gone.  I either had to open my laptop and tether off of my phone, find the nearest coffee shop for WIFI, or go on to my next showing until I had 20 or 30 minutes to sit down and write the offer.
 
 ## The solution
-A web application that let's the agent make an offer from their phone, while their still in the home, with the buyers, in under 3 minutes.
+A web application that let's the agent make an offer from their phone, while they're still in the home, with the buyers, in under 3 minutes.
 
 
 ## Technology + Services
-- Microsoft .Net Core 5.0 (primary coding language)
+- C# (primary language)
+- Microsoft .Net Core 5.0 (primary framework)
 - Microsoft Entity Framework 5.0.4 (database CRUD operations)
 - Amazon RDS (SQL db)
 - RestSharp (API calls to multiple 3rd party services)
