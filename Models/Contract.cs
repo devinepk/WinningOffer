@@ -9,6 +9,16 @@ namespace WinningOffer.Models
         public Guid Id { get; set; }
         public DateTime CreatedDate { get; set; }
 
+        //people information
+        [Display(Name = "Listing Company")]
+        public string ListCompany { get; set; }
+
+        [Display(Name = "Listing Agent")]
+        public string ListAgent { get; set; }
+
+        [Display(Name = "Listing Agent Phone")]
+        public string ListAgentPhone { get; set; }
+
         [Display(Name = "MLS Number")]
         public string MlsNumber { get; set; }
 
