@@ -58,7 +58,7 @@ namespace WinningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string Address, string County, [Bind("Id,CreatedDate,MlsNumber,Address,City,PostalCode,Country,DeedBook,Page,BlockNum,LotNum,SubLotNum,County,Refrigerator,StoveRange,DishWasher,Microwave,ClothesWasher,ClothesDryer,Other,Propane_Owned,Propane_Leased,Propane_Will_Remain,Propane_NotRemain,Propane_NotApplicable,Purchase_Price,EMD,Cash,LineOfEquity,Gift,Other_Financing,Conventional,FHA,VA,Fixed_Rate,Loan_Length,Interest_Rate,ARM_Limits,Buyer_Loan_Application_Start,EMD_With_ListingBroker,EMD_With_SellingBroker,Lender_Appraisal_Required,Buyer_Appraisal_Required,No_Appraisal_Required,HW,HW_Price,Seller_To_Pay_HW,Buyer_To_Pay_HW,New_Construction_HW,Buyer_Waves_Right_To_HW,Buyer_To_Purchase_HW_Later,Seller_Disclosure_Recieved,No_Lead_Paint,Buyer_Waives_Lead_Paint_Inspection,Contingent_On_Lead_Paint,Lead_Paint_Inspection_Window,Seller_Lead_Paint_Response_Window,As_Is,Buyer_Inspection_Window,Seller_Repair_Request_Response_Window,Last_Best_Request_Window,Contingent_On_Survey,Specific_Closing_Date,Closing_Window,Closing_Window_Soonest,Closing_Window_Latest,Keys_at_Closing,Keys_after_Closing,Active_Lease,Buyer_Title_Insurance,Other_Provisions,HOA_Addendum,Delayed_Possession_Addendum,Contingent_Addendum,Other_Addendum,ImageURLs")] Contract contract)
+        public async Task<IActionResult> Create(string Address, string County, [Bind("Id,CreatedDate,MlsNumber,ListAgentPhone,Address,City,PostalCode,Country,DeedBook,Page,BlockNum,LotNum,SubLotNum,County,Refrigerator,StoveRange,DishWasher,Microwave,ClothesWasher,ClothesDryer,Other,Propane_Owned,Propane_Leased,Propane_Will_Remain,Propane_NotRemain,Propane_NotApplicable,Purchase_Price,EMD,Cash,LineOfEquity,Gift,Other_Financing,Conventional,FHA,VA,Fixed_Rate,Loan_Length,Interest_Rate,ARM_Limits,Buyer_Loan_Application_Start,EMD_With_ListingBroker,EMD_With_SellingBroker,Lender_Appraisal_Required,Buyer_Appraisal_Required,No_Appraisal_Required,HW,HW_Price,Seller_To_Pay_HW,Buyer_To_Pay_HW,New_Construction_HW,Buyer_Waves_Right_To_HW,Buyer_To_Purchase_HW_Later,Seller_Disclosure_Recieved,No_Lead_Paint,Buyer_Waives_Lead_Paint_Inspection,Contingent_On_Lead_Paint,Lead_Paint_Inspection_Window,Seller_Lead_Paint_Response_Window,As_Is,Buyer_Inspection_Window,Seller_Repair_Request_Response_Window,Last_Best_Request_Window,Contingent_On_Survey,Specific_Closing_Date,Closing_Window,Closing_Window_Soonest,Closing_Window_Latest,Keys_at_Closing,Keys_after_Closing,Active_Lease,Buyer_Title_Insurance,Other_Provisions,HOA_Addendum,Delayed_Possession_Addendum,Contingent_Addendum,Other_Addendum,ImageURLs")] Contract contract)
         {
             // create a new instance of the property object
             Contract newContract = new Contract();
@@ -121,10 +121,17 @@ namespace WinningOffer.Controllers
                     //find the most recent broker
                     var listingBrokerInfo = listingBrokerDates[listingBrokerDates.Count - 1];
                     contract.ListCompany = listingBrokerInfo.company; //company name
-                    contract.ListAgent = listingBrokerInfo.agent; //agent name
-                    contract.ListAgentPhone = listingBrokerInfo.phones[0]; //agent number (not always available)
+                    contract.ListAgent = listingBrokerInfo.agent; //agent name  
+                    if(listingBrokerInfo.phones[0]) //TODO
+                    { 
 
-         
+                        contract.ListAgentPhone = listingBrokerInfo.phones[0]; //agent number (not always available)
+
+                    } else { 
+
+                        contract.ListAgentPhone = ""; //agent number (not always available)
+
+                    }
 
                     //misc property info (image URL and parcel num)
                     contract.ImageURLs = api.records[0].imageURLS; //what to do if the record doesn't exist?

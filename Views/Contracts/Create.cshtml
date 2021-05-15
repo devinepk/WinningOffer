@@ -1,394 +1,54 @@
 ﻿@model WinningOffer.Models.Contract
 
+
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Start your offer :)</h1>
 
-<h4>Contract</h4>
+<h4>Progress bar goes here 1/x.</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="CreatedDate" class="control-label"></label>
-                <input asp-for="CreatedDate" class="form-control" />
-                <span asp-validation-for="CreatedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MlsNumber" class="control-label"></label>
-                <input asp-for="MlsNumber" class="form-control" />
-                <span asp-validation-for="MlsNumber" class="text-danger"></span>
-            </div>
+            <h5>What's the property address?</h5>
             <div class="form-group">
                 <label asp-for="Address" class="control-label"></label>
                 <input asp-for="Address" class="form-control" />
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
+            <h5>Which county is the property in?</h5>
             <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
-                <span asp-validation-for="City" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PostalCode" class="control-label"></label>
-                <input asp-for="PostalCode" class="form-control" />
-                <span asp-validation-for="PostalCode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Country" class="control-label"></label>
-                <input asp-for="Country" class="form-control" />
-                <span asp-validation-for="Country" class="text-danger"></span>
+                <div class="form-check">
+                    <input asp-for="County" class="form-check-input" type="radio" name="County" value="Shelby" id="ShelbyCounty" />
+                    <label asp-for="County" class="form-check-label control-label" for="ShelbyCounty">
+                        Shelby County
+                    </label>
+                    <span asp-validation-for="County" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-group">
-                <label asp-for="DeedBook" class="control-label"></label>
-                <input asp-for="DeedBook" class="form-control" />
-                <span asp-validation-for="DeedBook" class="text-danger"></span>
+                <div class="form-check">
+                    <input asp-for="County" class="form-check-input" type="radio" name="County" value="Jefferson" id="JeffersonCounty" disabled />
+                    <label asp-for="County" class="form-check-label control-label" for="JeffersonCounty">
+                        Jefferson County
+                    </label>
+                    <span asp-validation-for="County" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-group">
-                <label asp-for="Page" class="control-label"></label>
-                <input asp-for="Page" class="form-control" />
-                <span asp-validation-for="Page" class="text-danger"></span>
+                <div class="form-check">
+                    <input asp-for="County" class="form-check-input" type="radio" name="County" value="Olhdam" id="OldhamCounty" disabled />
+                    <label asp-for="County" class="form-check-label control-label" for="OldhamCounty">
+                        Oldham County
+                    </label>
+                    <span asp-validation-for="County" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-group">
-                <label asp-for="BlockNum" class="control-label"></label>
-                <input asp-for="BlockNum" class="form-control" />
-                <span asp-validation-for="BlockNum" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LotNum" class="control-label"></label>
-                <input asp-for="LotNum" class="form-control" />
-                <span asp-validation-for="LotNum" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SubLotNum" class="control-label"></label>
-                <input asp-for="SubLotNum" class="form-control" />
-                <span asp-validation-for="SubLotNum" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="County" class="control-label"></label>
-                <input asp-for="County" class="form-control" />
-                <span asp-validation-for="County" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Refrigerator" class="control-label"></label>
-                <input asp-for="Refrigerator" class="form-control" />
-                <span asp-validation-for="Refrigerator" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StoveRange" class="control-label"></label>
-                <input asp-for="StoveRange" class="form-control" />
-                <span asp-validation-for="StoveRange" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DishWasher" class="control-label"></label>
-                <input asp-for="DishWasher" class="form-control" />
-                <span asp-validation-for="DishWasher" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Microwave" class="control-label"></label>
-                <input asp-for="Microwave" class="form-control" />
-                <span asp-validation-for="Microwave" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClothesWasher" class="control-label"></label>
-                <input asp-for="ClothesWasher" class="form-control" />
-                <span asp-validation-for="ClothesWasher" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClothesDryer" class="control-label"></label>
-                <input asp-for="ClothesDryer" class="form-control" />
-                <span asp-validation-for="ClothesDryer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Other" class="control-label"></label>
-                <input asp-for="Other" class="form-control" />
-                <span asp-validation-for="Other" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Propane_Owned" /> @Html.DisplayNameFor(model => model.Propane_Owned)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Propane_Leased" /> @Html.DisplayNameFor(model => model.Propane_Leased)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Propane_Will_Remain" /> @Html.DisplayNameFor(model => model.Propane_Will_Remain)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Propane_NotRemain" /> @Html.DisplayNameFor(model => model.Propane_NotRemain)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Propane_NotApplicable" /> @Html.DisplayNameFor(model => model.Propane_NotApplicable)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Purchase_Price" class="control-label"></label>
-                <input asp-for="Purchase_Price" class="form-control" />
-                <span asp-validation-for="Purchase_Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EMD" class="control-label"></label>
-                <input asp-for="EMD" class="form-control" />
-                <span asp-validation-for="EMD" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Cash" /> @Html.DisplayNameFor(model => model.Cash)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="LineOfEquity" /> @Html.DisplayNameFor(model => model.LineOfEquity)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Gift" /> @Html.DisplayNameFor(model => model.Gift)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Other_Financing" /> @Html.DisplayNameFor(model => model.Other_Financing)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Conventional" /> @Html.DisplayNameFor(model => model.Conventional)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="FHA" /> @Html.DisplayNameFor(model => model.FHA)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="VA" /> @Html.DisplayNameFor(model => model.VA)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Fixed_Rate" /> @Html.DisplayNameFor(model => model.Fixed_Rate)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Loan_Length" class="control-label"></label>
-                <input asp-for="Loan_Length" class="form-control" />
-                <span asp-validation-for="Loan_Length" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Interest_Rate" class="control-label"></label>
-                <input asp-for="Interest_Rate" class="form-control" />
-                <span asp-validation-for="Interest_Rate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ARM_Limits" class="control-label"></label>
-                <input asp-for="ARM_Limits" class="form-control" />
-                <span asp-validation-for="ARM_Limits" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Buyer_Loan_Application_Start" class="control-label"></label>
-                <input asp-for="Buyer_Loan_Application_Start" class="form-control" />
-                <span asp-validation-for="Buyer_Loan_Application_Start" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="EMD_With_ListingBroker" /> @Html.DisplayNameFor(model => model.EMD_With_ListingBroker)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="EMD_With_SellingBroker" /> @Html.DisplayNameFor(model => model.EMD_With_SellingBroker)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Lender_Appraisal_Required" class="control-label"></label>
-                <input asp-for="Lender_Appraisal_Required" class="form-control" />
-                <span asp-validation-for="Lender_Appraisal_Required" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Buyer_Appraisal_Required" class="control-label"></label>
-                <input asp-for="Buyer_Appraisal_Required" class="form-control" />
-                <span asp-validation-for="Buyer_Appraisal_Required" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="No_Appraisal_Required" class="control-label"></label>
-                <input asp-for="No_Appraisal_Required" class="form-control" />
-                <span asp-validation-for="No_Appraisal_Required" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="HW" /> @Html.DisplayNameFor(model => model.HW)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="HW_Price" class="control-label"></label>
-                <input asp-for="HW_Price" class="form-control" />
-                <span asp-validation-for="HW_Price" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Seller_To_Pay_HW" /> @Html.DisplayNameFor(model => model.Seller_To_Pay_HW)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Buyer_To_Pay_HW" /> @Html.DisplayNameFor(model => model.Buyer_To_Pay_HW)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="New_Construction_HW" /> @Html.DisplayNameFor(model => model.New_Construction_HW)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Buyer_Waves_Right_To_HW" /> @Html.DisplayNameFor(model => model.Buyer_Waves_Right_To_HW)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Buyer_To_Purchase_HW_Later" /> @Html.DisplayNameFor(model => model.Buyer_To_Purchase_HW_Later)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Seller_Disclosure_Recieved" /> @Html.DisplayNameFor(model => model.Seller_Disclosure_Recieved)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="No_Lead_Paint" /> @Html.DisplayNameFor(model => model.No_Lead_Paint)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Buyer_Waives_Lead_Paint_Inspection" /> @Html.DisplayNameFor(model => model.Buyer_Waives_Lead_Paint_Inspection)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Contingent_On_Lead_Paint" /> @Html.DisplayNameFor(model => model.Contingent_On_Lead_Paint)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Lead_Paint_Inspection_Window" class="control-label"></label>
-                <input asp-for="Lead_Paint_Inspection_Window" class="form-control" />
-                <span asp-validation-for="Lead_Paint_Inspection_Window" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Seller_Lead_Paint_Response_Window" class="control-label"></label>
-                <input asp-for="Seller_Lead_Paint_Response_Window" class="form-control" />
-                <span asp-validation-for="Seller_Lead_Paint_Response_Window" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="As_Is" /> @Html.DisplayNameFor(model => model.As_Is)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Buyer_Inspection_Window" class="control-label"></label>
-                <input asp-for="Buyer_Inspection_Window" class="form-control" />
-                <span asp-validation-for="Buyer_Inspection_Window" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Seller_Repair_Request_Response_Window" class="control-label"></label>
-                <input asp-for="Seller_Repair_Request_Response_Window" class="form-control" />
-                <span asp-validation-for="Seller_Repair_Request_Response_Window" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Last_Best_Request_Window" class="control-label"></label>
-                <input asp-for="Last_Best_Request_Window" class="form-control" />
-                <span asp-validation-for="Last_Best_Request_Window" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Contingent_On_Survey" /> @Html.DisplayNameFor(model => model.Contingent_On_Survey)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Specific_Closing_Date" class="control-label"></label>
-                <input asp-for="Specific_Closing_Date" class="form-control" />
-                <span asp-validation-for="Specific_Closing_Date" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Closing_Window" /> @Html.DisplayNameFor(model => model.Closing_Window)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Closing_Window_Soonest" class="control-label"></label>
-                <input asp-for="Closing_Window_Soonest" class="form-control" />
-                <span asp-validation-for="Closing_Window_Soonest" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Closing_Window_Latest" /> @Html.DisplayNameFor(model => model.Closing_Window_Latest)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Keys_at_Closing" /> @Html.DisplayNameFor(model => model.Keys_at_Closing)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Keys_after_Closing" class="control-label"></label>
-                <input asp-for="Keys_after_Closing" class="form-control" />
-                <span asp-validation-for="Keys_after_Closing" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Active_Lease" /> @Html.DisplayNameFor(model => model.Active_Lease)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Buyer_Title_Insurance" /> @Html.DisplayNameFor(model => model.Buyer_Title_Insurance)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Other_Provisions" class="control-label"></label>
-                <input asp-for="Other_Provisions" class="form-control" />
-                <span asp-validation-for="Other_Provisions" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="HOA_Addendum" /> @Html.DisplayNameFor(model => model.HOA_Addendum)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Delayed_Possession_Addendum" /> @Html.DisplayNameFor(model => model.Delayed_Possession_Addendum)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Contingent_Addendum" /> @Html.DisplayNameFor(model => model.Contingent_Addendum)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Other_Addendum" /> @Html.DisplayNameFor(model => model.Other_Addendum)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImageURLs" class="control-label"></label>
-                <input asp-for="ImageURLs" class="form-control" />
-                <span asp-validation-for="ImageURLs" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Next" class="btn btn-primary" />
             </div>
         </form>
     </div>
