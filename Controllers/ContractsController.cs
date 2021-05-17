@@ -122,16 +122,17 @@ namespace WinningOffer.Controllers
                     var listingBrokerInfo = listingBrokerDates[listingBrokerDates.Count - 1];
                     contract.ListCompany = listingBrokerInfo.company; //company name
                     contract.ListAgent = listingBrokerInfo.agent; //agent name  
-                    if(listingBrokerInfo.phones[0]) //TODO
-                    { 
+                    if (api["phones"] != null)
+                    {
+                        
+                        contract.ListAgentPhone = listingBrokerInfo.phones[0]; //agent number. This is not always available as a field.
 
-                        contract.ListAgentPhone = listingBrokerInfo.phones[0]; //agent number (not always available)
-
-                    } else { 
-
-                        contract.ListAgentPhone = ""; //agent number (not always available)
+                    } else{
+                        
+                        contract.ListAgentPhone = null;
 
                     }
+
 
                     //misc property info (image URL and parcel num)
                     contract.ImageURLs = api.records[0].imageURLS; //what to do if the record doesn't exist?
