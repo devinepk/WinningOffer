@@ -122,14 +122,14 @@ namespace WinningOffer.Controllers
                     var listingBrokerInfo = listingBrokerDates[listingBrokerDates.Count - 1];
                     contract.ListCompany = listingBrokerInfo.company; //company name
                     contract.ListAgent = listingBrokerInfo.agent; //agent name  
-                    if (api["phones"] != null)
+                    if (api["phones"] != null) //check is the object key exists.  It's not always available and will crash if not handled.
                     {
                         
-                        contract.ListAgentPhone = listingBrokerInfo.phones[0]; //agent number. This is not always available as a field.
+                        contract.ListAgentPhone = listingBrokerInfo.phones[0]; //agent number.
 
                     } else{
                         
-                        contract.ListAgentPhone = null;
+                        contract.ListAgentPhone = null; //set it to null.
 
                     }
 
