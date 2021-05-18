@@ -174,3 +174,5 @@ C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\WinningO
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\WinningOffer\obj\Debug\net5.0\Razor\Views\Contracts\Edit.cshtml.g.cs
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\WinningOffer\obj\Debug\net5.0\Razor\Views\Contracts\Index.cshtml.g.cs
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\WinningOffer\obj\Debug\net5.0\WinningOffer.csprojAssemblyReference.cache
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\WinningOffer\obj\Debug\net5.0\Razor\Pages\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\WinningOffer\obj\Debug\net5.0\Razor\Views\Contracts\Appliances.cshtml.g.cs

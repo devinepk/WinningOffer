@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "61E6RIs+u4X0TgEiokdjIwNr9XPMTpQ6HoF6gnpVwLAyn+2Y+gg00GnlhJ1jFC+9K1FHAtQoY414q2fkLBMtkA==",
+  "dgSpecHash": "8qNM1kYb5daW3RSoAj5VWNst3pDt8OaTWNkQWaJLEsx9Y+jfMiS9lgrUCdUTV14UZekSOKxth+zGHJ9TdBUf8A==",
   "success": true,
   "projectFilePath": "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\WinningOffer\\WinningOffer.csproj",
   "expectedPackageFiles": [
@@ -24,12 +24,12 @@
     "C:\\Users\\pdevine\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.6\\microsoft.entityframeworkcore.5.0.6.nupkg.sha512",
     "C:\\Users\\pdevine\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.6\\microsoft.entityframeworkcore.abstractions.5.0.6.nupkg.sha512",
     "C:\\Users\\pdevine\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.6\\microsoft.entityframeworkcore.analyzers.5.0.6.nupkg.sha512",
-    "C:\\Users\\pdevine\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.4\\microsoft.entityframeworkcore.design.5.0.4.nupkg.sha512",
+    "C:\\Users\\pdevine\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.6\\microsoft.entityframeworkcore.design.5.0.6.nupkg.sha512",
     "C:\\Users\\pdevine\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.6\\microsoft.entityframeworkcore.relational.5.0.6.nupkg.sha512",
     "C:\\Users\\pdevine\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\5.0.4\\microsoft.entityframeworkcore.sqlite.5.0.4.nupkg.sha512",
     "C:\\Users\\pdevine\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\5.0.4\\microsoft.entityframeworkcore.sqlite.core.5.0.4.nupkg.sha512",
     "C:\\Users\\pdevine\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.6\\microsoft.entityframeworkcore.sqlserver.5.0.6.nupkg.sha512",
-    "C:\\Users\\pdevine\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.4\\microsoft.entityframeworkcore.tools.5.0.4.nupkg.sha512",
+    "C:\\Users\\pdevine\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.6\\microsoft.entityframeworkcore.tools.5.0.6.nupkg.sha512",
     "C:\\Users\\pdevine\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\pdevine\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
     "C:\\Users\\pdevine\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",

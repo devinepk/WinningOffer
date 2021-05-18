@@ -228,7 +228,7 @@ namespace WinningOffer.Controllers
             {
                 _context.Add(contract);
                 await _context.SaveChangesAsync(); //the changes get saved to the db 
-                return RedirectToAction("Create", "Items"); //redirect to adding the appliances + propane tanks
+                return View("Appliances"); //redirect to adding the appliances + propane tanks
             }
 
             return View(@contract);
