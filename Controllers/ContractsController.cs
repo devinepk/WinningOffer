@@ -23,6 +23,12 @@ namespace WinningOffer.Controllers
             _context = context;
         }
 
+        // GET: Contracts/Appliances
+        public async Task<IActionResult> Appliance()
+        {
+            return View();
+        }
+
         // GET: Contracts
         public async Task<IActionResult> Index()
         {
@@ -223,15 +229,16 @@ namespace WinningOffer.Controllers
             }
 
 
-
             if (ModelState.IsValid)
             {
                 _context.Add(contract);
                 await _context.SaveChangesAsync(); //the changes get saved to the db 
-                return View("Appliances"); //TODO: redirect to adding the appliances + propane tanks
+                return Redirect("Appliance"); //TODO: redirect to adding the appliances + propane tanks
+            } else
+            {
+                return View(); //TODO: messaging that the property is not available
             }
 
-            return View(@contract);
         }
 
         // GET: Contracts/Edit/5
