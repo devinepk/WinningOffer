@@ -6,10 +6,33 @@ namespace WinningOffer.Models
 {
     public class Contract
     {
-        public Guid Id { get; set; }
+        //CONTRACT
+        public Guid Contract_id { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime BuyerSignedDate { get; set; }
+        public DateTime SellerSignedDate { get; set; }
+        public DateTime ListAgentSignedDate { get; set; }
+        public DateTime SellingAgentSignedDate { get; set; }
+
+        //[ForeignKey]
+        //person_id
+        //property_id
+        //appliance_id
+        //fuelpropane_id
+        //financial_id
+        //appraisal_id
+        //homewarranty_id
+        //disclosure_id
+        //inspection_id
+        //closing_id
+        //addendum_id
+    }
+
+    public class Person
+    {
+        public Guid person_Id { get; set; }
         public DateTime CreatedDate { get; set; }
 
-        //people information
         [Display(Name = "Listing Company")]
         public string ListCompany { get; set; }
 
@@ -19,11 +42,15 @@ namespace WinningOffer.Models
         [Display(Name = "Listing Agent Phone")]
         public string ListAgentPhone { get; set; }
 
+    }
+
+    public class Property
+    {
+        public Guid property_id { get; set; }
+        public DateTime CreatedDate { get; set; }
         [Display(Name = "MLS Number")]
         public string MlsNumber { get; set; }
 
-
-        //property section
         [Display(Name = "Street Address")]
         public string Address { get; set; }
 
@@ -35,16 +62,28 @@ namespace WinningOffer.Models
 
         public string Country { get; set; }
 
-      
+
         //parcel information
         public string DeedBook { get; set; }
+
         public string Page { get; set; }
+
         public string BlockNum { get; set; }
+
         public string LotNum { get; set; }
+
         public string SubLotNum { get; set; }
+
         public string County { get; set; }
 
-        //Appliances section: 1 = remain (checked), 2 = remove, 3 = n/a
+        public string ImageURLs { get; set; }
+    }
+
+    public class Appliance  //1 = remain, 2 = remove, 3 = n/a
+    {
+
+        public Guid Appliance_id { get; set; }
+        public DateTime CreatedDate { get; set; }
         [Display(Name = "Refrigerator(s)")]
         public int Refrigerator { get; set; }
 
@@ -63,8 +102,12 @@ namespace WinningOffer.Models
         public int ClothesDryer { get; set; }
 
         public int Other { get; set; }
+    }
 
-        //Fuel/propane section
+    public class FuelPropane
+    {
+        public Guid FuelPropane_id { get; set; }
+        public DateTime CreatedDate { get; set; }
         [Display(Name = "Tank is owned")]
         public bool Propane_Owned { get; set; }
 
@@ -79,9 +122,13 @@ namespace WinningOffer.Models
 
         [Display(Name = "N/A - Does not apply")]
         public bool Propane_NotApplicable { get; set; }
+    }
 
-
+    public class Financial
+    {
         //Purchase price
+        public Guid Financial_id { get; set; }
+        public DateTime CreatedDate { get; set; }
         [Display(Name = "Purchase Price")]
         public float Purchase_Price { get; set; }
 
@@ -106,7 +153,7 @@ namespace WinningOffer.Models
 
         public bool VA { get; set; }
 
-        [Display(Name ="Fixed Rate")]
+        [Display(Name = "Fixed Rate")]
         public bool Fixed_Rate { get; set; }
 
         [Display(Name = "Loan Length (years)")]
@@ -121,7 +168,6 @@ namespace WinningOffer.Models
         [Display(Name = "How soon will the buyer apply for the loan?")]
         public string Buyer_Loan_Application_Start { get; set; } // if "0", change to "Done"
 
-        //TODO: lender contact info
 
         //Earnest Money Deposit
         [Display(Name = "Listing Broker")]
@@ -129,11 +175,12 @@ namespace WinningOffer.Models
 
         [Display(Name = "Selling Broker")]
         public bool EMD_With_SellingBroker { get; set; }
-
-        //
-        //APPRAISAL (1 = lender, 2 = buyer, 3 = n/a
-        //
-
+    }
+      
+    public class Appraisal //1 = lender, 2 = buyer, 3 = n/a
+    {
+        public Guid Appraisal_id { get; set; }
+        public DateTime CreatedDate { get; set; }
         [Display(Name = "This transaction involves a lender")]
         public int Lender_Appraisal_Required { get; set; }
 
@@ -143,8 +190,12 @@ namespace WinningOffer.Models
         [Display(Name = "This is a cash, private financing, or contract for deed transaction")]
         public int No_Appraisal_Required { get; set; }
 
-        //Home Warranty
+    }
 
+    public class HomeWarranty
+    {
+        public Guid HomeWarranty_id { get; set; }
+        public DateTime CreatedDate { get; set; }
         [Display(Name = "Home Warranty")]
         public bool HW { get; set; }
 
@@ -166,7 +217,12 @@ namespace WinningOffer.Models
         [Display(Name = "Buyer Reserves Right to Purchase Home Warranty Later")]
         public bool Buyer_To_Purchase_HW_Later { get; set; }
 
+    }
 
+    public class Disclosure
+    {
+        public Guid Disclosure_id { get; set; }
+        public DateTime CreatedDate { get; set; }
         //Sellers Disclosure
         [Display(Name = "Buyer acknowledges receipt of Seller Disclosure Form")]
         public bool Seller_Disclosure_Recieved { get; set; }
@@ -187,7 +243,12 @@ namespace WinningOffer.Models
         [Display(Name = "Seller Lead Paint Response Window")]
         public int Seller_Lead_Paint_Response_Window { get; set; }
 
-        //Inspections
+    }
+
+    public class Inspection
+    {
+        public Guid Inspection_id { get; set; }
+        public DateTime CreatedDate { get; set; }
         [Display(Name = "Buyer accepts as-is")]
         public bool As_Is { get; set; }
 
@@ -203,8 +264,13 @@ namespace WinningOffer.Models
         //Survey
         [Display(Name = "Is this contract contingent on a survey?")]
         public bool Contingent_On_Survey { get; set; }
+    }
+    
+    public class Closing
+    {
+        public Guid Closing_id { get; set; }
+        public DateTime CreatedDate { get; set; }
 
-        //Closing
         [Display(Name = "A specific closing date")]
         public DateTime Specific_Closing_Date { get; set; }
 
@@ -231,12 +297,16 @@ namespace WinningOffer.Models
 
         //Title protection
         [Display(Name = "Does buyer want Owner's Title Insurance?")]
-        public bool Buyer_Title_Insurance{ get; set; }
+        public bool Buyer_Title_Insurance { get; set; }
 
         [Display(Name = "Other Provisions")]
         public string Other_Provisions { get; set; }
-
-        //Addendums
+    }
+    
+    public class Addendum
+    {
+        public Guid Addendum_id { get; set; }
+        public DateTime CreatedDate { get; set; }
         [Display(Name = "HOA")]
         public bool HOA_Addendum { get; set; }
 
@@ -249,8 +319,6 @@ namespace WinningOffer.Models
         [Display(Name = "Other Addendum")]
         public bool Other_Addendum { get; set; }
 
-        public string ImageURLs { get; set; }
-
-
     }
+     
 }
