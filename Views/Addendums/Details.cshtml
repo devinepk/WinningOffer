@@ -1,0 +1,48 @@
+﻿@model WinningOffer.Models.Addendum
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Addendum</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HOA_Addendum)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HOA_Addendum)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Delayed_Possession_Addendum)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Delayed_Possession_Addendum)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Contingent_Addendum)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Contingent_Addendum)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Other_Addendum)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Other_Addendum)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Addendum_id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

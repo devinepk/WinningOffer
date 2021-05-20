@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WinningOffer.Models.Appraisal>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lender_Appraisal_Required)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Buyer_Appraisal_Required)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.No_Appraisal_Required)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lender_Appraisal_Required)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Buyer_Appraisal_Required)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.No_Appraisal_Required)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Appraisal_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Appraisal_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Appraisal_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<WinningOffer.Models.HomeWarranty>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HW)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HW_Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seller_To_Pay_HW)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Buyer_To_Pay_HW)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.New_Construction_HW)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Buyer_Waves_Right_To_HW)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Buyer_To_Purchase_HW_Later)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HW)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HW_Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seller_To_Pay_HW)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Buyer_To_Pay_HW)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.New_Construction_HW)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Buyer_Waves_Right_To_HW)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Buyer_To_Purchase_HW_Later)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.HomeWarranty_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.HomeWarranty_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.HomeWarranty_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,69 @@
+﻿@model WinningOffer.Models.Appliance
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Appliance</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Appliance_id" />
+            <div class="form-group">
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Refrigerator" class="control-label"></label>
+                <input asp-for="Refrigerator" class="form-control" />
+                <span asp-validation-for="Refrigerator" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StoveRange" class="control-label"></label>
+                <input asp-for="StoveRange" class="form-control" />
+                <span asp-validation-for="StoveRange" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DishWasher" class="control-label"></label>
+                <input asp-for="DishWasher" class="form-control" />
+                <span asp-validation-for="DishWasher" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Microwave" class="control-label"></label>
+                <input asp-for="Microwave" class="form-control" />
+                <span asp-validation-for="Microwave" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClothesWasher" class="control-label"></label>
+                <input asp-for="ClothesWasher" class="form-control" />
+                <span asp-validation-for="ClothesWasher" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClothesDryer" class="control-label"></label>
+                <input asp-for="ClothesDryer" class="form-control" />
+                <span asp-validation-for="ClothesDryer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Other" class="control-label"></label>
+                <input asp-for="Other" class="form-control" />
+                <span asp-validation-for="Other" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

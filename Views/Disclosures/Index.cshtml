@@ -1,0 +1,71 @@
+﻿@model IEnumerable<WinningOffer.Models.Disclosure>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seller_Disclosure_Recieved)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.No_Lead_Paint)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Buyer_Waives_Lead_Paint_Inspection)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contingent_On_Lead_Paint)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lead_Paint_Inspection_Window)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seller_Lead_Paint_Response_Window)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seller_Disclosure_Recieved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.No_Lead_Paint)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Buyer_Waives_Lead_Paint_Inspection)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contingent_On_Lead_Paint)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lead_Paint_Inspection_Window)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seller_Lead_Paint_Response_Window)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Disclosure_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Disclosure_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Disclosure_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

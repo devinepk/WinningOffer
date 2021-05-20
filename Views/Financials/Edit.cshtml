@@ -1,0 +1,114 @@
+﻿@model WinningOffer.Models.Financial
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Financial</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Financial_id" />
+            <div class="form-group">
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Purchase_Price" class="control-label"></label>
+                <input asp-for="Purchase_Price" class="form-control" />
+                <span asp-validation-for="Purchase_Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EMD" class="control-label"></label>
+                <input asp-for="EMD" class="form-control" />
+                <span asp-validation-for="EMD" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Cash" /> @Html.DisplayNameFor(model => model.Cash)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="LineOfEquity" /> @Html.DisplayNameFor(model => model.LineOfEquity)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Gift" /> @Html.DisplayNameFor(model => model.Gift)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Other_Financing" /> @Html.DisplayNameFor(model => model.Other_Financing)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Conventional" /> @Html.DisplayNameFor(model => model.Conventional)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="FHA" /> @Html.DisplayNameFor(model => model.FHA)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="VA" /> @Html.DisplayNameFor(model => model.VA)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Fixed_Rate" /> @Html.DisplayNameFor(model => model.Fixed_Rate)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Loan_Length" class="control-label"></label>
+                <input asp-for="Loan_Length" class="form-control" />
+                <span asp-validation-for="Loan_Length" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Interest_Rate" class="control-label"></label>
+                <input asp-for="Interest_Rate" class="form-control" />
+                <span asp-validation-for="Interest_Rate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ARM_Limits" class="control-label"></label>
+                <input asp-for="ARM_Limits" class="form-control" />
+                <span asp-validation-for="ARM_Limits" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Buyer_Loan_Application_Start" class="control-label"></label>
+                <input asp-for="Buyer_Loan_Application_Start" class="form-control" />
+                <span asp-validation-for="Buyer_Loan_Application_Start" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="EMD_With_ListingBroker" /> @Html.DisplayNameFor(model => model.EMD_With_ListingBroker)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="EMD_With_SellingBroker" /> @Html.DisplayNameFor(model => model.EMD_With_SellingBroker)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

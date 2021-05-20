@@ -1,0 +1,65 @@
+﻿@model IEnumerable<WinningOffer.Models.Inspection>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.As_Is)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Buyer_Inspection_Window)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seller_Repair_Request_Response_Window)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Last_Best_Request_Window)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contingent_On_Survey)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.As_Is)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Buyer_Inspection_Window)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seller_Repair_Request_Response_Window)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Last_Best_Request_Window)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contingent_On_Survey)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Inspection_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Inspection_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Inspection_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

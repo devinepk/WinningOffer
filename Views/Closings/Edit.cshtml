@@ -1,0 +1,79 @@
+﻿@model WinningOffer.Models.Closing
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Closing</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Closing_id" />
+            <div class="form-group">
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specific_Closing_Date" class="control-label"></label>
+                <input asp-for="Specific_Closing_Date" class="form-control" />
+                <span asp-validation-for="Specific_Closing_Date" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Closing_Window" /> @Html.DisplayNameFor(model => model.Closing_Window)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Closing_Window_Soonest" class="control-label"></label>
+                <input asp-for="Closing_Window_Soonest" class="form-control" />
+                <span asp-validation-for="Closing_Window_Soonest" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Closing_Window_Latest" /> @Html.DisplayNameFor(model => model.Closing_Window_Latest)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Keys_at_Closing" /> @Html.DisplayNameFor(model => model.Keys_at_Closing)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Keys_after_Closing" class="control-label"></label>
+                <input asp-for="Keys_after_Closing" class="form-control" />
+                <span asp-validation-for="Keys_after_Closing" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Active_Lease" /> @Html.DisplayNameFor(model => model.Active_Lease)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Buyer_Title_Insurance" /> @Html.DisplayNameFor(model => model.Buyer_Title_Insurance)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Other_Provisions" class="control-label"></label>
+                <input asp-for="Other_Provisions" class="form-control" />
+                <span asp-validation-for="Other_Provisions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

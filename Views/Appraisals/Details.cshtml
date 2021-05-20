@@ -1,0 +1,42 @@
+﻿@model WinningOffer.Models.Appraisal
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Appraisal</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Lender_Appraisal_Required)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Lender_Appraisal_Required)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Buyer_Appraisal_Required)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Buyer_Appraisal_Required)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.No_Appraisal_Required)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.No_Appraisal_Required)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Appraisal_id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

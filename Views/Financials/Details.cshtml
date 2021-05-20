@@ -1,0 +1,120 @@
+﻿@model WinningOffer.Models.Financial
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Financial</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Purchase_Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Purchase_Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EMD)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EMD)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cash)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cash)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LineOfEquity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LineOfEquity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Gift)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Gift)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Other_Financing)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Other_Financing)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Conventional)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Conventional)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FHA)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FHA)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VA)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VA)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fixed_Rate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fixed_Rate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Loan_Length)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Loan_Length)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Interest_Rate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Interest_Rate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ARM_Limits)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ARM_Limits)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Buyer_Loan_Application_Start)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Buyer_Loan_Application_Start)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EMD_With_ListingBroker)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EMD_With_ListingBroker)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EMD_With_SellingBroker)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EMD_With_SellingBroker)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Financial_id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

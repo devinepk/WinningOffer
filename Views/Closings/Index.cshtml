@@ -1,0 +1,89 @@
+﻿@model IEnumerable<WinningOffer.Models.Closing>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Specific_Closing_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Closing_Window)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Closing_Window_Soonest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Closing_Window_Latest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Keys_at_Closing)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Keys_after_Closing)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active_Lease)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Buyer_Title_Insurance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Other_Provisions)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specific_Closing_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Closing_Window)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Closing_Window_Soonest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Closing_Window_Latest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keys_at_Closing)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keys_after_Closing)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active_Lease)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Buyer_Title_Insurance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Other_Provisions)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Closing_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Closing_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Closing_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

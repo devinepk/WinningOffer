@@ -1,0 +1,131 @@
+﻿@model IEnumerable<WinningOffer.Models.Financial>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Purchase_Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EMD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cash)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LineOfEquity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gift)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Other_Financing)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Conventional)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FHA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fixed_Rate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Loan_Length)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Interest_Rate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ARM_Limits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Buyer_Loan_Application_Start)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EMD_With_ListingBroker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EMD_With_SellingBroker)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Purchase_Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cash)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LineOfEquity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gift)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Other_Financing)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Conventional)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FHA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fixed_Rate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Loan_Length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Interest_Rate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ARM_Limits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Buyer_Loan_Application_Start)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMD_With_ListingBroker)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMD_With_SellingBroker)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Financial_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Financial_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Financial_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

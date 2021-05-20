@@ -1,0 +1,60 @@
+﻿@model WinningOffer.Models.Disclosure
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Disclosure</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Seller_Disclosure_Recieved)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Seller_Disclosure_Recieved)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.No_Lead_Paint)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.No_Lead_Paint)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Buyer_Waives_Lead_Paint_Inspection)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Buyer_Waives_Lead_Paint_Inspection)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Contingent_On_Lead_Paint)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Contingent_On_Lead_Paint)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Lead_Paint_Inspection_Window)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Lead_Paint_Inspection_Window)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Seller_Lead_Paint_Response_Window)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Seller_Lead_Paint_Response_Window)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Disclosure_id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
