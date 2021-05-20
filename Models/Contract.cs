@@ -6,7 +6,7 @@ namespace WinningOffer.Models
 {
     public class Contract
     {
-        //CONTRACT
+        
         public Guid Contract_id { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime BuyerSignedDate { get; set; }
@@ -14,23 +14,24 @@ namespace WinningOffer.Models
         public DateTime ListAgentSignedDate { get; set; }
         public DateTime SellingAgentSignedDate { get; set; }
 
-        //[ForeignKey]
-        //person_id
-        //property_id
-        //appliance_id
-        //fuelpropane_id
-        //financial_id
-        //appraisal_id
-        //homewarranty_id
-        //disclosure_id
-        //inspection_id
-        //closing_id
-        //addendum_id
+        //Foreign key references
+        public Person Person_id { get; set; }
+        public Property Property_id { get; set; }
+        public Appliance Appliance_id { get; set; }
+        public FuelPropane FuelPropane_id { get; set; }
+        public Financial Financial_id { get; set; }
+        public Appraisal Appraisal_id { get; set; }
+        public HomeWarranty HomeWarranty_id { get; set; }
+        public Disclosure Disclosure_id { get; set; }
+        public Inspection Inspection_id { get; set; }
+        public Closing Closing_id { get; set; }
+        public Addendum Addendum_id { get; set; }
+
     }
 
     public class Person
     {
-        public Guid person_Id { get; set; }
+        public Guid Person_Id { get; set; }
         public DateTime CreatedDate { get; set; }
 
         [Display(Name = "Listing Company")]
