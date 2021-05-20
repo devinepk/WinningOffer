@@ -23,12 +23,6 @@ namespace WinningOffer.Controllers
             _context = context;
         }
 
-        // GET: Contracts/Appliances
-        public async Task<IActionResult> Appliance()
-        {
-            return View();
-        }
-
         // GET: Contracts
         public async Task<IActionResult> Index()
         {
@@ -58,6 +52,7 @@ namespace WinningOffer.Controllers
         {
             return View();
         }
+
 
         // POST: Contracts/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.

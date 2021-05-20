@@ -44,7 +44,7 @@ namespace WinningOffer.Models
         public string SubLotNum { get; set; }
         public string County { get; set; }
 
-        //Appliances section: 1 = remain (checked), 2 = null, 3 = remove
+        //Appliances section: 1 = remain (checked), 2 = remove, 3 = n/a
         [Display(Name = "Refrigerator(s)")]
         public int Refrigerator { get; set; }
 
