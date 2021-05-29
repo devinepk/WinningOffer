@@ -7624,11 +7624,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\WinningOffer\\LightningOffer.csproj",
+      "projectUniqueName": "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\Lightning Offer\\LightningOffer.csproj",
       "projectName": "LightningOffer",
-      "projectPath": "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\WinningOffer\\LightningOffer.csproj",
+      "projectPath": "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\Lightning Offer\\LightningOffer.csproj",
       "packagesPath": "C:\\Users\\pdevine\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\WinningOffer\\obj\\",
+      "outputPath": "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\Lightning Offer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

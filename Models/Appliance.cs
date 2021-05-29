@@ -30,6 +30,6 @@ namespace LightningOffer.Models
         [Display(Name = "Clothes Dryer")]
         public int ClothesDryer { get; set; }
 
-        public int Other { get; set; }
+        public string Other { get; set; }
     }
 }

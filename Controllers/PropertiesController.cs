@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using RestSharp;
 using System.IO;
 using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Logging;
 
 namespace LightningOffer.Controllers
 {

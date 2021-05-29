@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3/v1oQ3ujt3OCd9s1k0WsJApVIHQPOYLGaI/5nNlZyOQrCQOMYxwFXaEkrESnCTeS1kt46BGApWFLJ2B+h7h2A==",
+  "dgSpecHash": "8d9DxjHw+2mQX89uMv5qUmMT56TV2LINkuO3D/exJgLvgebyfoAvNWlmotxNEVE68+ilNEJZZl/oi6G49yEc2g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\WinningOffer\\LightningOffer.csproj",
+  "projectFilePath": "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\Lightning Offer\\LightningOffer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pdevine\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\pdevine\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\5.0.6\\microsoft.aspnetcore.authentication.google.5.0.6.nupkg.sha512",
