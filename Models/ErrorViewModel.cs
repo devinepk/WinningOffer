@@ -1,6 +1,6 @@
 using System;
 
-namespace WinningOffer.Models
+namespace LightningOffer.Models
 {
     public class ErrorViewModel
     {

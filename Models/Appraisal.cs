@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
-namespace WinningOffer.Models
+namespace LightningOffer.Models
 {
     public class Appraisal //1 = lender, 2 = buyer, 3 = n/a
     {

@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
-namespace WinningOffer.Models
+
+namespace LightningOffer.Models
 {
     public class Property
     {
         [Key]
-        public Guid property_id { get; set; }
+        public Guid Property_id { get; set; }
         public DateTime CreatedDate { get; set; }
         [Display(Name = "MLS Number")]
         public string MlsNumber { get; set; }

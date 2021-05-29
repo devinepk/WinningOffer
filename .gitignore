@@ -3,6 +3,9 @@
 appsettings.json
 appsettings
 
+
 # Odds and Ends
+bin/Debug
+.vs/LightningOffer
 # Pick back up here: https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-model?view=aspnetcore-5.0&tabs=visual-studio#scaffold-movie-pages
 TODO.md

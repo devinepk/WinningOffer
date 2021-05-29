@@ -1,51 +1,148 @@
-﻿@model WinningOffer.Models.Appliance
+﻿@model LightningOffer.Models.Appliance
 
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Appliances</h1>
 
-<h4>Appliance</h4>
+<h4>Progress bar goes here 2/x.</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="CreatedDate" class="control-label"></label>
-                <input asp-for="CreatedDate" class="form-control" />
-                <span asp-validation-for="CreatedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Refrigerator" class="control-label"></label>
-                <input asp-for="Refrigerator" class="form-control" />
+                <h5>Refrigerator [icon]</h5>
+                <div class="form-check" id="Refrigerator">
+                    <input asp-for="Refrigerator" class="form-check-input" type="radio" name="Refrigerator" value="1" id="Refrigerator" />
+                    <label asp-for="Refrigerator" class="form-check-label control-label" for="Refrigerator">
+                        Stays
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="Refrigerator" class="form-check-input" type="radio" name="Refrigerator" value="2" id="Refrigerator" />
+                    <label asp-for="Refrigerator" class="form-check-label control-label" for="Refrigerator">
+                        Goes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="Refrigerator" class="form-check-input" type="radio" name="Refrigerator" value="3" id="Refrigerator" />
+                    <label asp-for="Refrigerator" class="form-check-label control-label" for="Refrigerator">
+                        N/A
+                    </label>
+                </div>
                 <span asp-validation-for="Refrigerator" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="StoveRange" class="control-label"></label>
-                <input asp-for="StoveRange" class="form-control" />
+                <h5>Stove/Range</h5>
+                <div class="form-check" id="StoveRange">
+                    <input asp-for="StoveRange" class="form-check-input" type="radio" name="StoveRange" value="1" id="StoveRange" />
+                    <label asp-for="StoveRange" class="form-check-label control-label" for="StoveRange">
+                        Stays
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="StoveRange" class="form-check-input" type="radio" name="StoveRange" value="2" id="StoveRange" />
+                    <label asp-for="StoveRange" class="form-check-label control-label" for="StoveRange">
+                        Goes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="StoveRange" class="form-check-input" type="radio" name="StoveRange" value="3" id="StoveRange" />
+                    <label asp-for="StoveRange" class="form-check-label control-label" for="StoveRange">
+                        N/A
+                    </label>
+                </div>
                 <span asp-validation-for="StoveRange" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DishWasher" class="control-label"></label>
-                <input asp-for="DishWasher" class="form-control" />
+                <h5>Dishwasher</h5>
+                <div class="form-check" id="Dishwasher">
+                    <input asp-for="DishWasher" class="form-check-input" type="radio" name="Dishwasher" value="1" id="Dishwasher" />
+                    <label asp-for="DishWasher" class="form-check-label control-label" for="Dishwasher">
+                        Stays
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="DishWasher" class="form-check-input" type="radio" name="Dishwasher" value="2" id="Dishwasher" />
+                    <label asp-for="DishWasher" class="form-check-label control-label" for="Dishwasher">
+                        Goes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="DishWasher" class="form-check-input" type="radio" name="Dishwasher" value="3" id="Dishwasher" />
+                    <label asp-for="DishWasher" class="form-check-label control-label" for="Dishwasher">
+                        N/A
+                    </label>
+                </div>
                 <span asp-validation-for="DishWasher" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Microwave" class="control-label"></label>
-                <input asp-for="Microwave" class="form-control" />
-                <span asp-validation-for="Microwave" class="text-danger"></span>
+                <h5>Microwave</h5>
+                <div class="form-check" id=" Microwave">
+                    <input asp-for=" Microwave" class="form-check-input" type="radio" name=" Microwave" value="1" id=" Microwave" />
+                    <label asp-for=" Microwave" class="form-check-label control-label" for=" Microwave">
+                        Stays
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for=" Microwave" class="form-check-input" type="radio" name=" Microwave" value="2" id=" Microwave" />
+                    <label asp-for=" Microwave" class="form-check-label control-label" for=" Microwave">
+                        Goes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for=" Microwave" class="form-check-input" type="radio" name=" Microwave" value="3" id=" Microwave" />
+                    <label asp-for=" Microwave" class="form-check-label control-label" for=" Microwave">
+                        N/A
+                    </label>
+                </div>
+                <span asp-validation-for=" Microwave" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClothesWasher" class="control-label"></label>
-                <input asp-for="ClothesWasher" class="form-control" />
-                <span asp-validation-for="ClothesWasher" class="text-danger"></span>
+                <h5>Clotheswasher</h5>
+                <div class="form-check" id=" Clotheswasher">
+                    <input asp-for=" ClothesWasher" class="form-check-input" type="radio" name=" Clotheswasher" value="1" id=" Clotheswasher" />
+                    <label asp-for=" ClothesWasher" class="form-check-label control-label" for=" Clotheswasher">
+                        Stays
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for=" ClothesWasher" class="form-check-input" type="radio" name=" Clotheswasher" value="2" id=" Clotheswasher" />
+                    <label asp-for=" ClothesWasher" class="form-check-label control-label" for=" Clotheswasher">
+                        Goes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for=" ClothesWasher" class="form-check-input" type="radio" name=" Clotheswasher" value="3" id=" Clotheswasher" />
+                    <label asp-for=" ClothesWasher" class="form-check-label control-label" for=" Clotheswasher">
+                        N/A
+                    </label>
+                </div>
+                <span asp-validation-for=" ClothesWasher" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ClothesDryer" class="control-label"></label>
-                <input asp-for="ClothesDryer" class="form-control" />
-                <span asp-validation-for="ClothesDryer" class="text-danger"></span>
+                <h5>ClothesDryer</h5>
+                <div class="form-check" id=" ClothesDryer">
+                    <input asp-for=" ClothesDryer" class="form-check-input" type="radio" name=" ClothesDryer" value="1" id=" ClothesDryer" />
+                    <label asp-for=" ClothesDryer" class="form-check-label control-label" for=" ClothesDryer">
+                        Stays
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for=" ClothesDryer" class="form-check-input" type="radio" name=" ClothesDryer" value="2" id=" ClothesDryer" />
+                    <label asp-for=" ClothesDryer" class="form-check-label control-label" for=" ClothesDryer">
+                        Goes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for=" ClothesDryer" class="form-check-input" type="radio" name=" ClothesDryer" value="3" id=" ClothesDryer" />
+                    <label asp-for=" ClothesDryer" class="form-check-label control-label" for=" ClothesDryer">
+                        N/A
+                    </label>
+                </div>
+                <span asp-validation-for=" ClothesDryer" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Other" class="control-label"></label>
@@ -53,7 +150,7 @@
                 <span asp-validation-for="Other" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Next" class="btn btn-primary" />
             </div>
         </form>
     </div>

@@ -1,4 +1,4 @@
-﻿@model WinningOffer.Models.Property
+﻿@model LightningOffer.Models.Property
 
 @{
     ViewData["Title"] = "Edit";
@@ -12,7 +12,7 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="property_id" />
+            <input type="hidden" asp-for="Property_id" />
             <div class="form-group">
                 <label asp-for="CreatedDate" class="control-label"></label>
                 <input asp-for="CreatedDate" class="form-control" />

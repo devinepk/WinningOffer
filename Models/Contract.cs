@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WinningOffer.Models
+namespace LightningOffer.Models
 {
     public class Contract
     {
@@ -13,6 +15,8 @@ namespace WinningOffer.Models
         public DateTime SellerSignedDate { get; set; }
         public DateTime ListAgentSignedDate { get; set; }
         public DateTime SellingAgentSignedDate { get; set; }
+        public int PurchasePrice { get; set;  }
+
 
         /*
         //Foreign key references
@@ -32,6 +36,4 @@ namespace WinningOffer.Models
         */
 
     }
-    
-     
 }

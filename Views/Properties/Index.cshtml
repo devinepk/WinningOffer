@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WinningOffer.Models.Property>
+﻿@model IEnumerable<LightningOffer.Models.Property>
 
 @{
     ViewData["Title"] = "Index";
@@ -97,9 +97,9 @@
                 @Html.DisplayFor(modelItem => item.ImageURLs)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.property_id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.property_id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.property_id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Property_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Property_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Property_id">Delete</a>
             </td>
         </tr>
 }

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<LightningOffer.Models.Addendum>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HOA_Addendum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Delayed_Possession_Addendum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contingent_Addendum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Other_Addendum)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HOA_Addendum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Delayed_Possession_Addendum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contingent_Addendum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Other_Addendum)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Addendum_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Addendum_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Addendum_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

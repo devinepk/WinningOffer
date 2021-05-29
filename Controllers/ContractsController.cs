@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using WinningOffer.Data;
-using WinningOffer.Models;
+using LightningOffer.Data;
+using LightningOffer.Models;
 
-namespace WinningOffer.Controllers
+namespace LightningOffer.Controllers
 {
     public class ContractsController : Controller
     {
-        private readonly WinningOfferContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public ContractsController(WinningOfferContext context)
+        public ContractsController(ApplicationDbContext context)
         {
             _context = context;
         }
