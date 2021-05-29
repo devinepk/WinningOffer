@@ -64,7 +64,7 @@ namespace LightningOffer.Controllers
                 appliance.Appliance_id = Guid.NewGuid();
                 _context.Add(appliance);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Create", "FuelPropanes");
             }
             return View(appliance);
         }
