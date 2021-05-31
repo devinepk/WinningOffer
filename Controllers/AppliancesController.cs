@@ -54,21 +54,25 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Appliance_id,CreatedDate,Refrigerator,StoveRange,DishWasher,Microwave,ClothesWasher,ClothesDryer,Other")] Appliance appliance)
+        public async Task<IActionResult> Create(int propane [Bind("Appliance_id,CreatedDate,Refrigerator,StoveRange,DishWasher,Microwave,ClothesWasher,ClothesDryer,Other")] Appliance appliance)
         {
-
-            //1 = stays, 2 = goes, 3 = n/a
 
             DateTime now = DateTime.Now;
             appliance.CreatedDate = now;
 
+            //1 = stays, 2 = goes, 3 = n/a
 
-            if (ModelState.IsValid)
+            //TODO: if propane is set to 1 (yes), redirect to fuel/propane page.  Else, set the values to N/A in the propane table and redirect to the financials create page.
+
+            if (ModelState.IsValid) 
             {
                 appliance.Appliance_id = Guid.NewGuid();
                 _context.Add(appliance);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Create", "FuelPropanes");
+            } else
+            {
+                //redirect to
             }
             return View(appliance);
         }
