@@ -276,19 +276,10 @@ namespace LightningOffer.Data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("Propane_Leased")
+                    b.Property<bool>("Propane_Tank_Ownership")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("Propane_NotApplicable")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Propane_NotRemain")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Propane_Owned")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Propane_Will_Remain")
+                    b.Property<bool>("Propane_Tank_Status")
                         .HasColumnType("bit");
 
                     b.HasKey("FuelPropane_id");

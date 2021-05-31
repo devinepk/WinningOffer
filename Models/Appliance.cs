@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace LightningOffer.Models
 {
-    public class Appliance  //1 = remain, 2 = remove, 3 = n/a
+    public class Appliance  //1 = stays, 2 = goes, 3 = n/a
     {
         [Key]
         public Guid Appliance_id { get; set; }
 
         [Display(Name = "Created Date")]
         public DateTime CreatedDate { get; set; }
+
         [Display(Name = "Refrigerator(s)")]
         public int Refrigerator { get; set; }
 

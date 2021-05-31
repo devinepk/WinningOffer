@@ -54,7 +54,7 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FuelPropane_id,CreatedDate,Propane_Owned,Propane_Leased,Propane_Will_Remain,Propane_NotRemain,Propane_NotApplicable")] FuelPropane fuelPropane)
+        public async Task<IActionResult> Create([Bind("FuelPropane_id,CreatedDate,Propane_Tank_Ownership,Propane_Tank_Status")] FuelPropane fuelPropane)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("FuelPropane_id,CreatedDate,Propane_Owned,Propane_Leased,Propane_Will_Remain,Propane_NotRemain,Propane_NotApplicable")] FuelPropane fuelPropane)
+        public async Task<IActionResult> Edit(Guid id, [Bind("FuelPropane_id,CreatedDate,Propane_Tank_Ownership,Propane_Tank_Status")] FuelPropane fuelPropane)
         {
             if (id != fuelPropane.FuelPropane_id)
             {

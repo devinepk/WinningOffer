@@ -7,24 +7,17 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LightningOffer.Models
 {
-    public class FuelPropane
+    public class FuelPropane //1 = stays, 2 = goes, 3 = n/a, 4 = owned, 5 = leased
     {
         [Key]
         public Guid FuelPropane_id { get; set; }
         public DateTime CreatedDate { get; set; }
-        [Display(Name = "Tank is owned")]
-        public bool Propane_Owned { get; set; }
 
-        [Display(Name = "Tank is leased")]
-        public bool Propane_Leased { get; set; }
+        [Display(Name = "Is the propane tank owned or leased?")]
+        public bool Propane_Tank_Ownership { get; set; } // 4 = owned, 5 = leased
 
-        [Display(Name = "Tank will remain")]
-        public bool Propane_Will_Remain { get; set; }
+        [Display(Name = "Is the propane tank staying with the property?")]
+        public bool Propane_Tank_Status { get; set; } //1 = stays, 2 = goes
 
-        [Display(Name = "Tank will NOT remain")]
-        public bool Propane_NotRemain { get; set; }
-
-        [Display(Name = "N/A - Does not apply")]
-        public bool Propane_NotApplicable { get; set; }
     }
 }

@@ -16,19 +16,10 @@
                 @Html.DisplayNameFor(model => model.CreatedDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Propane_Owned)
+                @Html.DisplayNameFor(model => model.Propane_Tank_Ownership)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Propane_Leased)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Propane_Will_Remain)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Propane_NotRemain)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Propane_NotApplicable)
+                @Html.DisplayNameFor(model => model.Propane_Tank_Status)
             </th>
             <th></th>
         </tr>
@@ -40,19 +31,10 @@
                 @Html.DisplayFor(modelItem => item.CreatedDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Propane_Owned)
+                @Html.DisplayFor(modelItem => item.Propane_Tank_Ownership)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Propane_Leased)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Propane_Will_Remain)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Propane_NotRemain)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Propane_NotApplicable)
+                @Html.DisplayFor(modelItem => item.Propane_Tank_Status)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.FuelPropane_id">Edit</a> |

@@ -56,8 +56,12 @@ namespace LightningOffer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Appliance_id,CreatedDate,Refrigerator,StoveRange,DishWasher,Microwave,ClothesWasher,ClothesDryer,Other")] Appliance appliance)
         {
+
+            //1 = stays, 2 = goes, 3 = n/a
+
             DateTime now = DateTime.Now;
             appliance.CreatedDate = now;
+
 
             if (ModelState.IsValid)
             {
