@@ -5,6 +5,7 @@
 - Email authentication/provider
 - SMS authentication/provider
 - Data to PDF for the contract
+- Setup user roles
 
 DOING:
 - Define the relationships by tying the data to the user
@@ -12,7 +13,7 @@ DOING:
 One user -> 
 	many contracts (nothing else)
 
-One contract -> 
+One contract (cascading relationship)-> 
 	many addendum
 	one appliance
 	one appraisal
