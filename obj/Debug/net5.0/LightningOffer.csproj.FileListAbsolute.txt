@@ -669,3 +669,4 @@ C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightnin
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\Razor\Views\FuelPropanes\Details.cshtml.g.cs
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\Razor\Views\FuelPropanes\Edit.cshtml.g.cs
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\Razor\Views\FuelPropanes\Index.cshtml.g.cs
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\LightningOffer.csprojAssemblyReference.cache

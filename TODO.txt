@@ -1,0 +1,29 @@
+﻿TODO:
+- Add progress bar (general beautification)
+- Update UI text to make sense from an end user standpoint (eliminate ambiguity and options)
+- Add icons for clarity
+- Email authentication/provider
+- SMS authentication/provider
+- Data to PDF for the contract
+
+DOING:
+- Define the relationships by tying the data to the user
+
+One user -> 
+	many contracts (nothing else)
+
+One contract -> 
+	many addendum
+	one appliance
+	one appraisal
+	one closing
+	one disclosure
+	one financial
+	one fuelpropane
+	one homewarranty
+	one inspection
+	many person
+	one property
+	one user
+
+DONE:

@@ -35,14 +35,14 @@ namespace LightningOffer
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
 
+
             // Adds the API configuration
             services.AddOptions();
-            // services.Configure<APIKeyOptions>(Configuration.GetSection(APIKeyOptions.SectionName));
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // Google authentication
             services.AddAuthentication()
