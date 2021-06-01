@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
 
 namespace LightningOffer.Models
 {
@@ -15,13 +17,15 @@ namespace LightningOffer.Models
         public DateTime SellerSignedDate { get; set; }
         public DateTime ListAgentSignedDate { get; set; }
         public DateTime SellingAgentSignedDate { get; set; }
-        public int PurchasePrice { get; set;  }
+        public int PurchasePrice { get; set; }
 
+        [ForeignKey("AspNetUserID")]
+        public string OwnerID { get; set; }
 
         /*
         //Foreign key references
         [ForeignKey("Person_id")]
-        public Person Person { get; set; }
+        public Person Person { get; set; }    
         public Guid Person_id { get; set; }
         public Property Property_id { get; set; }
         public Appliance Appliance_id { get; set; }

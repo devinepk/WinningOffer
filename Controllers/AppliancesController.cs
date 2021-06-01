@@ -60,21 +60,22 @@ namespace LightningOffer.Controllers
             DateTime now = DateTime.Now;
             appliance.CreatedDate = now;
 
-            //1 = stays, 2 = goes, 3 = n/a
-
-            //TODO: if propane is set to 1 (yes), redirect to fuel/propane page.  Else, set the values to N/A in the propane table and redirect to the financials create page.
-
-            if (ModelState.IsValid) 
+            if (propane == 1 && ModelState.IsValid) //redirect to fuelpropane page
             {
                 appliance.Appliance_id = Guid.NewGuid();
                 _context.Add(appliance);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Create", "FuelPropanes");
-            } else
+
+            } else if (propane == 0 && ModelState.IsValid) //skip fuelpropane and go to financial section
+
             {
-                //redirect to
+                appliance.Appliance_id = Guid.NewGuid();
+                _context.Add(appliance);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Create", "Financials");
             }
-            return View(appliance);
+            //return View(appliance);
         }
 
         // GET: Appliances/Edit/5
