@@ -9,6 +9,8 @@
 	- Agent (general user)
 	- Buyer (fewer rights than Agent)
 	- Super User (admin, can do anything, anywhere)
+- Set up unit testing (XUnit framework)
+	- browser testing (Selenium)
 
 DOING:
 - Authorization: Define the relationships by tying the data to the user
