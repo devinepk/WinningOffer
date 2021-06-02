@@ -75,7 +75,8 @@ namespace LightningOffer.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Create", "Financials");
             }
-            //return View(appliance);
+
+            return View(appliance);
         }
 
         // GET: Appliances/Edit/5

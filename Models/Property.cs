@@ -12,6 +12,7 @@ namespace LightningOffer.Models
         [Key]
         public Guid Property_id { get; set; }
         public DateTime CreatedDate { get; set; }
+
         [Display(Name = "MLS Number")]
         public string MlsNumber { get; set; }
 

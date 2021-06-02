@@ -6,9 +6,12 @@
 - SMS authentication/provider
 - Data to PDF for the contract
 - Setup user roles
+	- Agent (general user)
+	- Buyer (fewer rights than Agent)
+	- Super User (admin, can do anything, anywhere)
 
 DOING:
-- Define the relationships by tying the data to the user
+- Authorization: Define the relationships by tying the data to the user
 
 One user -> 
 	many contracts (nothing else)
