@@ -43,10 +43,6 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "Fluent.Infrastructure": {
-              "target": "Package",
-              "version": "[2.0.0-beta-01, )"
-            },
             "Microsoft.AspNetCore.Authentication.Google": {
               "target": "Package",
               "version": "[5.0.6, )"
@@ -79,7 +75,7 @@
             },
             "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[6.0.0-preview.1.21103.6, )"
             },
             "Microsoft.Owin": {
               "target": "Package",

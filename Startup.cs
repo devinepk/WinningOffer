@@ -14,7 +14,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using Fluent.Infrastructure.FluentModel;
 
 namespace LightningOffer
 {
@@ -31,7 +30,7 @@ namespace LightningOffer
         public void ConfigureServices(IServiceCollection services)
         {
             // This is the db connection string
-            services.AddDbContext<ApplicationDbContext>(options => 
+            services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
@@ -80,7 +79,6 @@ namespace LightningOffer
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -96,32 +94,6 @@ namespace LightningOffer
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
-
-            ConfigureAuth(app);
-            createRolesandUsers();
-        }
-
-        // In this method we will create default User roles and Admin user for login    
-        private void createRolesandUsers()
-        {
-            ApplicationDbContext context = new ApplicationDbContext();
-
-            var roleManager = new RoleManager<IdentityRole>(new RoleStoreBase<IdentityRole>(context));
-            var userManager = new UserManager<ApplicationUser>(new UserStoreBase<ApplicationUser>(context));
-
-            if (!roleManager.RoleExistsAsync("Admin"))
-            {
-                // create the admin role
-                var role = new Microsoft.AspNetCore.Identity.IdentityRole();
-                role.Name = "Admin";
-                roleManager.CreateAsync(role);
-
-                // create the admin super user
-                var user = new Microsoft.AspNetCore.Identity.IdentityRole();
-                user.Name = "Philip Devine";
-                user.Email = "philip@devineandcompany.com";
-
-            }
         }
     }
 }
