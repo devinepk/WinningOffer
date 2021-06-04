@@ -13,15 +13,17 @@ namespace LightningOffer.Models
         [Key]
         public Guid Contract_id { get; set; }
         public DateTime CreatedDate { get; set; }
-        public DateTime BuyerSignedDate { get; set; }
-        public DateTime SellerSignedDate { get; set; }
-        public DateTime ListAgentSignedDate { get; set; }
-        public DateTime SellingAgentSignedDate { get; set; }
+        public DateTime? BuyerSignedDate { get; set; }
+        public DateTime? SellerSignedDate { get; set; }
+        public DateTime? ListAgentSignedDate { get; set; }
+        public DateTime? SellingAgentSignedDate { get; set; }
         public int PurchasePrice { get; set; }
 
         [ForeignKey("AspNetUserID")]
         public string OwnerID { get; set; }
 
+        [ForeignKey("Property")]
+        public Guid PropertyID { get; set; }
 
         /*
         //Foreign key references

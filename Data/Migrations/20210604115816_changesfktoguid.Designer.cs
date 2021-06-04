@@ -4,14 +4,16 @@ using LightningOffer.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LightningOffer.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210604115816_changesfktoguid")]
+    partial class changesfktoguid
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -150,13 +152,13 @@ namespace LightningOffer.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("BuyerSignedDate")
+                    b.Property<DateTime>("BuyerSignedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("ListAgentSignedDate")
+                    b.Property<DateTime>("ListAgentSignedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("OwnerID")
@@ -168,10 +170,10 @@ namespace LightningOffer.Data.Migrations
                     b.Property<int>("PurchasePrice")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("SellerSignedDate")
+                    b.Property<DateTime>("SellerSignedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("SellingAgentSignedDate")
+                    b.Property<DateTime>("SellingAgentSignedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Contract_id");
