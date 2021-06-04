@@ -72,6 +72,12 @@ namespace LightningOffer.Controllers
             Contract newContract = new Contract();
             Person newPerson = new Person();
 
+            // set the values for the contract
+            newContract.OwnerID = User.Identity.Name;
+            newContract.CreatedDate = DateTime.Now;
+
+
+
             // Get the api key
             var builder = new ConfigurationBuilder()
                           .SetBasePath(Directory.GetCurrentDirectory())
@@ -245,6 +251,8 @@ namespace LightningOffer.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(newProperty);
+                _context.Add(newContract);
+
                 await _context.SaveChangesAsync(); //the changes get saved to the db 
                 return RedirectToAction("Create","Appliances"); //redirect to adding the appliances
             } else

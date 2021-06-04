@@ -22,6 +22,7 @@ namespace LightningOffer.Models
         [ForeignKey("AspNetUserID")]
         public string OwnerID { get; set; }
 
+
         /*
         //Foreign key references
         [ForeignKey("Person_id")]
