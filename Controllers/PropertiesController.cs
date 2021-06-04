@@ -67,14 +67,15 @@ namespace LightningOffer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(string Address, string County, [Bind("Id,Address,City,PostalCode,Country,ImageURLs,MlsNumber,Price,ListingAgent, ListingCompany, ListingAgentPhone,SourceURLs,DeedBook, Page, BlockNum,LotNum, SubLotNum,County")] Property @property)
         {
-            // create a new instance of the property object
+            // create a new instance of the property object and set a new guid
             Property newProperty = new Property();
+            newProperty.Property_id = Guid.NewGuid();
             
             Person newPerson = new Person();
 
-            // set the values for the contract
+            // create a new instance of contract object and set the properties
             Contract newContract = new Contract();
-            newContract.Contract_id = new Guid();
+            newContract.Contract_id = Guid.NewGuid();
             newContract.OwnerID = User.Identity.Name;
             newContract.CreatedDate = DateTime.Now;
             newContract.PropertyID = newProperty.Property_id;
