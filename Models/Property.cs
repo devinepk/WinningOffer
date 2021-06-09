@@ -13,6 +13,8 @@ namespace LightningOffer.Models
         public Guid Property_id { get; set; }
         public DateTime CreatedDate { get; set; }
 
+        public string UserId { get; set; }
+        
         [Display(Name = "MLS Number")]
         public string MlsNumber { get; set; }
 
@@ -42,5 +44,7 @@ namespace LightningOffer.Models
         public string County { get; set; }
 
         public string ImageURLs { get; set; }
+
+
     }
 }

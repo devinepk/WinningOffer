@@ -4,14 +4,16 @@ using LightningOffer.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LightningOffer.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210607112830_addsaddemdumfktocontract")]
+    partial class addsaddemdumfktocontract
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,6 +30,12 @@ namespace LightningOffer.Data.Migrations
                     b.Property<bool>("Contingent_Addendum")
                         .HasColumnType("bit");
 
+                    b.Property<Guid>("Contract_Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("Contract_id")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -41,6 +49,8 @@ namespace LightningOffer.Data.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Addendum_id");
+
+                    b.HasIndex("Contract_id");
 
                     b.ToTable("Addendum");
                 });
@@ -419,9 +429,6 @@ namespace LightningOffer.Data.Migrations
                     b.Property<string>("SubLotNum")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Property_id");
 
                     b.ToTable("Property");
@@ -627,6 +634,15 @@ namespace LightningOffer.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("LightningOffer.Models.Addendum", b =>
+                {
+                    b.HasOne("LightningOffer.Models.Contract", "Contract")
+                        .WithMany("Addenda")
+                        .HasForeignKey("Contract_id");
+
+                    b.Navigation("Contract");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -676,6 +692,11 @@ namespace LightningOffer.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("LightningOffer.Models.Contract", b =>
+                {
+                    b.Navigation("Addenda");
                 });
 #pragma warning restore 612, 618
         }

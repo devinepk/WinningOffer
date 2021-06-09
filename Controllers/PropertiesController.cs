@@ -65,20 +65,21 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string Address, string County, [Bind("Id,Address,City,PostalCode,Country,ImageURLs,MlsNumber,Price,ListingAgent, ListingCompany, ListingAgentPhone,SourceURLs,DeedBook, Page, BlockNum,LotNum, SubLotNum,County")] Property @property)
+        public async Task<IActionResult> Create(
+            string Address, string County, [Bind("Id,Address,City,PostalCode,Country,ImageURLs,MlsNumber,Price,ListingAgent, ListingCompany, ListingAgentPhone,SourceURLs,DeedBook, Page, BlockNum,LotNum, SubLotNum,County")] Property @property)
         {
             // create a new instance of the property object and set a new guid
-            Property newProperty = new Property();
+            Property newProperty = new();
             newProperty.Property_id = Guid.NewGuid();
             
-            Person newPerson = new Person();
+            Person newPerson = new();
 
             // create a new instance of contract object and set the properties
-            Contract newContract = new Contract();
+            Contract newContract = new();
             newContract.Contract_id = Guid.NewGuid();
-            newContract.OwnerID = User.Identity.Name;
+            //newContract.OwnerID = User.Identity.Name;
             newContract.CreatedDate = DateTime.Now;
-            newContract.PropertyID = newProperty.Property_id;
+            //newContract.PropertyID = newProperty.Property_id;
 
 
 
