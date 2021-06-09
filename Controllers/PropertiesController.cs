@@ -72,7 +72,7 @@ namespace LightningOffer.Controllers
             Property newProperty = new();
             newProperty.Property_id = Guid.NewGuid();
             
-            
+            Person newPerson = new();
 
             // create a new instance of contract object and set the properties
             Contract newContract = new();
@@ -142,6 +142,8 @@ namespace LightningOffer.Controllers
                     var listingBrokerInfo = listingBrokerDates[listingBrokerDates.Count - 1];
                     newPerson.ListCompany = listingBrokerInfo.company; //company name
                     newPerson.ListAgent = listingBrokerInfo.agent; //agent name
+                    newPerson.CreatedDate = DateTime.Now;
+                    
                     
                     if (api["phones"] != null) //check is the object key exists.  It's not always available and will crash if not handled.
                     {

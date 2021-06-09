@@ -11,7 +11,7 @@ namespace LightningOffer.Models
     {
         [Key]
         public Guid Person_Id { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime ? CreatedDate { get; set; }
 
         [Display(Name = "Listing Company")]
         public string ListCompany { get; set; }
