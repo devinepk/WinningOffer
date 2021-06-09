@@ -72,7 +72,7 @@ namespace LightningOffer.Controllers
             Property newProperty = new();
             newProperty.Property_id = Guid.NewGuid();
             
-            Person newPerson = new();
+            
 
             // create a new instance of contract object and set the properties
             Contract newContract = new();
