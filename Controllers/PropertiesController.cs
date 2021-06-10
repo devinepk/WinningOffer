@@ -12,6 +12,8 @@ using RestSharp;
 using System.IO;
 using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Identity;
+
 
 namespace LightningOffer.Controllers
 {
@@ -71,7 +73,8 @@ namespace LightningOffer.Controllers
             // create a new instance of the property object and set a new guid
             Property newProperty = new();
             newProperty.Property_id = Guid.NewGuid();
-            
+            newProperty.UserId = User.Identity.Name;
+
             Person newPerson = new();
 
             // create a new instance of contract object and set the properties
