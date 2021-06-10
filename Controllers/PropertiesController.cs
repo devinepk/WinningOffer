@@ -35,7 +35,21 @@ namespace LightningOffer.Controllers
         // GET: Properties
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Property.ToListAsync());
+
+            string UserName = User.Identity.Name;
+                       
+            if (User.Identity.IsAuthenticated)
+            {
+                return View(await _context.Property
+                .Where(x => x.UserId == UserName)
+                .ToListAsync());
+                //return View(await _context.Property.ToListAsync());
+
+            } else
+            {
+                return Challenge();
+            }
+
         }
 
         // GET: Properties/Details/5
