@@ -89,24 +89,28 @@ namespace LightningOffer.Controllers
         public async Task<IActionResult> Create(
             string Address, string County, [Bind("Id,Address,City,PostalCode,Country,ImageURLs,MlsNumber,Price,ListingAgent, ListingCompany, ListingAgentPhone,SourceURLs,DeedBook, Page, BlockNum,LotNum, SubLotNum,County")] Property @property)
         {
-            // create a new instance of the property object and set a new guid
-            Property newProperty = new();
-            newProperty.Property_id = Guid.NewGuid();
-
+            // User (userId)
             IdentityUser user = new();
-
             string UserId = user.Id;
-
-            newProperty.UserId = UserId;
-
-            Person newPerson = new();
-
-            // create a new instance of contract object and set the properties
+            
+            // Contract (Guid, User)
             Contract newContract = new();
             newContract.ContractId = Guid.NewGuid();
-            //newContract.OwnerID = User.Identity.Name;
+            Guid contractId = newContract.ContractId;
+            newContract.UserId = UserId;
             newContract.CreatedDate = DateTime.Now;
-            //newContract.PropertyID = newProperty.Property_id;
+
+            // Property
+            Property newProperty = new();
+            newProperty.Property_id = Guid.NewGuid();
+            newProperty.UserId = UserId;
+            newProperty.ContractId = contractId;
+
+            // Person
+            Person newPerson = new();
+            newPerson.ContractId = contractId;
+            newPerson.CreatedDate = DateTime.Now;
+
 
 
 
@@ -169,7 +173,6 @@ namespace LightningOffer.Controllers
                     var listingBrokerInfo = listingBrokerDates[listingBrokerDates.Count - 1];
                     newPerson.ListCompany = listingBrokerInfo.company; //company name
                     newPerson.ListAgent = listingBrokerInfo.agent; //agent name
-                    newPerson.CreatedDate = DateTime.Now;
                     
                     
                     if (api["phones"] != null) //check is the object key exists.  It's not always available and will crash if not handled.
@@ -275,8 +278,7 @@ namespace LightningOffer.Controllers
                 newProperty.SubLotNum = "";// public subLotNum
                 newProperty.County = County;// county
 
-                DateTime now = DateTime.Now;
-                newProperty.CreatedDate = now;
+
 
             }
 
@@ -286,6 +288,7 @@ namespace LightningOffer.Controllers
             {
                 _context.Add(newProperty);
                 _context.Add(newContract);
+                _context.Add(newPerson);
 
                 await _context.SaveChangesAsync(); //the changes get saved to the db 
                 return RedirectToAction("Create","Appliances"); //redirect to adding the appliances

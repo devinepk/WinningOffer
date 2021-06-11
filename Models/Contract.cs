@@ -19,7 +19,11 @@ namespace LightningOffer.Models
         public DateTime? SellingAgentSignedDate { get; set; }
         public int PurchasePrice { get; set; }
 
+        public string UserId { get; set; }
+
+        // Add FK reference from AspNetUserTable
 
         public Property Property { get; set; }
+        public Person Person { get; set; }
     }
 }

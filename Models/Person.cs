@@ -22,5 +22,8 @@ namespace LightningOffer.Models
         [Display(Name = "Listing Agent Phone")]
         public string ListAgentPhone { get; set; }
 
+        public Contract Contract { get; set; }
+        public Guid ContractId { get; set; }
+
     }
 }

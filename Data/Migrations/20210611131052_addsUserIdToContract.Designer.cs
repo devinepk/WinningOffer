@@ -4,14 +4,16 @@ using LightningOffer.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LightningOffer.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210611131052_addsUserIdToContract")]
+    partial class addsUserIdToContract
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -360,9 +362,6 @@ namespace LightningOffer.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ContractId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -376,9 +375,6 @@ namespace LightningOffer.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Person_Id");
-
-                    b.HasIndex("ContractId")
-                        .IsUnique();
 
                     b.ToTable("Person");
                 });
@@ -642,17 +638,6 @@ namespace LightningOffer.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("LightningOffer.Models.Person", b =>
-                {
-                    b.HasOne("LightningOffer.Models.Contract", "Contract")
-                        .WithOne("Person")
-                        .HasForeignKey("LightningOffer.Models.Person", "ContractId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Contract");
-                });
-
             modelBuilder.Entity("LightningOffer.Models.Property", b =>
                 {
                     b.HasOne("LightningOffer.Models.Contract", "Contract")
@@ -717,8 +702,6 @@ namespace LightningOffer.Data.Migrations
 
             modelBuilder.Entity("LightningOffer.Models.Contract", b =>
                 {
-                    b.Navigation("Person");
-
                     b.Navigation("Property");
                 });
 #pragma warning restore 612, 618
