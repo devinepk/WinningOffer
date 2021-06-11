@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
 
 namespace LightningOffer.Models
 {
@@ -13,7 +14,8 @@ namespace LightningOffer.Models
         public Guid Property_id { get; set; }
         public DateTime CreatedDate { get; set; }
 
-        public string UserId { get; set; }
+        public IdentityUser User{ get; set; }
+        public Guid UserId { get; set; }
         
         [Display(Name = "MLS Number")]
         public string MlsNumber { get; set; }

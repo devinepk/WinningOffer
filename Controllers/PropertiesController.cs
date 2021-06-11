@@ -20,10 +20,13 @@ namespace LightningOffer.Controllers
     public class PropertiesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public PropertiesController(ApplicationDbContext context)
+        public PropertiesController(ApplicationDbContext context,
+                                    UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // Returns Appliances View
@@ -35,20 +38,12 @@ namespace LightningOffer.Controllers
         // GET: Properties
         public async Task<IActionResult> Index()
         {
-
-            //string UserName = User.Identity.Name;
-
-            IdentityUser user = new();
-
-            string UserName = user.Id;
-               
-            // A           
+            
             if (User.Identity.IsAuthenticated) // Only show items in the db associated with this user.
             {
                 return View(await _context.Property
-                .Where(x => x.UserId == UserName)
-                .ToListAsync());
-                
+                .Where(x => x.User.Id == _userManager.GetUserId(User))
+                .ToListAsync());            
 
             } else
             {
@@ -90,20 +85,19 @@ namespace LightningOffer.Controllers
             string Address, string County, [Bind("Id,Address,City,PostalCode,Country,ImageURLs,MlsNumber,Price,ListingAgent, ListingCompany, ListingAgentPhone,SourceURLs,DeedBook, Page, BlockNum,LotNum, SubLotNum,County")] Property @property)
         {
             // User (userId)
-            IdentityUser user = new();
-            string UserId = user.Id;
+            Guid userId = new Guid(_userManager.GetUserId(User));
             
             // Contract (Guid, User)
             Contract newContract = new();
             newContract.ContractId = Guid.NewGuid();
             Guid contractId = newContract.ContractId;
-            newContract.UserId = UserId;
+            newContract.UserId = userId;
             newContract.CreatedDate = DateTime.Now;
 
             // Property
             Property newProperty = new();
             newProperty.Property_id = Guid.NewGuid();
-            newProperty.UserId = UserId;
+            newProperty.UserId = userId;
             newProperty.ContractId = contractId;
 
             // Person
@@ -111,6 +105,8 @@ namespace LightningOffer.Controllers
             newPerson.ContractId = contractId;
             newPerson.CreatedDate = DateTime.Now;
 
+            //
+            newContract.Person = newPerson;
 
 
 

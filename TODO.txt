@@ -12,6 +12,11 @@
 - Set up unit testing (XUnit framework)
 	- browser testing (Selenium)
 
+- Test scenarios
+	- Add each sections of a contract
+	- Edit each element for that specific contract
+	- Delete the contract (and the associated sections)
+
 DOING:
 - Authorization: Define the relationships by tying the data to the user
 
