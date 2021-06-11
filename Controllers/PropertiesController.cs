@@ -36,14 +36,19 @@ namespace LightningOffer.Controllers
         public async Task<IActionResult> Index()
         {
 
-            string UserName = User.Identity.Name;
-                       
-            if (User.Identity.IsAuthenticated)
+            //string UserName = User.Identity.Name;
+
+            IdentityUser user = new();
+
+            string UserName = user.Id;
+               
+            // A           
+            if (User.Identity.IsAuthenticated) // Only show items in the db associated with this user.
             {
                 return View(await _context.Property
                 .Where(x => x.UserId == UserName)
                 .ToListAsync());
-                //return View(await _context.Property.ToListAsync());
+                
 
             } else
             {
@@ -87,7 +92,12 @@ namespace LightningOffer.Controllers
             // create a new instance of the property object and set a new guid
             Property newProperty = new();
             newProperty.Property_id = Guid.NewGuid();
-            newProperty.UserId = User.Identity.Name;
+
+            IdentityUser user = new();
+
+            string UserId = user.Id;
+
+            newProperty.UserId = UserId;
 
             Person newPerson = new();
 
