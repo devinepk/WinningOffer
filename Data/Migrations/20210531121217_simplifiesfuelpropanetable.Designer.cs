@@ -148,7 +148,7 @@ namespace LightningOffer.Data.Migrations
 
             modelBuilder.Entity("LightningOffer.Models.Contract", b =>
                 {
-                    b.Property<Guid>("Contract_id")
+                    b.Property<Guid>("ContractId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -170,7 +170,7 @@ namespace LightningOffer.Data.Migrations
                     b.Property<DateTime>("SellingAgentSignedDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Contract_id");
+                    b.HasKey("ContractId");
 
                     b.ToTable("Contract");
                 });

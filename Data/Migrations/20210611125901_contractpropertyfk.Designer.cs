@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LightningOffer.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210604113643_removesonetomanybecauseitdidntwork")]
-    partial class removesonetomanybecauseitdidntwork
+    [Migration("20210611125901_contractpropertyfk")]
+    partial class contractpropertyfk
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -152,25 +152,22 @@ namespace LightningOffer.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("BuyerSignedDate")
+                    b.Property<DateTime?>("BuyerSignedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("ListAgentSignedDate")
+                    b.Property<DateTime?>("ListAgentSignedDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("OwnerID")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PurchasePrice")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("SellerSignedDate")
+                    b.Property<DateTime?>("SellerSignedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("SellingAgentSignedDate")
+                    b.Property<DateTime?>("SellingAgentSignedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("ContractId");
@@ -362,7 +359,7 @@ namespace LightningOffer.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ListAgent")
@@ -394,6 +391,9 @@ namespace LightningOffer.Data.Migrations
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("ContractId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
 
@@ -424,7 +424,13 @@ namespace LightningOffer.Data.Migrations
                     b.Property<string>("SubLotNum")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Property_id");
+
+                    b.HasIndex("ContractId")
+                        .IsUnique();
 
                     b.ToTable("Property");
                 });
@@ -629,6 +635,17 @@ namespace LightningOffer.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("LightningOffer.Models.Property", b =>
+                {
+                    b.HasOne("LightningOffer.Models.Contract", "Contract")
+                        .WithOne("Property")
+                        .HasForeignKey("LightningOffer.Models.Property", "ContractId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Contract");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -678,6 +695,11 @@ namespace LightningOffer.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("LightningOffer.Models.Contract", b =>
+                {
+                    b.Navigation("Property");
                 });
 #pragma warning restore 612, 618
         }

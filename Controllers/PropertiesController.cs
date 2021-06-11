@@ -103,7 +103,7 @@ namespace LightningOffer.Controllers
 
             // create a new instance of contract object and set the properties
             Contract newContract = new();
-            newContract.Contract_id = Guid.NewGuid();
+            newContract.ContractId = Guid.NewGuid();
             //newContract.OwnerID = User.Identity.Name;
             newContract.CreatedDate = DateTime.Now;
             //newContract.PropertyID = newProperty.Property_id;

@@ -66,7 +66,7 @@ namespace LightningOffer.Data.Migrations
                 name: "Contract",
                 columns: table => new
                 {
-                    Contract_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ContractId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     BuyerSignedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     SellerSignedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -76,7 +76,7 @@ namespace LightningOffer.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Contract", x => x.Contract_id);
+                    table.PrimaryKey("PK_Contract", x => x.ContractId);
                 });
 
             migrationBuilder.CreateTable(

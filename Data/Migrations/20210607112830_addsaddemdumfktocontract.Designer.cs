@@ -30,10 +30,10 @@ namespace LightningOffer.Data.Migrations
                     b.Property<bool>("Contingent_Addendum")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("Contract_Id")
+                    b.Property<Guid>("ContractId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("Contract_id")
+                    b.Property<Guid?>("ContractId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDate")
@@ -50,7 +50,7 @@ namespace LightningOffer.Data.Migrations
 
                     b.HasKey("Addendum_id");
 
-                    b.HasIndex("Contract_id");
+                    b.HasIndex("ContractId");
 
                     b.ToTable("Addendum");
                 });
@@ -156,7 +156,7 @@ namespace LightningOffer.Data.Migrations
 
             modelBuilder.Entity("LightningOffer.Models.Contract", b =>
                 {
-                    b.Property<Guid>("Contract_id")
+                    b.Property<Guid>("ContractId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -178,7 +178,7 @@ namespace LightningOffer.Data.Migrations
                     b.Property<DateTime?>("SellingAgentSignedDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Contract_id");
+                    b.HasKey("ContractId");
 
                     b.ToTable("Contract");
                 });
@@ -638,7 +638,7 @@ namespace LightningOffer.Data.Migrations
                 {
                     b.HasOne("LightningOffer.Models.Contract", "Contract")
                         .WithMany("Addenda")
-                        .HasForeignKey("Contract_id");
+                        .HasForeignKey("ContractId");
 
                     b.Navigation("Contract");
                 });

@@ -34,7 +34,7 @@ namespace LightningOffer.Controllers
             }
 
             var contract = await _context.Contract
-                .FirstOrDefaultAsync(m => m.Contract_id == id);
+                .FirstOrDefaultAsync(m => m.ContractId == id);
             if (contract == null)
             {
                 return NotFound();
@@ -54,11 +54,11 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Contract_id,CreatedDate,BuyerSignedDate,SellerSignedDate,ListAgentSignedDate,SellingAgentSignedDate")] Contract contract)
+        public async Task<IActionResult> Create([Bind("ContractId,CreatedDate,BuyerSignedDate,SellerSignedDate,ListAgentSignedDate,SellingAgentSignedDate")] Contract contract)
         {
             if (ModelState.IsValid)
             {
-                contract.Contract_id = Guid.NewGuid();
+                contract.ContractId = Guid.NewGuid();
                 _context.Add(contract);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -87,9 +87,9 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Contract_id,CreatedDate,BuyerSignedDate,SellerSignedDate,ListAgentSignedDate,SellingAgentSignedDate")] Contract contract)
+        public async Task<IActionResult> Edit(Guid id, [Bind("ContractId,CreatedDate,BuyerSignedDate,SellerSignedDate,ListAgentSignedDate,SellingAgentSignedDate")] Contract contract)
         {
-            if (id != contract.Contract_id)
+            if (id != contract.ContractId)
             {
                 return NotFound();
             }
@@ -103,7 +103,7 @@ namespace LightningOffer.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ContractExists(contract.Contract_id))
+                    if (!ContractExists(contract.ContractId))
                     {
                         return NotFound();
                     }
@@ -126,7 +126,7 @@ namespace LightningOffer.Controllers
             }
 
             var contract = await _context.Contract
-                .FirstOrDefaultAsync(m => m.Contract_id == id);
+                .FirstOrDefaultAsync(m => m.ContractId == id);
             if (contract == null)
             {
                 return NotFound();
@@ -148,7 +148,7 @@ namespace LightningOffer.Controllers
 
         private bool ContractExists(Guid id)
         {
-            return _context.Contract.Any(e => e.Contract_id == id);
+            return _context.Contract.Any(e => e.ContractId == id);
         }
     }
 }

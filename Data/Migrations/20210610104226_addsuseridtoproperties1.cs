@@ -7,11 +7,11 @@ namespace LightningOffer.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddForeignKey(
-                name: "FK_Contract_Id",
+                name: "FK_ContractId",
                 table: "Property",
                 column:"ContractId",
                 principalTable: "Contract",
-                principalColumn: "Contract_Id",
+                principalColumn: "ContractId",
                 onDelete: ReferentialAction.Cascade
                 );
         }

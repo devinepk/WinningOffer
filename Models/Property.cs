@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LightningOffer.Models
 {
@@ -44,6 +44,9 @@ namespace LightningOffer.Models
         public string County { get; set; }
 
         public string ImageURLs { get; set; }
+        
+        public Contract Contract { get; set; }
+        public Guid ContractId { get; set; }
 
 
     }

@@ -11,7 +11,7 @@ namespace LightningOffer.Models
     public class Contract
     {
         [Key]
-        public Guid Contract_id { get; set; }
+        public Guid ContractId { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime? BuyerSignedDate { get; set; }
         public DateTime? SellerSignedDate { get; set; }
@@ -19,5 +19,7 @@ namespace LightningOffer.Models
         public DateTime? SellingAgentSignedDate { get; set; }
         public int PurchasePrice { get; set; }
 
+
+        public Property Property { get; set; }
     }
 }
