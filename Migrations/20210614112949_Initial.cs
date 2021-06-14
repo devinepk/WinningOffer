@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace LightningOffer.Data.Migrations
+namespace LightningOffer.Migrations
 {
-    public partial class uncommentsoutdbsets : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

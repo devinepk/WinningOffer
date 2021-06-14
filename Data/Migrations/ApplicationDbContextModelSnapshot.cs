@@ -171,8 +171,8 @@ namespace LightningOffer.Data.Migrations
                     b.Property<DateTime?>("SellingAgentSignedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ContractId");
 
@@ -434,10 +434,7 @@ namespace LightningOffer.Data.Migrations
                     b.Property<string>("SubLotNum")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("UserId1")
+                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Property_id");
@@ -445,7 +442,7 @@ namespace LightningOffer.Data.Migrations
                     b.HasIndex("ContractId")
                         .IsUnique();
 
-                    b.HasIndex("UserId1");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Property");
                 });
@@ -671,7 +668,7 @@ namespace LightningOffer.Data.Migrations
 
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserId1");
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Contract");
 

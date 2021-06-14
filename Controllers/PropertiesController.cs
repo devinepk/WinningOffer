@@ -85,7 +85,7 @@ namespace LightningOffer.Controllers
             string Address, string County, [Bind("Id,Address,City,PostalCode,Country,ImageURLs,MlsNumber,Price,ListingAgent, ListingCompany, ListingAgentPhone,SourceURLs,DeedBook, Page, BlockNum,LotNum, SubLotNum,County")] Property @property)
         {
             // User (userId)
-            Guid userId = new Guid(_userManager.GetUserId(User));
+            string userId = new string(_userManager.GetUserId(User));
             
             // Contract (Guid, User)
             Contract newContract = new();

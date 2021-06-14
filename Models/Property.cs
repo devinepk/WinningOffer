@@ -15,7 +15,7 @@ namespace LightningOffer.Models
         public DateTime CreatedDate { get; set; }
 
         public IdentityUser User{ get; set; }
-        public Guid UserId { get; set; }
+        public string UserId { get; set; }
         
         [Display(Name = "MLS Number")]
         public string MlsNumber { get; set; }

@@ -20,7 +20,7 @@ namespace LightningOffer.Models
         public int PurchasePrice { get; set; }
 
         public bool IsActive { get; set; } // TODO: Mark this false in the Delete section of the controller.
-        public Guid UserId { get; set; }
+        public string UserId { get; set; }
 
         // Add FK reference from AspNetUserTable
 
