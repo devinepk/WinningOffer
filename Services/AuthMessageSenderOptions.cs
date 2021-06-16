@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LightningOffer.Models
 {
-    public class AuthMessageSender
+    public class AuthMessageSenderOptions
     {
         public string SendGridUser { get; set; }
         public string SendGridKey { get; set; }
