@@ -92,6 +92,10 @@
             "RestSharp": {
               "target": "Package",
               "version": "[106.11.7, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.23.2, )"
             }
           },
           "imports": [
