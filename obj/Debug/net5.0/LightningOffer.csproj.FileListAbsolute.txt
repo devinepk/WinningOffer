@@ -231,3 +231,11 @@ C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightnin
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\bin\Debug\net5.0\SendGrid.dll
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\bin\Debug\net5.0\StarkbankEcdsa.dll
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\ConfirmEmail.cshtml.g.cs
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\RegisterConfirmation.cshtml.g.cs
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\LightningOffer.csprojAssemblyReference.cache

@@ -18,7 +18,7 @@
 	- Delete the contract (and the associated sections)
 
 DOING:
-- Email authentication/provider
+
 
 One user -> 
 	many contracts (nothing else)
@@ -39,3 +39,4 @@ One contract (cascading relationship)->
 
 DONE:
 - Authorization: Define the relationships by tying the data to the user
+- Email authentication/provider
