@@ -29,6 +29,9 @@ namespace LightningOffer.Controllers
             _userManager = userManager;
         }
 
+        [TempData]
+        public string StatusMessage { get; set; }
+
         // Returns Appliances View
         public IActionResult Appliance()
         {
@@ -199,7 +202,6 @@ namespace LightningOffer.Controllers
                 }
                 else
                 {
-                    Console.WriteLine("No property found");
                     return View();
                 }
 
