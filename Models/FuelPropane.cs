@@ -21,5 +21,8 @@ namespace LightningOffer.Models
         public IdentityUser User { get; set; }
         public string UserId { get; set; }
 
+        public Contract Contract { get; set; }
+        public Guid ContractId { get; set; }
+
     }
 }

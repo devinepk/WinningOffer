@@ -28,6 +28,6 @@ namespace LightningOffer.Models
         public Person Person { get; set; } // Person FK 
         public Appliance Appliance { get; set; } // Appliance FK
 
-        //public FuelPropane FuelPropane { get; set; } // FuelPropane FK
+        public FuelPropane FuelPropane { get; set; } // FuelPropane FK
     }
 }
