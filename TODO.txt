@@ -26,6 +26,7 @@ DOING:
 	- Pass in contract ID
 	- Update routing
 	- Add business logic
+	- Redirect to next controller
 
 
 One user -> 

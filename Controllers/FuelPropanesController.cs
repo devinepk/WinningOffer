@@ -87,7 +87,7 @@ namespace LightningOffer.Controllers
 
                 _context.Add(newFuelPropane);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index)); // Send to FINANCIAL
+                return RedirectToAction("Create", "Financials", new { Id = contractId }); // Send to FINANCIAL
             }
             return View(fuelPropane);
         }
