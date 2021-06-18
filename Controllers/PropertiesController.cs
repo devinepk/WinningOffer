@@ -31,6 +31,7 @@ namespace LightningOffer.Controllers
 
         [TempData]
         public string StatusMessage { get; set; }
+        
 
         // Returns Appliances View
         public IActionResult Appliance()
@@ -289,7 +290,8 @@ namespace LightningOffer.Controllers
                 _context.Add(newPerson);
 
                 await _context.SaveChangesAsync(); //the changes get saved to the db 
-                return RedirectToAction("Create","Appliances"); //redirect to adding the appliances
+                return RedirectToAction("Create","Appliances", new { id = contractId }); //redirect to adding the appliances
+
             } else
             {
                 return View(); // TODO: messaging that the property is not available

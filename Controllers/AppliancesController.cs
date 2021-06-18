@@ -73,33 +73,36 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(int propane, [Bind("Appliance_id,CreatedDate,Refrigerator,StoveRange,DishWasher,Microwave,ClothesWasher,ClothesDryer,Other")] Appliance appliance)
+        public async Task<IActionResult> Create(int propane, Guid id, [Bind("Appliance_id,CreatedDate,Refrigerator,StoveRange,DishWasher,Microwave,ClothesWasher,ClothesDryer,Other")] Appliance appliance)
         {
+
+            Appliance newAppliance = new();
+            newAppliance.Appliance_id = Guid.NewGuid();
+
 
             // User (userId)
             string userId = new string(_userManager.GetUserId(User));
-            appliance.UserId = userId;
+            newAppliance.UserId = userId;
 
-            
-
-            // Contract id
-            appliance.ContractId = newContract.ContractId;
+            // Contract id == Contract created in the previous properties controller
+            //Contract contract = TempData["ContractId"] as Contract;
+            newAppliance.ContractId = id;
 
             DateTime now = DateTime.Now;
             appliance.CreatedDate = now;
 
             if (propane == 1 && ModelState.IsValid) //redirect to fuelpropane page
             {
-                appliance.Appliance_id = Guid.NewGuid();
-                _context.Add(appliance);
+                
+                _context.Add(newAppliance);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Create", "FuelPropanes");
 
             } else if (propane == 2 && ModelState.IsValid) //skip fuelpropane and go to financial section
 
             {
-                appliance.Appliance_id = Guid.NewGuid();
-                _context.Add(appliance);
+                
+                _context.Add(newAppliance);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Create", "Financials");
             }
