@@ -17,7 +17,7 @@ namespace LightningOffer.Models
         public int Purchase_Price { get; set; }
 
         [Display(Name = "Earnest Money Deposit")]
-        public int EMD { get; set; }
+        public string EMD { get; set; } // will be radio options: $500, $1000, Other
 
         //Payment of purchase price 
         public bool Cash { get; set; } //if selected, prompt for dollar amount or percentage
