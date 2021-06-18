@@ -67,7 +67,7 @@ namespace LightningOffer.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Create", "FuelPropanes");
 
-            } else if (propane == 0 && ModelState.IsValid) //skip fuelpropane and go to financial section
+            } else if (propane == 2 && ModelState.IsValid) //skip fuelpropane and go to financial section
 
             {
                 appliance.Appliance_id = Guid.NewGuid();
