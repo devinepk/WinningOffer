@@ -7,16 +7,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LightningOffer.Data;
 using LightningOffer.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace LightningOffer.Controllers
 {
     public class FuelPropanesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public FuelPropanesController(ApplicationDbContext context)
+        public FuelPropanesController(ApplicationDbContext context,
+                                    UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: FuelPropanes
@@ -54,12 +58,23 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FuelPropane_id,CreatedDate,Propane_Tank_Ownership,Propane_Tank_Status")] FuelPropane fuelPropane)
+        public async Task<IActionResult> Create(Guid Id, [Bind("FuelPropane_id,CreatedDate,Propane_Tank_Ownership,Propane_Tank_Status")] FuelPropane fuelPropane)
         {
             if (ModelState.IsValid)
             {
-                fuelPropane.FuelPropane_id = Guid.NewGuid();
-                _context.Add(fuelPropane);
+                FuelPropane newFuelPropane = new();
+                
+                // User (userId)
+                string userId = new string(_userManager.GetUserId(User));
+                newFuelPropane.UserId = userId;
+
+                newFuelPropane.FuelPropane_id = Guid.NewGuid(); // new Guid
+                // Contract id from properties > appliances
+                Guid contractId = Id;
+
+                newFuelPropane.ContractId = Id;
+
+                _context.Add(newFuelPropane);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

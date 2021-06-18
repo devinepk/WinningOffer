@@ -79,6 +79,7 @@ namespace LightningOffer.Controllers
             Appliance newAppliance = new();
             newAppliance.Appliance_id = Guid.NewGuid();
 
+            Guid contractId = Id; //passed from properties
 
             // User (userId)
             string userId = new string(_userManager.GetUserId(User));
@@ -103,7 +104,7 @@ namespace LightningOffer.Controllers
                 
                 _context.Add(newAppliance);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Create", "FuelPropanes");
+                return RedirectToAction("Create", "FuelPropanes", new { Id = contractId });
 
             } else if (propane == 2 && ModelState.IsValid) //skip fuelpropane and go to financial section
 
@@ -111,7 +112,7 @@ namespace LightningOffer.Controllers
                 
                 _context.Add(newAppliance);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Create", "Financials");
+                return RedirectToAction("Create", "Financials", new { Id = contractId });
             }
 
             return View(appliance);
