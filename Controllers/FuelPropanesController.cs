@@ -58,25 +58,36 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Guid Id, [Bind("FuelPropane_id,CreatedDate,Propane_Tank_Ownership,Propane_Tank_Status")] FuelPropane fuelPropane)
+        public async Task<IActionResult> Create(Guid Id, string Propane_Tank_Ownership, string Propane_Tank_Status, [Bind("FuelPropane_id,CreatedDate,Propane_Tank_Ownership,Propane_Tank_Status")] FuelPropane fuelPropane)
         {
             if (ModelState.IsValid)
             {
+                // new instance
                 FuelPropane newFuelPropane = new();
-                
+
+                // new guid
+                newFuelPropane.FuelPropane_id = Guid.NewGuid();
+
                 // User (userId)
                 string userId = new string(_userManager.GetUserId(User));
                 newFuelPropane.UserId = userId;
 
-                newFuelPropane.FuelPropane_id = Guid.NewGuid(); // new Guid
+                // date
+                newFuelPropane.CreatedDate = DateTime.Now;
+  
                 // Contract id from properties > appliances
                 Guid contractId = Id;
-
                 newFuelPropane.ContractId = Id;
+
+                // tank ownership
+                newFuelPropane.Propane_Tank_Ownership = Propane_Tank_Ownership;
+
+                // tank status 
+                newFuelPropane.Propane_Tank_Status = Propane_Tank_Status;
 
                 _context.Add(newFuelPropane);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index)); // Send to FINANCIAL
             }
             return View(fuelPropane);
         }

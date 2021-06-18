@@ -14,10 +14,10 @@ namespace LightningOffer.Models
         public DateTime CreatedDate { get; set; }
 
         [Display(Name = "Is the propane tank owned or leased?")]
-        public int Propane_Tank_Ownership { get; set; } // 1 = owned, 2 = leased
+        public string Propane_Tank_Ownership { get; set; } // owned, leased
 
         [Display(Name = "Is the propane tank staying with the property?")]
-        public int Propane_Tank_Status { get; set; } // 1 = Yes it stays, 2 = No it goes
+        public string Propane_Tank_Status { get; set; } // stays, goes
 
         public IdentityUser User { get; set; }
         public string UserId { get; set; }
