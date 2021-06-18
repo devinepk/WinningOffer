@@ -36,5 +36,8 @@ namespace LightningOffer.Models
         public int ClothesDryer { get; set; }
 
         public string Other { get; set; }
+
+        public Contract Contract { get; set; }
+        public Guid ContractId { get; set; }
     }
 }

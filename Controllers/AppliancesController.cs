@@ -80,6 +80,11 @@ namespace LightningOffer.Controllers
             string userId = new string(_userManager.GetUserId(User));
             appliance.UserId = userId;
 
+            
+
+            // Contract id
+            appliance.ContractId = newContract.ContractId;
+
             DateTime now = DateTime.Now;
             appliance.CreatedDate = now;
 

@@ -24,7 +24,9 @@ namespace LightningOffer.Models
 
         // Add FK reference from AspNetUserTable
 
-        public Property Property { get; set; }
-        public Person Person { get; set; }
+        public Property Property { get; set; } // Property FK
+        public Person Person { get; set; } // Person FK 
+
+        public Appliance Appliance { get; set; } // Appliance FK
     }
 }
