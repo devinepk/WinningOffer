@@ -290,7 +290,7 @@ namespace LightningOffer.Controllers
                 _context.Add(newPerson);
 
                 await _context.SaveChangesAsync(); //the changes get saved to the db 
-                return RedirectToAction("Create","Appliances", new { id = contractId }); //redirect to adding the appliances
+                return RedirectToAction("Create","Appliances", new { Id = contractId }); //redirect to adding the appliances
 
             } else
             {

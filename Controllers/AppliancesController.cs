@@ -73,7 +73,7 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(int propane, Guid id, [Bind("Appliance_id,CreatedDate,Refrigerator,StoveRange,DishWasher,Microwave,ClothesWasher,ClothesDryer,Other")] Appliance appliance)
+        public async Task<IActionResult> Create(int propane, int Refrigerator, int StoveRange, int Dishwasher, int Microwave, int ClothesWasher, int ClothesDryer, string Other, Guid Id, [Bind("Appliance_id,CreatedDate,Refrigerator,StoveRange,DishWasher,Microwave,ClothesWasher,ClothesDryer,Other")] Appliance appliance)
         {
 
             Appliance newAppliance = new();
@@ -85,11 +85,18 @@ namespace LightningOffer.Controllers
             newAppliance.UserId = userId;
 
             // Contract id == Contract created in the previous properties controller
-            //Contract contract = TempData["ContractId"] as Contract;
-            newAppliance.ContractId = id;
+            newAppliance.ContractId = Id;
 
             DateTime now = DateTime.Now;
-            appliance.CreatedDate = now;
+            newAppliance.CreatedDate = now;
+
+            newAppliance.Refrigerator = Refrigerator;
+            newAppliance.StoveRange = StoveRange;
+            newAppliance.DishWasher = Dishwasher;
+            newAppliance.Microwave = Microwave;
+            newAppliance.ClothesWasher = ClothesWasher;
+            newAppliance.ClothesDryer = ClothesDryer;
+            newAppliance.Other = Other;
 
             if (propane == 1 && ModelState.IsValid) //redirect to fuelpropane page
             {
