@@ -7,22 +7,41 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LightningOffer.Data;
 using LightningOffer.Models;
+using Microsoft.Extensions.Configuration;
+using RestSharp;
+using System.IO;
+using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Identity;
 
 namespace LightningOffer.Controllers
 {
     public class AppliancesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public AppliancesController(ApplicationDbContext context)
+        public AppliancesController(ApplicationDbContext context,
+                                    UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Appliances
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Appliance.ToListAsync());
+            if (User.Identity.IsAuthenticated) // Only show items in the db associated with this user.
+            {
+                return View(await _context.Property
+                .Where(x => x.User.Id == _userManager.GetUserId(User))
+                .ToListAsync());
+
+            }
+            else
+            {
+                return Challenge();
+            }
         }
 
         // GET: Appliances/Details/5
@@ -56,6 +75,10 @@ namespace LightningOffer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(int propane, [Bind("Appliance_id,CreatedDate,Refrigerator,StoveRange,DishWasher,Microwave,ClothesWasher,ClothesDryer,Other")] Appliance appliance)
         {
+
+            // User (userId)
+            string userId = new string(_userManager.GetUserId(User));
+            appliance.UserId = userId;
 
             DateTime now = DateTime.Now;
             appliance.CreatedDate = now;

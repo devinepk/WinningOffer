@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,6 +11,9 @@ namespace LightningOffer.Models
     {
         [Key]
         public Guid Appliance_id { get; set; }
+
+        public IdentityUser User { get; set; }
+        public string UserId { get; set; }
 
         [Display(Name = "Created Date")]
         public DateTime CreatedDate { get; set; }
