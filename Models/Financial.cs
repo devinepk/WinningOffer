@@ -13,7 +13,8 @@ namespace LightningOffer.Models
         public Guid Financial_id { get; set; }
         public DateTime CreatedDate { get; set; }
         [Display(Name = "Purchase Price")]
-        public float Purchase_Price { get; set; }
+        
+        public int Purchase_Price { get; set; }
 
         [Display(Name = "Earnest Money Deposit")]
         public int EMD { get; set; }
