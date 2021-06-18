@@ -18,7 +18,9 @@
 	- Delete the contract (and the associated sections)
 
 DOING:
- fuelpropane workflow
+ appliance > financial
+ appliance > fuelpropane
+
 
 One user -> 
 	many contracts (nothing else)
@@ -40,3 +42,4 @@ One contract (cascading relationship)->
 DONE:
 - Authorization: Define the relationships by tying the data to the user
 - Email authentication/provider
+- fuelpropane workflow

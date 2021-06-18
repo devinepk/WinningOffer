@@ -26,7 +26,8 @@ namespace LightningOffer.Models
 
         public Property Property { get; set; } // Property FK
         public Person Person { get; set; } // Person FK 
-
         public Appliance Appliance { get; set; } // Appliance FK
+
+        //public FuelPropane FuelPropane { get; set; } // FuelPropane FK
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-
+using Microsoft.AspNetCore.Identity;
 
 namespace LightningOffer.Models
 {
@@ -18,6 +18,8 @@ namespace LightningOffer.Models
 
         [Display(Name = "Is the propane tank staying with the property?")]
         public bool Propane_Tank_Status { get; set; } //true = stays, false = goes
+        public IdentityUser User { get; set; }
+        public string UserId { get; set; }
 
     }
 }
