@@ -18,8 +18,8 @@
 	- Delete the contract (and the associated sections)
 
 DOING:
- appliance > financial
- appliance > fuelpropane
+ appliance > financial: run through the workflow on paper.
+
 	- Add userID FK
 	- Add contractID FK
 	- Update View Description
@@ -50,3 +50,4 @@ DONE:
 - Authorization: Define the relationships by tying the data to the user
 - Email authentication/provider
 - fuelpropane workflow
+	- appliance > fuelpropane
