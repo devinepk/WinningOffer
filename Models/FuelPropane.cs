@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace LightningOffer.Models
 {
-    public class FuelPropane //1 = stays, 2 = goes, 3 = n/a, 4 = owned, 5 = leased
+    public class FuelPropane 
     {
         [Key]
         public Guid FuelPropane_id { get; set; }

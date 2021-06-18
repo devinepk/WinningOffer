@@ -20,6 +20,12 @@
 DOING:
  appliance > financial
  appliance > fuelpropane
+	- Add userID FK
+	- Add contractID FK
+	- Update View Description
+	- Pass in contract ID
+	- Update routing
+	- Add business logic
 
 
 One user -> 

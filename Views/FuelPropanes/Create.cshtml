@@ -12,10 +12,13 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Propane_Tank_Ownership" /> @Html.DisplayNameFor(model => model.Propane_Tank_Ownership)
-                </label>
+            <div class="form-group">
+                <h5>@Html.DisplayNameFor(model => model.Propane_Tank_Ownership)</h5>
+                <div form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Propane_Tank_Ownership" /> @Html.DisplayNameFor(model => model.Propane_Tank_Ownership)
+                    </label>
+                </div>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
@@ -23,7 +26,7 @@
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Next" class="btn btn-primary" />
             </div>
         </form>
     </div>
