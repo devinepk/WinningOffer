@@ -18,6 +18,7 @@
 	- Delete the contract (and the associated sections)
 
 DOING:
+ User is signed in after confirming account via email.
  appliance > financial: run through the workflow on paper.
 
 	- Add userID FK

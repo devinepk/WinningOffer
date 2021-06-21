@@ -40,7 +40,15 @@ namespace LightningOffer.Areas.Identity.Pages.Account
             code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));
             var result = await _userManager.ConfirmEmailAsync(user, code);
             StatusMessage = result.Succeeded ? "Thank you for confirming your email." : "Error confirming your email.";
-            return Page();
+            /*
+            if (_userManager.IsEmailConfirmedAsync(user) === true)
+            {
+            (user, false, false);
+            var url = Url.Action("Profile", "User");
+            return RedirectToLocal(url);  https://stackoverflow.com/questions/31018949/how-to-perform-an-automatic-login-after-confirming-the-account-with-asp-net-iden
+            }
+            */
+            return Page(); //This is the redirect after confirming their email?
         }
     }
 }
