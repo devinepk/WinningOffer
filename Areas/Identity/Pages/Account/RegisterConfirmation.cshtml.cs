@@ -14,11 +14,13 @@ namespace LightningOffer.Areas.Identity.Pages.Account
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IEmailSender _sender;
+        private readonly string _password;
 
         public RegisterConfirmationModel(UserManager<IdentityUser> userManager, IEmailSender sender)
         {
             _userManager = userManager;
             _sender = sender;
+           
         }
 
         public string Email { get; set; }
@@ -27,7 +29,7 @@ namespace LightningOffer.Areas.Identity.Pages.Account
 
         public string EmailConfirmationUrl { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string email, string returnUrl = null)
+        public async Task<IActionResult> OnGetAsync(string email, string returnUrl = null) //pass in password
         {
             if (email == null)
             {
@@ -41,6 +43,7 @@ namespace LightningOffer.Areas.Identity.Pages.Account
             }
 
             Email = email;
+            
 
             return Page();
         }
