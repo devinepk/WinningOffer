@@ -29,29 +29,35 @@ namespace LightningOffer.Areas.Identity.Pages.Account
         [TempData]
         public string StatusMessage { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string userId, string code, string password)
+        public async Task<IActionResult> OnGetAsync(string userId, string code)
         {
+            //find userid
+            var user = await _userManager.FindByIdAsync(userId);
+            code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));
+            var result = await _userManager.ConfirmEmailAsync(user, code); // confirm the user clicked the correct link with the encoded string
+
+            StatusMessage = result.Succeeded ? "Thank you for confirming your email." : "Error confirming your email.";
+
             if (userId == null || code == null)
             {
                 return RedirectToPage("/Index");
             }
 
-            var user = await _userManager.FindByIdAsync(userId);
+            
             if (user == null)
             {
                 return NotFound($"Unable to load user with ID '{userId}'.");
             }
            
-          
-            code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));
-            var result = await _userManager.ConfirmEmailAsync(user, code); // confirm the user clicked the correct link with the encoded string
-            
-            // ^^ this keeps failing 
-            StatusMessage = result.Succeeded ? "Thank you for confirming your email." : "Error confirming your email.";
+       
+         
             if (result.Succeeded)
             {
+                await _signInManager.SignInAsync(user, false, null);
+
+                return RedirectToAction("Create", "Properties");
              
-                 return Page();
+                 //return Page();
             }
             
             //  https://stackoverflow.com/questions/31018949/how-to-perform-an-automatic-login-after-confirming-the-account-with-asp-net-iden
