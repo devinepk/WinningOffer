@@ -12,8 +12,9 @@ namespace LightningOffer.Models
         [Key]
         public Guid Financial_id { get; set; }
         public DateTime CreatedDate { get; set; }
-        [Display(Name = "Purchase Price")]
         
+        [Display(Name = "Purchase Price")]
+        [DisplayFormat(DataFormatString = "{0:N0}", ApplyFormatInEditMode = true)]
         public int Purchase_Price { get; set; }
 
         [Display(Name = "Earnest Money Deposit")]
