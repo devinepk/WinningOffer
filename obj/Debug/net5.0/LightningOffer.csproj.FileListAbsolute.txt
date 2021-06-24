@@ -239,7 +239,6 @@ C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightnin
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\LightningOffer.AssemblyInfoInputs.cache
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\LightningOffer.AssemblyInfo.cs
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\LightningOffer.csproj.CoreCompileInputs.cache
-C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\LightningOffer.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\LightningOffer.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\LightningOffer.RazorAssemblyInfo.cache
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\LightningOffer.RazorAssemblyInfo.cs
