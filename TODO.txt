@@ -17,8 +17,8 @@
 	- Edit each element for that specific contract
 	- Delete the contract (and the associated sections)
 
+- Component framework: https://www.syncfusion.com/aspnet-mvc-ui-controls
 DOING:
- User is signed in after confirming account via email.
  appliance > financial: run through the workflow on paper.
 
 	- Add userID FK
@@ -52,3 +52,4 @@ DONE:
 - Email authentication/provider
 - fuelpropane workflow
 	- appliance > fuelpropane
+- User is signed in after confirming account via email.

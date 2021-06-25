@@ -332,3 +332,6 @@ C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightnin
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\ref\LightningOffer.dll
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\LightningOffer.pdb
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\LightningOffer.genruntimeconfig.cache
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\LightningOffer.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\bin\Debug\net5.0\Syncfusion.EJ2.dll
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\bin\Debug\net5.0\Syncfusion.Licensing.dll

@@ -1900,6 +1900,32 @@
           "lib/netstandard2.1/StarkbankEcdsa.dll": {}
         }
       },
+      "Syncfusion.EJ2.JavaScript/19.1.0.69": {
+        "type": "package"
+      },
+      "Syncfusion.EJ2.MVC5/19.1.0.69": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "(9.0.0, )",
+          "Syncfusion.EJ2.JavaScript": "19.1.0.69",
+          "Syncfusion.Licensing": "19.1.0.69"
+        },
+        "compile": {
+          "lib/net45/Syncfusion.EJ2.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Syncfusion.EJ2.dll": {}
+        }
+      },
+      "Syncfusion.Licensing/19.1.0.69": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Syncfusion.Licensing.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Syncfusion.Licensing.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -6273,6 +6299,74 @@
         "lib/netstandard2.1/StarkbankEcdsa.dll",
         "starkbank-ecdsa.1.3.1.nupkg.sha512",
         "starkbank-ecdsa.nuspec"
+      ]
+    },
+    "Syncfusion.EJ2.JavaScript/19.1.0.69": {
+      "sha512": "MI645qAR8bP6pIOpcI1EoRMLaCVi7uG1B317B+CK8+btYp1DcTAN9sn/hOv75x2NazXfahVIuRKMPs9EzioMNw==",
+      "type": "package",
+      "path": "syncfusion.ej2.javascript/19.1.0.69",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/Content/ej2/bootstrap-dark.css",
+        "content/Content/ej2/bootstrap.css",
+        "content/Content/ej2/bootstrap4.css",
+        "content/Content/ej2/compatibility/bootstrap.css",
+        "content/Content/ej2/compatibility/bootstrap4.css",
+        "content/Content/ej2/compatibility/fabric.css",
+        "content/Content/ej2/compatibility/highcontrast.css",
+        "content/Content/ej2/compatibility/material.css",
+        "content/Content/ej2/fabric-dark.css",
+        "content/Content/ej2/fabric.css",
+        "content/Content/ej2/highcontrast.css",
+        "content/Content/ej2/material-dark.css",
+        "content/Content/ej2/material.css",
+        "content/Scripts/ej2/ej2.d.ts",
+        "content/Scripts/ej2/ej2.min.js",
+        "syncfusion.ej2.javascript.19.1.0.69.nupkg.sha512",
+        "syncfusion.ej2.javascript.nuspec"
+      ]
+    },
+    "Syncfusion.EJ2.MVC5/19.1.0.69": {
+      "sha512": "d9oQ3preo1rc64ZoaEfySflpTeVx8U8g1Rm5kTPU6RWgpxNWv8/A+HTLPsNfOqd1qIoez+8vnDwymTSRONR4Jg==",
+      "type": "package",
+      "path": "syncfusion.ej2.mvc5/19.1.0.69",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Syncfusion.EJ2.XML",
+        "lib/net45/Syncfusion.EJ2.dll",
+        "syncfusion.ej2.mvc5.19.1.0.69.nupkg.sha512",
+        "syncfusion.ej2.mvc5.nuspec"
+      ]
+    },
+    "Syncfusion.Licensing/19.1.0.69": {
+      "sha512": "XbTWCcu7VkjbhIOFoAdheUTVyU6IruXlzmmBuCSKyUqVzMRxXKDadPD4hm8ObPBG9AwNcrG2B5ntL/xJAkNXWw==",
+      "type": "package",
+      "path": "syncfusion.licensing/19.1.0.69",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10.0/Syncfusion.Licensing.dll",
+        "lib/MonoAndroid90/Syncfusion.Licensing.dll",
+        "lib/Xamarin.Mac/Syncfusion.Licensing.dll",
+        "lib/Xamarin.iOS10/Syncfusion.Licensing.dll",
+        "lib/net20/Syncfusion.Licensing.dll",
+        "lib/net35/Syncfusion.Licensing.dll",
+        "lib/net40/Syncfusion.Licensing.dll",
+        "lib/net45/Syncfusion.Licensing.dll",
+        "lib/net451/Syncfusion.Licensing.dll",
+        "lib/net46/Syncfusion.Licensing.dll",
+        "lib/net5.0/Syncfusion.Licensing.dll",
+        "lib/netcoreapp3.1/Syncfusion.Licensing.dll",
+        "lib/netstandard1.0/Syncfusion.Licensing.dll",
+        "lib/netstandard1.2/Syncfusion.Licensing.dll",
+        "lib/netstandard1.4/Syncfusion.Licensing.dll",
+        "lib/netstandard2.0/Syncfusion.Licensing.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Licensing.dll",
+        "lib/uap10.0/Syncfusion.Licensing.dll",
+        "syncfusion.licensing.19.1.0.69.nupkg.sha512",
+        "syncfusion.licensing.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -10708,6 +10802,7 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2",
       "RestSharp >= 106.11.7",
       "SendGrid >= 9.23.2",
+      "Syncfusion.EJ2.MVC5 >= 19.1.0.69",
       "TestProject1 >= 1.0.0",
       "selenium.webdriver >= 3.141.0"
     ]
@@ -10817,6 +10912,10 @@
             "target": "Package",
             "version": "[9.23.2, )"
           },
+          "Syncfusion.EJ2.MVC5": {
+            "target": "Package",
+            "version": "[19.1.0.69, )"
+          },
           "selenium.webdriver": {
             "target": "Package",
             "version": "[3.141.0, )"
@@ -10845,6 +10944,16 @@
     }
   },
   "logs": [
+    {
+      "code": "NU1602",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Syncfusion.EJ2.MVC5 19.1.0.69 does not provide an inclusive lower bound for dependency Newtonsoft.Json (> 9.0.0). An approximate best match of Newtonsoft.Json 9.0.1 was resolved.",
+      "libraryId": "Newtonsoft.Json",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",
@@ -10911,6 +11020,16 @@
       "warningLevel": 1,
       "message": "Package 'Owin 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
       "libraryId": "Owin",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Syncfusion.EJ2.MVC5 19.1.0.69' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Syncfusion.EJ2.MVC5",
       "targetGraphs": [
         "net5.0"
       ]
