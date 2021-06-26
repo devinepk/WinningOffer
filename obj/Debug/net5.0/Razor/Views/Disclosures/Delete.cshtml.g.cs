@@ -27,7 +27,7 @@ using LightningOffer.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9dd5dd2e448ac95b56c85c793b114ccd70cd4aba", @"/Views/Disclosures/Delete.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8321591c78ce39b277b3ced2f772359fa96f79ff", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f454f891c37cf77e9fa29326d93e59f40b4a6f37", @"/Views/_ViewImports.cshtml")]
     public class Views_Disclosures_Delete : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<LightningOffer.Models.Disclosure>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("type", "hidden", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

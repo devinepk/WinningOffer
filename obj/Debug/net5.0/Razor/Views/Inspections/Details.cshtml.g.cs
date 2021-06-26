@@ -27,7 +27,7 @@ using LightningOffer.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c7d90f7b34c6e717ea7745b8b8caca5bf30d531b", @"/Views/Inspections/Details.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8321591c78ce39b277b3ced2f772359fa96f79ff", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f454f891c37cf77e9fa29326d93e59f40b4a6f37", @"/Views/_ViewImports.cshtml")]
     public class Views_Inspections_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<LightningOffer.Models.Inspection>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Edit", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

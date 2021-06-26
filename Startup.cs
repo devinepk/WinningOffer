@@ -52,7 +52,6 @@ namespace LightningOffer
                     .Build();
             });
 
-
             // Adds the API configuration
             services.AddOptions();
 
@@ -72,6 +71,7 @@ namespace LightningOffer
             // using WebPWrecover.Services;
             services.AddTransient<IEmailSender, EmailSender>();
             services.Configure<AuthMessageSenderOptions>(Configuration);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

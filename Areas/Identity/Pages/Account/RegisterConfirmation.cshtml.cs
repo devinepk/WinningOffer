@@ -14,7 +14,7 @@ namespace LightningOffer.Areas.Identity.Pages.Account
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IEmailSender _sender;
-        private readonly string _password;
+        
 
         public RegisterConfirmationModel(UserManager<IdentityUser> userManager, IEmailSender sender)
         {
@@ -29,7 +29,7 @@ namespace LightningOffer.Areas.Identity.Pages.Account
 
         public string EmailConfirmationUrl { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string email, string returnUrl = null) //pass in password
+        public async Task<IActionResult> OnGetAsync(string email, string returnUrl = null) 
         {
             if (email == null)
             {
