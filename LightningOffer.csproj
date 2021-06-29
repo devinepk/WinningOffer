@@ -20,10 +20,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\lib\materialize\css\materialize.css" />
+    <Content Remove="wwwroot\lib\materialize\css\materialize.min.css" />
+    <Content Remove="wwwroot\lib\materialize\js\materialize.js" />
+    <Content Remove="wwwroot\lib\materialize\js\materialize.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\css\materialize.css" />
     <None Include="wwwroot\css\materialize.min.css" />
     <None Include="wwwroot\js\materialize.js" />
     <None Include="wwwroot\js\materialize.min.js" />
+    <None Include="wwwroot\lib\materialize\css\materialize.css" />
+    <None Include="wwwroot\lib\materialize\css\materialize.min.css" />
+    <None Include="wwwroot\lib\materialize\js\materialize.js" />
+    <None Include="wwwroot\lib\materialize\js\materialize.min.js" />
     <None Include="wwwroot\lib\materialize\LICENSE" />
     <None Include="wwwroot\lib\materialize\README.md" />
   </ItemGroup>
