@@ -53,7 +53,7 @@
             },
             "Microsoft.AspNetCore.Authentication.Google": {
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[5.0.7, )"
             },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
