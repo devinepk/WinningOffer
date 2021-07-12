@@ -93,10 +93,18 @@ namespace LightningOffer.Areas.Identity.Pages.Account
             {
                 return RedirectToPage("./Lockout");
             }
+            if (info != null) // If the user does not have an account, automatically create an acount for them and sign them in.
+            {
+                var userInfo = await _signInManager.GetExternalLoginInfoAsync(); //get the external login info (??)
+                var user = new IdentityUser { } // assign the values to the model
+
+                var result = await _userManager.CreateAsync(user); //see block of code, line 126.
+
+
+            }
             else
             {
-                // If the user does not have an account, automatically create an acount for them
-                ReturnUrl = returnUrl;
+                                ReturnUrl = returnUrl;
                 ProviderDisplayName = info.ProviderDisplayName;
                 if (info.Principal.HasClaim(c => c.Type == ClaimTypes.Email))
                 {
@@ -105,6 +113,8 @@ namespace LightningOffer.Areas.Identity.Pages.Account
                         Email = info.Principal.FindFirstValue(ClaimTypes.Email)
                     };
                 }
+                //save the email
+                //start the user signed in and redirect to offer page (see local user setup for this)
                 return Page();
             }
         }
