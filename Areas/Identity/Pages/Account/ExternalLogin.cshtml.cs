@@ -93,18 +93,36 @@ namespace LightningOffer.Areas.Identity.Pages.Account
             {
                 return RedirectToPage("./Lockout");
             }
-            if (info != null) // If the user does not have an account, automatically create an acount for them and sign them in.
+            if (info != null) // TODO: Google login.  If the user does not have an account, automatically create an acount for them and sign them in.
             {
                 var userInfo = await _signInManager.GetExternalLoginInfoAsync(); //get the external login info (??)
-                var user = new IdentityUser { } // assign the values to the model
+                string ExternaluserName = info.Principal.Identity.Name;
+                var ExternalUserEmail = info.Principal.Claims;
+                string placeholder = "test";
+                
+                
+                var user = new IdentityUser { UserName = ExternaluserName, Email = placeholder }; // assign the values to the model
 
-                var result = await _userManager.CreateAsync(user); //see block of code, line 126.
+               
+                
+                var createUserResult = await _userManager.CreateAsync(user); //see block of code, line 126.
+                if (createUserResult.Succeeded)
+                {
+                    createUserResult = await _userManager.AddLoginAsync(user, info);
+                    if (createUserResult.Succeeded)
+                    {
+                        _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
 
+                        await _signInManager.SignInAsync(user, isPersistent: false, info.LoginProvider);
+
+                        return LocalRedirect(returnUrl);
+                    }
+                }
 
             }
             else
             {
-                                ReturnUrl = returnUrl;
+                ReturnUrl = returnUrl;
                 ProviderDisplayName = info.ProviderDisplayName;
                 if (info.Principal.HasClaim(c => c.Type == ClaimTypes.Email))
                 {
@@ -117,6 +135,7 @@ namespace LightningOffer.Areas.Identity.Pages.Account
                 //start the user signed in and redirect to offer page (see local user setup for this)
                 return Page();
             }
+            return Page();
         }
 
         public async Task<IActionResult> OnPostConfirmationAsync(string returnUrl = null)
