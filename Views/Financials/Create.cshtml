@@ -47,7 +47,7 @@
             </div>
             <div class="form-group">
                 <h5>Where is the earnest money deposit being held?</h5>
-                <div class="form-check" id="EMD_Holding">                    
+                <div class="form-check" id="EMD_Holding">
                     <label class="form-check-label control-label" for="EMD_Holding">
                         <input class="form-check-input" type="radio" name="EMD_Holding" value="ListingBroker" id="EMD_Holding" asp-for="EMD_With_ListingBroker" /> @Html.DisplayNameFor(model => model.EMD_With_ListingBroker)
                     </label>
@@ -57,7 +57,7 @@
                         <input class="form-check-input" type="radio" name="EMD_Holding" value="SellingBroker" id="EMD_Holding" asp-for="EMD_With_SellingBroker" /> @Html.DisplayNameFor(model => model.EMD_With_SellingBroker)
                     </label>
                 </div>
-            </div>  
+            </div>
             <div class="form-group">
                 <h5>Where is the down payment coming from?</h5>
                 <div class="form-check" id="DownPaymentSource">
@@ -78,6 +78,24 @@
                 <div class="form-check control-label">
                     <label class="form-check-label control-label" for="DownPaymentSource">
                         <input class="form-check-input" type="radio" name="DownPaymentSource" value="Other" asp-for="DownPaymentSource" />Other
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <h5>How much is the down payment?</h5>
+                <div class="form-group" id="DownPaymentAmount">
+                    <input type="number" asp-for="DownPaymentAmount" class="form-control" />
+                    <span asp-validation-for="DownPaymentAmount" class="text-danger"></span>
+                </div>
+                <p>Is that in <strong>dollars</strong> or a <strong>percentage</strong> of the purchase price?</p>
+                <div class="form-check control-label">
+                    <label class="form-check-label control-label" for="DownPaymentAmount">
+                        <input class="form-check-input" type="radio" name="DownPaymentAmount" value="$" />$ (Dollars)
+                    </label>
+                </div>
+                <div class="form-check control-label">
+                    <label class="form-check-label control-label" for="DownPaymentAmount">
+                        <input class="form-check-input" type="radio" name="DownPaymentAmount" value="%" />% (Percentage of Purchase Price)
                     </label>
                 </div>
             </div>
@@ -124,7 +142,7 @@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
-          
+
 
         </form>
     </div>

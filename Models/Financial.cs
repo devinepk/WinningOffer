@@ -21,7 +21,7 @@ namespace LightningOffer.Models
         public string EMD { get; set; } // will be radio options: $500, $1000, Other
 
         //Payment of purchase price 
-        public string DownPaymentSource { get; set; } //if any of these are selected, prompt for dollar amount or percentage
+        public string DownPaymentSource { get; set; } 
 
         public string DownPaymentAmount { get; set; }
 
