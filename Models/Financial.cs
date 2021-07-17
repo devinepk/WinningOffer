@@ -28,7 +28,7 @@ namespace LightningOffer.Models
 
         public bool Gift { get; set; }
 
-        [Display(Name = "Other Financing")]
+        [Display(Name = "Financing")]
         public bool Other_Financing { get; set; }
 
         //Financing remaining section
