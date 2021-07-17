@@ -21,15 +21,9 @@ namespace LightningOffer.Models
         public string EMD { get; set; } // will be radio options: $500, $1000, Other
 
         //Payment of purchase price 
-        public bool Cash { get; set; } //if selected, prompt for dollar amount or percentage
+        public string DownPaymentSource { get; set; } //if any of these are selected, prompt for dollar amount or percentage
 
-        [Display(Name = "Equity Line")]
-        public bool LineOfEquity { get; set; }
-
-        public bool Gift { get; set; }
-
-        [Display(Name = "Financing")]
-        public bool Other_Financing { get; set; }
+        public string DownPaymentAmount { get; set; }
 
         //Financing remaining section
         public bool Conventional { get; set; }

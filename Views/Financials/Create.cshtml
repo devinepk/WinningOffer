@@ -52,33 +52,34 @@
                         <input class="form-check-input" type="radio" name="EMD_Holding" value="ListingBroker" id="EMD_Holding" asp-for="EMD_With_ListingBroker" /> @Html.DisplayNameFor(model => model.EMD_With_ListingBroker)
                     </label>
                 </div>
-                <div class="form-check">
-                    <label class="form-check-label" for="EMD_Holding">
+                <div class="form-check control-label">
+                    <label class="form-check-label control-label" for="EMD_Holding">
                         <input class="form-check-input" type="radio" name="EMD_Holding" value="SellingBroker" id="EMD_Holding" asp-for="EMD_With_SellingBroker" /> @Html.DisplayNameFor(model => model.EMD_With_SellingBroker)
                     </label>
                 </div>
-            </div>
-              
-            <h5>Where is the down payment coming from?</h5>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Cash" /> @Html.DisplayNameFor(model => model.Cash)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="LineOfEquity" /> @Html.DisplayNameFor(model => model.LineOfEquity)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Gift" /> @Html.DisplayNameFor(model => model.Gift)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Other_Financing" /> @Html.DisplayNameFor(model => model.Other_Financing)
-                </label>
+            </div>  
+            <div class="form-group">
+                <h5>Where is the down payment coming from?</h5>
+                <div class="form-check" id="DownPaymentSource">
+                    <label class="form-check-label control-label" for="DownPaymentSource">
+                        <input class="form-check-input" type="radio" name="DownPaymentSource" value="Cash" asp-for="DownPaymentSource" />Cash
+                    </label>
+                </div>
+                <div class="form-check control-label">
+                    <label class="form-check-label control-label" for="DownPaymentSource">
+                        <input class="form-check-input" type="radio" name="DownPaymentSource" value="Equity_Line" asp-for="DownPaymentSource" />Equity Line
+                    </label>
+                </div>
+                <div class="form-check control-label">
+                    <label class="form-check-label control-label" for="DownPaymentSource">
+                        <input class="form-check-input" type="radio" name="DownPaymentSource" value="Gift" asp-for="DownPaymentSource" />Gift
+                    </label>
+                </div>
+                <div class="form-check control-label">
+                    <label class="form-check-label control-label" for="DownPaymentSource">
+                        <input class="form-check-input" type="radio" name="DownPaymentSource" value="Other" asp-for="DownPaymentSource" />Other
+                    </label>
+                </div>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
