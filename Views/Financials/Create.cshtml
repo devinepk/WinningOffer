@@ -15,7 +15,7 @@
             <h5>What's the purchase price?</h5>
             <div class="form-group">
                 <!--<label asp-for="Purchase_Price" class="control-label"></label>-->
-                <input asp-for="Purchase_Price" class="form-control" />
+                <input asp-for="Purchase_Price" class="form-control" placeholder="$230,000"/>
                 <span asp-validation-for="Purchase_Price" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -97,7 +97,7 @@
             <div class="form-group">
                 <h5>How much is the down payment?</h5>
                 <div class="form-group" id="DownPaymentAmount">
-                    <input type="number" asp-for="DownPaymentAmount" class="form-control" />
+                    <input type="number" asp-for="DownPaymentAmount" class="form-control" placeholder="4500"/>
                     <span asp-validation-for="DownPaymentAmount" class="text-danger"></span>
                 </div>
             </div>
