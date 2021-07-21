@@ -26,10 +26,10 @@ namespace LightningOffer.Models
         public string DownPaymentAmount { get; set; }
 
         // Financing remaining section -- conventional, FHA, VA, ARM, Other
-        public string LoanType { get; set; } // Conventional, FHA, VA, Other
+        public string LoanType { get; set; } // Conventional, FHA, VA, TODO: Other
 
         [Display(Name = "Rate Type")]
-        public string Rate_Type { get; set; } // Adjustable or fixed
+        public string Rate_Type { get; set; } // Adjustable or fixed.  If Adjustable, show ARM Limits
 
         [Display(Name = "Loan Length (years)")] 
         public int Loan_Length { get; set; } // 15 or 30
