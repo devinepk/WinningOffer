@@ -17,23 +17,20 @@
     };
 
     function ShowHideDollar() {
-        console.log("Hide the dollar div");
+        console.log("Toggle dollar div");
 
         var dollarRadioButton = document.getElementById("CashDP");
         var percentRadioButton = document.getElementById("PercentDP");
-        var armLimitRadioButton = document.getElementById("ARMLimits");
 
         // if the dollar sign is selected, show the dollar div. If the 
         if (dollarRadioButton.style.display == "none") {
             dollarRadioButton.style.display = "block"; // show dollar div
             percentRadioButton.style.display = "none"; // hide dolalr div
-        } else {
-           // dollarRadioButton.style.display = "none"; // otherwise just hide it
         };             
     };
 
     function ShowHidePercent() {
-        console.log("Hide the percent div");
+        console.log("Toggle percent div");
 
         var percentRadioButton = document.getElementById("PercentDP");
         var dollarRadioButton = document.getElementById("CashDP");
@@ -41,8 +38,17 @@
         if (percentRadioButton.style.display == "none") {
             percentRadioButton.style.display = "block"; // show percent div
             dollarRadioButton.style.display = "none"; // hide dollar div
+        };
+    };
+
+    function ShowARMLimits() {
+        console.log("Toggle ARM")
+
+        var armLimitRadioButton = document.getElementById("ARMLimits");
+        if (armLimitRadioButton.style.display == "none") {
+            armLimitRadioButton.style.display = "block";
         } else {
-           // percentRadioButton.style.display = "none"; // otherwise just hide it
+            armLimitRadioButton.style.display = "none";
         };
     };
 
@@ -175,11 +181,16 @@
                     </label>
                 </div>
                 <div class="form-check">
-                    <input asp-for="LoanType" class="form-check-input" type="radio" name="LoanType" value="ARM" id="LoanType" />
-                    <label asp-for="LoanType" class="form-check-label control-label" for="LoanType" onclick="ShowHide()">
-                         ARM
+                    <input asp-for="LoanType" class="form-check-input" type="radio" name="LoanType" onclick="ShowARMLimits()" value="ARM" id="LoanType" />
+                    <label asp-for="LoanType" class="form-check-label control-label" for="LoanType">
+                        ARM
                     </label>
                 </div>
+            </div>
+            <div class="form-group" onload="hideDiv()" id="ARMLimits" style="display: none">
+                <label asp-for="ARM_Limits" class="control-label"></label>
+                <input asp-for="ARM_Limits" class="form-control" />
+                <span asp-validation-for="ARM_Limits" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
@@ -195,11 +206,6 @@
                 <label asp-for="Interest_Rate" class="control-label"></label>
                 <input asp-for="Interest_Rate" class="form-control" />
                 <span asp-validation-for="Interest_Rate" class="text-danger"></span>
-            </div>
-            <div class="form-group" onload="hideDiv()" id="ARMLimits" style="display: none">
-                <label asp-for="ARM_Limits" class="control-label"></label>
-                <input asp-for="ARM_Limits" class="form-control" />
-                <span asp-validation-for="ARM_Limits" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Buyer_Loan_Application_Start" class="control-label"></label>
