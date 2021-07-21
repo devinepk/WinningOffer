@@ -3,7 +3,27 @@
 
 @{
     ViewData["Title"] = "Create";
+
 }
+
+<script>
+    // hides the downpayment questions when the page loads
+    function hideDiv() {
+        window.onload = function () {
+            document.getElementById("CashDP").style.display = 'none';
+            document.getElementById("PercentDP").style.display = 'none';
+        };
+    };
+
+    function ShowHideDiv() {
+        console.log("At least the button works");
+        // if the dollar sign is selected, show the dollar div
+        // else, if the percent sign is selected, show the percent div
+    };
+</script>
+
+
+
 
 <h1>Financing [icon]</h1>
 <h4>Progress bar 3 here 3/x.</h4>
@@ -15,7 +35,7 @@
             <h5>What's the purchase price?</h5>
             <div class="form-group">
                 <!--<label asp-for="Purchase_Price" class="control-label"></label>-->
-                <input asp-for="Purchase_Price" class="form-control" placeholder="$230,000"/>
+                <input asp-for="Purchase_Price" class="form-control" placeholder="$230,000" />
                 <span asp-validation-for="Purchase_Price" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -85,64 +105,74 @@
                 <h5>Is the down payment in <strong>dollars</strong> or a <strong>percentage</strong> of the purchase price?</h5>
                 <div class="form-check control-label">
                     <label class="form-check-label control-label" for="DownPaymentAmount">
-                        <input class="form-check-input" type="radio" name="DownPaymentAmount" value="$" />$ (Dollars)
+                        <input class="form-check-input" id="chkYes" type="radio" onclick="ShowHideDiv()" name="DownPaymentAmount" value="$" />$ (Dollars)
                     </label>
                 </div>
                 <div class="form-check control-label">
                     <label class="form-check-label control-label" for="DownPaymentAmount">
-                        <input class="form-check-input" type="radio" name="DownPaymentAmount" value="%" />% (Percentage of Purchase Price)
+                        <input class="form-check-input" id="chkno" type="radio" onclick="ShowHideDiv()" name="DownPaymentAmount" value="%" />% (Percentage of Purchase Price)
                     </label>
                 </div>
             </div>
-            <div class="form-group">
-                <h5>How much is the down payment?</h5>
+            <div class="form-group" id="CashDP" onload="hideDiv()" style="display: none">
+                <h5>How much cash ($) are they putting down?</h5>
                 <div class="form-group" id="DownPaymentAmount">
-                    <input type="number" asp-for="DownPaymentAmount" class="form-control" placeholder="4500"/>
+                    <input type="number" asp-for="DownPaymentAmount" class="form-control" placeholder="$4500" />
                     <span asp-validation-for="DownPaymentAmount" class="text-danger"></span>
                 </div>
             </div>
-                <div class="form-group form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" asp-for="LoanType" /> @Html.DisplayNameFor(model => model.LoanType)
-                    </label>
+            <div class="form-group" id="PercentDP" onload="hideDiv()" style="display: none">
+                <h5>What percent (%) of the purchase price are they putting down?</h5>
+                <div class="form-group" id="DownPaymentAmount">
+                    <input type="number" asp-for="DownPaymentAmount" class="form-control" placeholder="10" />
+                    <span asp-validation-for="DownPaymentAmount" class="text-danger">%</span>
                 </div>
-                <div class="form-group form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" asp-for="Rate_Type" /> @Html.DisplayNameFor(model => model.Rate_Type)
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Loan_Length" class="control-label"></label>
-                    <input asp-for="Loan_Length" class="form-control" />
-                    <span asp-validation-for="Loan_Length" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Interest_Rate" class="control-label"></label>
-                    <input asp-for="Interest_Rate" class="form-control" />
-                    <span asp-validation-for="Interest_Rate" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="ARM_Limits" class="control-label"></label>
-                    <input asp-for="ARM_Limits" class="form-control" />
-                    <span asp-validation-for="ARM_Limits" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Buyer_Loan_Application_Start" class="control-label"></label>
-                    <input asp-for="Buyer_Loan_Application_Start" class="form-control" />
-                    <span asp-validation-for="Buyer_Loan_Application_Start" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
-                </div>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="LoanType" /> @Html.DisplayNameFor(model => model.LoanType)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Rate_Type" /> @Html.DisplayNameFor(model => model.Rate_Type)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Loan_Length" class="control-label"></label>
+                <input asp-for="Loan_Length" class="form-control" />
+                <span asp-validation-for="Loan_Length" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Interest_Rate" class="control-label"></label>
+                <input asp-for="Interest_Rate" class="form-control" />
+                <span asp-validation-for="Interest_Rate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ARM_Limits" class="control-label"></label>
+                <input asp-for="ARM_Limits" class="form-control" />
+                <span asp-validation-for="ARM_Limits" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Buyer_Loan_Application_Start" class="control-label"></label>
+                <input asp-for="Buyer_Loan_Application_Start" class="form-control" />
+                <span asp-validation-for="Buyer_Loan_Application_Start" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
 
 
-</form>
+
+        </form>
+
     </div>
 </div>
 
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
