@@ -46,7 +46,6 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <h5>What's the purchase price?</h5>
-            <p>Pick one</p>
             <div class="form-group">
                 <!--<label asp-for="Purchase_Price" class="control-label"></label>-->
                 <input asp-for="Purchase_Price" class="form-control" placeholder="$230,000" />
@@ -54,7 +53,6 @@
             </div>
             <div class="form-group">
                 <h5>How much is the earnest money deposit?</h5>
-                <p>Pick one</p>
                 <div class="form-check" id="EMD">
                     <input asp-for="EMD" class="form-check-input" type="radio" name="EMD" value="500" id="EMD" />
                     <label asp-for="EMD" class="form-check-label control-label" for="EMD">
