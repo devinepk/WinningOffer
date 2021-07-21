@@ -141,10 +141,32 @@
                     <span asp-validation-for="DownPaymentAmount" class="text-danger"></span>
                 </div>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="LoanType" /> @Html.DisplayNameFor(model => model.LoanType)
-                </label>
+            <div class="form-group">
+                <h5>What kind of financing is being used?</h5>
+                <div class="form-check" id="loantype">
+                    <input asp-for="LoanType" class="form-check-input" type="radio" name="LoanType" value="Conventional" id="LoanType" />
+                    <label asp-for="LoanType" class="form-check-label control-label" for="LoanType">
+                        Conventional
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="LoanType" class="form-check-input" type="radio" name="LoanType" value="FHA" id="LoanType" />
+                    <label asp-for="LoanType" class="form-check-label control-label" for="LoanType">
+                        FHA
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input asp-for="LoanType" class="form-check-input" type="radio" name="LoanType" value="VA" id="LoanType" />
+                    <label asp-for="LoanType" class="form-check-label control-label" for="LoanType">
+                        VA
+                    </label>
+                </div>
+            <!--<div class="form-check">
+                    <input asp-for="loantype" class="form-check-input" type="radio" name="loantype" value="Other" id="loantype" />
+                    <label asp-for="loantype" class="form-check-label control-label" for="loantype">
+                         Other
+                    </label>
+                </div> -->
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
