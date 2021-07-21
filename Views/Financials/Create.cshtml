@@ -16,8 +16,16 @@
     };
 
     function ShowHideDiv() {
-        console.log("At least the button works");
+        var dollarRadioButton = document.getElementById("CashDP");
+        var percentRadioButton = document.getElementById("percentRadioButton");
+
         // if the dollar sign is selected, show the dollar div
+        if (dollarRadioButton.style.display == "none") {
+            dollarRadioButton.style.display = "block";
+        } else {
+            dollarRadioButton.style.display = "none";
+        }
+
         // else, if the percent sign is selected, show the percent div
     };
 </script>
@@ -105,12 +113,12 @@
                 <h5>Is the down payment in <strong>dollars</strong> or a <strong>percentage</strong> of the purchase price?</h5>
                 <div class="form-check control-label">
                     <label class="form-check-label control-label" for="DownPaymentAmount">
-                        <input class="form-check-input" id="chkYes" type="radio" onclick="ShowHideDiv()" name="DownPaymentAmount" value="$" />$ (Dollars)
+                        <input class="form-check-input" type="radio" onclick="ShowHideDiv()" name="DownPaymentAmount" value="$" />$ (Dollars)
                     </label>
                 </div>
                 <div class="form-check control-label">
                     <label class="form-check-label control-label" for="DownPaymentAmount">
-                        <input class="form-check-input" id="chkno" type="radio" onclick="ShowHideDiv()" name="DownPaymentAmount" value="%" />% (Percentage of Purchase Price)
+                        <input class="form-check-input" id="percentRadioButton" type="radio" onclick="ShowHideDiv()" name="DownPaymentAmount" value="%" />% (Percentage of Purchase Price)
                     </label>
                 </div>
             </div>
