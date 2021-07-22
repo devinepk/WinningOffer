@@ -29,7 +29,7 @@ namespace LightningOffer.Models
         public string LoanType { get; set; } // Conventional, FHA, VA, TODO: Other
 
         [Display(Name = "Rate Type")]
-        public string Rate_Type { get; set; } // Adjustable or fixed.  If Adjustable, show ARM Limits
+        public string Rate_Type { get; set; } // Adjustable or fixed.  If Adjustable, show ARM Limits. If fixed, show
 
         [Display(Name = "Loan Length (years)")] 
         public int Loan_Length { get; set; } // 15 or 30

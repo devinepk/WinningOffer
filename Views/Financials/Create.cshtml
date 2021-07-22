@@ -52,9 +52,9 @@
         };
     };
 
-    function ShowFixed() {
+    function ShowFixedOptions() {
         console.log("FHA lengths");
-    }
+    };
 
 </script>
 
@@ -186,27 +186,33 @@
                 </div>
             </div>
             <div class="form-group">
-                <h5>Is it a fixed or adjustable rate?</h5>
+                <h5>Is it a fixed or adjustable rate mortgage?</h5>
                 <div class="form-check" id="Rate_Type">
-                    <input asp-for="Rate_Type" class="form-check-input" type="radio" name="Rate_Type" onclick="ShowFixed()" value="Fixed" id="Rate_Type" />
+                    <input asp-for="Rate_Type" class="form-check-input" type="radio" name="Rate_Type" onclick="ShowFixedOptions()" value="Fixed" id="Rate_Type" />
                     <label asp-for="Rate_Type" class="form-check-label control-label" for="Rate_Type">
                         Fixed Rate
                     </label>
                 </div>
                 <div class="form-check" id="Rate_Type">
-                    <input asp-for="Rate_Type" class="form-check-input" type="radio" name="Rate_Type" onclick="ShowARMLimits()" value="ARM" id="Rate_Type" />
+                    <input asp-for="Rate_Type" class="form-check-input" type="radio" name="Rate_Type" onclick="ShowARMLimits()" value="ARM" id="Rate_Type" disabled/>
                     <label asp-for="Rate_Type" class="form-check-label control-label" for="Rate_Type">
                         ARM (Adjustable Rate Mortgage)
                     </label>
                 </div>
             </div>
             <div class="form-group" onload="hideDiv()" id="ARMLimits" style="display: none">
-                <label asp-for="ARM_Limits" class="control-label"></label>
+                <h5>How long is the loan?</h5>
+                <label asp-for="ARM_Limits" class="control-label">15 years</label>
                 <input asp-for="ARM_Limits" class="form-control" />
                 <span asp-validation-for="ARM_Limits" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Loan_Length" class="control-label"></label>
+                <label asp-for="Loan_Length" type="radio" class="control-label"></label>
+                <input asp-for="Loan_Length" class="form-control" />
+                <span asp-validation-for="Loan_Length" class="text-danger"></span>
+            </div>
+            <div class="form-group" onload="hideDiv()" id="FixedRateLength" style="display: none">
+                <label asp-for="Loan_Length" type="radio" class="control-label"></label>
                 <input asp-for="Loan_Length" class="form-control" />
                 <span asp-validation-for="Loan_Length" class="text-danger"></span>
             </div>
