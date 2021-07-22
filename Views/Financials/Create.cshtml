@@ -13,6 +13,7 @@
             document.getElementById("CashDP").style.display = 'none';
             document.getElementById("PercentDP").style.display = 'none';
             document.getElementById("ARMLimits").style.display = 'none';
+            document.getElementById("PreApprovalUpLoad").style.display = 'none';
         };
     };
 
@@ -45,6 +46,7 @@
         console.log("Toggle ARM")
 
         var armLimitRadioButton = document.getElementById("ARMLimits");
+
         if (armLimitRadioButton.style.display == "none") {
             armLimitRadioButton.style.display = "block";
         } else {
@@ -54,6 +56,17 @@
 
     function ShowFixedOptions() {
         console.log("FHA lengths");
+    };
+
+    function ShowPreapprovalUpload() {
+        console.log("Show the preapproval button");
+        var showuploadbutton = document.getElementById("PreApprovalUpLoad");
+
+        if (showuploadbutton.style.display == "none") {
+            showuploadbutton.style.display = "block";
+        } else {
+            showuploadbutton.style.disaply = "none";
+        };
     };
 
 </script>
@@ -194,7 +207,7 @@
                     </label>
                 </div>
                 <div class="form-check" id="Rate_Type">
-                    <input asp-for="Rate_Type" class="form-check-input" type="radio" name="Rate_Type" onclick="ShowARMLimits()" value="ARM" id="Rate_Type" disabled/>
+                    <input asp-for="Rate_Type" class="form-check-input" type="radio" name="Rate_Type" onclick="ShowARMLimits()" value="ARM" id="Rate_Type" disabled />
                     <label asp-for="Rate_Type" class="form-check-label control-label" for="Rate_Type">
                         ARM (Adjustable Rate Mortgage)
                     </label>
@@ -217,22 +230,21 @@
                     </label>
                 </div>
                 <div class="form-check" id="Loan_Length">
-                     <input asp-for="Loan_Length" type="radio" class="form-check-input" name="Loan_Length" id="Loan_Length" value="30" />
-                     <label asp-for="Loan_Length" class="form-check-label" for="Loan_Length">
+                    <input asp-for="Loan_Length" type="radio" class="form-check-input" name="Loan_Length" id="Loan_Length" value="30" />
+                    <label asp-for="Loan_Length" class="form-check-label" for="Loan_Length">
                         30 Years
-                     </label>
+                    </label>
                 </div>
             </div>
             <!--This should be a readonly field that autopopulates today's market rate + 1 point via api call. This should probably be hidden? -->
             <div class="form-group">
                 <label asp-for="Interest_Rate" class="control-label"></label>
-                <input asp-for="Interest_Rate" class="form-control" readonly placeholder="4.25%"/>
-                <span asp-validation-for="Interest_Rate" class="text-danger"></span>
+                <input asp-for="Interest_Rate" class="form-control" readonly placeholder="4.25%" />
             </div>
             <div class="form-group">
                 <h5>Has the buyer applied for the loan?</h5>
                 <div class="form-check" id="Buyer_Loan_Application_Start">
-                    <input asp-for="Buyer_Loan_Application_Start" type="radio" class="form-check-input" name="Buyer_Loan_Application_Start" id="Buyer_Loan_Application_Start" value="Yes" />
+                    <input asp-for="Buyer_Loan_Application_Start" type="radio" class="form-check-input" onclick="ShowPreapprovalUpload()" name="Buyer_Loan_Application_Start" id="Buyer_Loan_Application_Start" value="Yes" />
                     <label asp-for="Buyer_Loan_Application_Start" class="form-check-label" for="Buyer_Loan_Application_Start">
                         Yes, they have a preapproval letter.
                     </label>
@@ -240,15 +252,21 @@
                 <div class="form-check" id="Buyer_Loan_Application_Start">
                     <input asp-for="Buyer_Loan_Application_Start" type="radio" class="form-check-input" name="Buyer_Loan_Application_Start" id="Buyer_Loan_Application_Start" value="No" />
                     <label asp-for="Buyer_Loan_Application_Start" class="form-check-label" for="Buyer_Loan_Application_Start">
+                        <!--This should default to 14 for the Buyer_Loan_Application_Start column-->
                         No, they're working on it.
                     </label>
                 </div>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="form-group" id="PreApprovalUpLoad" onload="hideDiv()" style="display: none">
+                <div class="form-control-file" id="PreApprovalUpLoad">
+                    <h5>Add the preapproval letter to the offer.</h5>
+                    <input type="file" class="form-control-file" id="customFile" />
+                </div>
             </div>
 
-
+            <div class="form-group mt-5">
+                <input type="submit" value="Next" class="btn btn-primary btn-block" />
+            </div>
 
         </form>
 
