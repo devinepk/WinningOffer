@@ -230,9 +230,19 @@
                 <span asp-validation-for="Interest_Rate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Buyer_Loan_Application_Start" class="control-label"></label>
-                <input asp-for="Buyer_Loan_Application_Start" class="form-control" />
-                <span asp-validation-for="Buyer_Loan_Application_Start" class="text-danger"></span>
+                <h5>Has the buyer applied for the loan?</h5>
+                <div class="form-check" id="Buyer_Loan_Application_Start">
+                    <input asp-for="Buyer_Loan_Application_Start" type="radio" class="form-check-input" name="Buyer_Loan_Application_Start" id="Buyer_Loan_Application_Start" value="Yes" />
+                    <label asp-for="Buyer_Loan_Application_Start" class="form-check-label" for="Buyer_Loan_Application_Start">
+                        Yes, they have a preapproval letter.
+                    </label>
+                </div>
+                <div class="form-check" id="Buyer_Loan_Application_Start">
+                    <input asp-for="Buyer_Loan_Application_Start" type="radio" class="form-check-input" name="Buyer_Loan_Application_Start" id="Buyer_Loan_Application_Start" value="No" />
+                    <label asp-for="Buyer_Loan_Application_Start" class="form-check-label" for="Buyer_Loan_Application_Start">
+                        No, they're working on it.
+                    </label>
+                </div>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
