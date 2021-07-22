@@ -7,17 +7,23 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LightningOffer.Data;
 using LightningOffer.Models;
+using Microsoft.Extensions.Logging;
 
 namespace LightningOffer.Controllers
 {
     public class FinancialsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ILogger _logger;
 
-        public FinancialsController(ApplicationDbContext context)
+
+        public FinancialsController(ApplicationDbContext context,
+                                     ILogger<FinancialsController> logger)
         {
             _context = context;
+            _logger = logger;
         }
+
 
         // GET: Financials
         public async Task<IActionResult> Index()
@@ -46,6 +52,7 @@ namespace LightningOffer.Controllers
         // GET: Financials/Create
         public IActionResult Create()
         {
+            _logger.LogInformation("Beginning the financial section");
             return View();
         }
 

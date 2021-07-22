@@ -22,7 +22,7 @@ namespace LightningOffer.Controllers
         private readonly UserManager<IdentityUser> _userManager;
 
         public AppliancesController(ApplicationDbContext context,
-                                    UserManager<IdentityUser> userManager)
+                            UserManager<IdentityUser> userManager)
         {
             _context = context;
             _userManager = userManager;
