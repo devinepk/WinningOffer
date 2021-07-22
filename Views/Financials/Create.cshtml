@@ -202,19 +202,26 @@
             </div>
             <div class="form-group" onload="hideDiv()" id="ARMLimits" style="display: none">
                 <h5>How long is the loan?</h5>
-                <label asp-for="ARM_Limits" class="control-label">15 years</label>
-                <input asp-for="ARM_Limits" class="form-control" />
-                <span asp-validation-for="ARM_Limits" class="text-danger"></span>
+                <div>
+                    <label asp-for="ARM_Limits" class="control-label">15 years</label>
+                    <input asp-for="ARM_Limits" class="form-control" />
+                    <span asp-validation-for="ARM_Limits" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-group">
-                <label asp-for="Loan_Length" type="radio" class="control-label"></label>
-                <input asp-for="Loan_Length" class="form-control" />
-                <span asp-validation-for="Loan_Length" class="text-danger"></span>
-            </div>
-            <div class="form-group" onload="hideDiv()" id="FixedRateLength" style="display: none">
-                <label asp-for="Loan_Length" type="radio" class="control-label"></label>
-                <input asp-for="Loan_Length" class="form-control" />
-                <span asp-validation-for="Loan_Length" class="text-danger"></span>
+                <h5>What's the length of the loan?</h5>
+                <div class="form-check" id="Loan_Length">
+                    <input asp-for="Loan_Length" type="radio" class="form-check-input" name="Loan_Length" id="Loan_Length" value="15" />
+                    <label asp-for="Loan_Length" class="form-check-label" for="Loan_Length">
+                        15 Years
+                    </label>
+                </div>
+                <div class="form-check" id="Loan_Length">
+                     <input asp-for="Loan_Length" type="radio" class="form-check-input" name="Loan_Length" id="Loan_Length" value="30" />
+                     <label asp-for="Loan_Length" class="form-check-label" for="Loan_Length">
+                        30 Years
+                     </label>
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="Interest_Rate" class="control-label"></label>
