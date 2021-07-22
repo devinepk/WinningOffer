@@ -34,7 +34,7 @@ namespace LightningOffer.Models
         [Display(Name = "Loan Length (years)")] 
         public int Loan_Length { get; set; } // 15 or 30
 
-        [Display(Name = "Interest Rate Not to Exceed")]
+        [Display(Name = "The interest rate will not exceed the following:")]
         public int Interest_Rate { get; set; }
 
         [Display(Name = "ARM Interest Rate Limit")]
