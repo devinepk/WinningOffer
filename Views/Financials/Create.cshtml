@@ -52,6 +52,10 @@
         };
     };
 
+    function ShowFixed() {
+        console.log("FHA lengths");
+    }
+
 </script>
 
 
@@ -162,7 +166,7 @@
             </div>
             <div class="form-group">
                 <h5>What kind of financing is being used?</h5>
-                <div class="form-check" id="loantype">
+                <div class="form-check" id="LoanType">
                     <input asp-for="LoanType" class="form-check-input" type="radio" name="LoanType" value="Conventional" id="LoanType" />
                     <label asp-for="LoanType" class="form-check-label control-label" for="LoanType">
                         Conventional
@@ -180,10 +184,19 @@
                         VA
                     </label>
                 </div>
-                <div class="form-check">
-                    <input asp-for="LoanType" class="form-check-input" type="radio" name="LoanType" onclick="ShowARMLimits()" value="ARM" id="LoanType" />
-                    <label asp-for="LoanType" class="form-check-label control-label" for="LoanType">
-                        ARM
+            </div>
+            <div class="form-group">
+                <h5>Is it a fixed or adjustable rate?</h5>
+                <div class="form-check" id="Rate_Type">
+                    <input asp-for="Rate_Type" class="form-check-input" type="radio" name="Rate_Type" onclick="ShowFixed()" value="Fixed" id="Rate_Type" />
+                    <label asp-for="Rate_Type" class="form-check-label control-label" for="Rate_Type">
+                        Fixed Rate
+                    </label>
+                </div>
+                <div class="form-check" id="Rate_Type">
+                    <input asp-for="Rate_Type" class="form-check-input" type="radio" name="Rate_Type" onclick="ShowARMLimits()" value="ARM" id="Rate_Type" />
+                    <label asp-for="Rate_Type" class="form-check-label control-label" for="Rate_Type">
+                        ARM (Adjustable Rate Mortgage)
                     </label>
                 </div>
             </div>
@@ -191,11 +204,6 @@
                 <label asp-for="ARM_Limits" class="control-label"></label>
                 <input asp-for="ARM_Limits" class="form-control" />
                 <span asp-validation-for="ARM_Limits" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Rate_Type" /> @Html.DisplayNameFor(model => model.Rate_Type)
-                </label>
             </div>
             <div class="form-group">
                 <label asp-for="Loan_Length" class="control-label"></label>

@@ -40,8 +40,8 @@ namespace LightningOffer.Models
         [Display(Name = "ARM Interest Rate Limit")]
         public int ARM_Limits { get; set; }
 
-        [Display(Name = "How soon will the buyer apply for the loan?")]
-        public string Buyer_Loan_Application_Start { get; set; } // if "0", change to "Done"
+        [Display(Name = "Has the buyer applied for the loan?")]
+        public string Buyer_Loan_Application_Start { get; set; } // Radio: yes, they're preapproved (upload letter), no will apply within 7 days
 
 
         //Earnest Money Deposit
