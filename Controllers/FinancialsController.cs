@@ -9,6 +9,9 @@ using LightningOffer.Data;
 using LightningOffer.Models;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Identity;
+using RestSharp;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace LightningOffer.Controllers
 {
@@ -58,7 +61,66 @@ namespace LightningOffer.Controllers
         public IActionResult Create()
         
         {
-            _logger.LogInformation("Beginning the financial section");
+            // Get the 15 and 30 yr mortgage rate
+
+            DateTime datetime = DateTime.Now;
+            
+
+            // Get the api key
+            var builder = new ConfigurationBuilder()
+                          .SetBasePath(Directory.GetCurrentDirectory())
+                          .AddJsonFile("appsettings.json");
+            var configuration = builder.Build();
+            var apikeys = configuration["APIKeys:IEX_Test"];
+
+            string token = "";
+            token = apikeys.ToString();
+
+            string sandbox30 = "https://sandbox.iexapis.comstable/data-points/market/MORTGAGE30US?token=" + token;
+            string sandbox15 = "https://sandbox.iexapis.comstable/data-points/market/MORTGAGE15US?token=" + token;
+
+
+            string mortgage30 = "https://cloud.iexapis.com/stable/data-points/market/MORTGAGE30US?token=" + token;
+            string mortgage15 = "https://cloud.iexapis.com/stable/data-points/market/MORTGAGE15US?token=" + token;
+
+
+
+            try
+            {
+                //30 yr
+                var client30 = new RestClient(sandbox30);
+                client30.Timeout = -1;
+                var request30 = new RestRequest(Method.GET);
+                request30.AddHeader("Cookie", "ctoken=4c301396d1a6446b9ae42c7894164293");
+                IRestResponse response30 = client30.Execute(request30);
+                string yr30 = response30.Content;
+                ViewBag.yr30 = yr30;
+                _logger.LogInformation("The current 30 year mortgage rate is {yr30}% on {datetime}", yr30, datetime);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical("Unable to get the 30 year mortgage.  Please see the following error: " + ex.Message);
+            }
+
+            try
+            {
+                //15 yr
+                var client15 = new RestClient(sandbox15);
+                client15.Timeout = -1;
+                var request15 = new RestRequest(Method.GET);
+                request15.AddHeader("Cookie", "ctoken=4c301396d1a6446b9ae42c7894164293");
+                IRestResponse response15 = client15.Execute(request15);
+                string yr15 = response15.Content;
+                ViewBag.yr15 = yr15;
+                _logger.LogInformation("The current 30 year mortgage rate is {yr15}% on {datetime", yr15, datetime);
+            }
+            catch (Exception ex1)
+            {
+                _logger.LogCritical("Unable to get the 15 year mortgage.  Please see the following error: " + ex1.Message);
+
+            }
+
+
             return View();
         }
 
