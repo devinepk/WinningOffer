@@ -29,5 +29,7 @@ namespace LightningOffer.Models
         public Appliance Appliance { get; set; } // Appliance FK
 
         public FuelPropane FuelPropane { get; set; } // FuelPropane FK
+
+        public Financial Financial { get; set; } // Financial FK
     }
 }

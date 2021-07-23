@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace LightningOffer.Models
 {
@@ -11,6 +12,12 @@ namespace LightningOffer.Models
         //Purchase price
         [Key]
         public Guid Financial_id { get; set; }
+
+        public IdentityUser User { get; set; }
+
+        public string UserId { get; set; }
+
+        [Display(Name = "Created Date")]
         public DateTime CreatedDate { get; set; }
         
         [Display(Name = "Purchase Price")]
@@ -50,5 +57,9 @@ namespace LightningOffer.Models
 
         [Display(Name = "Selling Broker")]
         public bool EMD_With_SellingBroker { get; set; }
+
+        public Contract Contract { get; set; }
+        
+        public Guid ContractId { get; set; }
     }
 }
