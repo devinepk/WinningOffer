@@ -61,6 +61,8 @@ namespace LightningOffer.Controllers
         public IActionResult Create()
         
         
+        
+        
         {
             // Get the 15 and 30 yr mortgage rate
 
@@ -99,9 +101,11 @@ namespace LightningOffer.Controllers
                 var request30 = new RestRequest(Method.GET);
                 request30.AddHeader("Cookie", "ctoken=4c301396d1a6446b9ae42c7894164293");
                 IRestResponse response30 = client30.Execute(request30);
-                string yr30 = response30.Content;
-                ViewBag.yr30 = yr30;
-                _logger.LogInformation("The current 30 year mortgage rate is {0}% on {1}", yr30, datetime);
+                string current30Yr = response30.Content;
+                double ThirtyYr = Convert.ToDouble(current30Yr) + 0.25;
+                ViewBag.yr30 = ThirtyYr;
+
+                _logger.LogInformation("The current 30 year mortgage rate is {0}% on {1}.", current30Yr, datetime);
             }
             catch (Exception ex)
             {
@@ -116,9 +120,11 @@ namespace LightningOffer.Controllers
                 var request15 = new RestRequest(Method.GET);
                 request15.AddHeader("Cookie", "ctoken=4c301396d1a6446b9ae42c7894164293");
                 IRestResponse response15 = client15.Execute(request15);
-                string yr15 = response15.Content;
-                ViewBag.yr15 = yr15;
-                _logger.LogInformation("The current 15 year mortgage rate is {0}% on {1}", yr15, datetime);
+                string current15Yr = response15.Content;
+                double FifteenYr = Convert.ToDouble(current15Yr) + 0.25;
+                ViewBag.yr30 = FifteenYr;
+
+                _logger.LogInformation("The current 15 year mortgage rate is {0}% on {1}.", current15Yr, datetime);
             }
             catch (Exception ex)
             {
