@@ -71,7 +71,7 @@ namespace LightningOffer.Controllers
                           .SetBasePath(Directory.GetCurrentDirectory())
                           .AddJsonFile("appsettings.json");
             var configuration = builder.Build();
-            var apikeys = configuration["APIKeys:IEX_Test"];
+            var apikeys = configuration["APIKeys:IEX_Prod"];
 
             string token = "";
             token = apikeys.ToString();
@@ -88,14 +88,14 @@ namespace LightningOffer.Controllers
             try
             {
                 //30 yr
-                var client30 = new RestClient(sandbox30);
+                var client30 = new RestClient(mortgage30);
                 client30.Timeout = -1;
                 var request30 = new RestRequest(Method.GET);
                 request30.AddHeader("Cookie", "ctoken=4c301396d1a6446b9ae42c7894164293");
                 IRestResponse response30 = client30.Execute(request30);
                 string yr30 = response30.Content;
                 ViewBag.yr30 = yr30;
-                _logger.LogInformation("The current 30 year mortgage rate is {yr30}% on {datetime}", yr30, datetime);
+                _logger.LogInformation("The current 30 year mortgage rate is {0}% on {1}", yr30, datetime);
             }
             catch (Exception ex)
             {
@@ -105,14 +105,14 @@ namespace LightningOffer.Controllers
             try
             {
                 //15 yr
-                var client15 = new RestClient(sandbox15);
+                var client15 = new RestClient(mortgage15);
                 client15.Timeout = -1;
                 var request15 = new RestRequest(Method.GET);
                 request15.AddHeader("Cookie", "ctoken=4c301396d1a6446b9ae42c7894164293");
                 IRestResponse response15 = client15.Execute(request15);
                 string yr15 = response15.Content;
                 ViewBag.yr15 = yr15;
-                _logger.LogInformation("The current 30 year mortgage rate is {yr15}% on {datetime", yr15, datetime);
+                _logger.LogInformation("The current 15 year mortgage rate is {0}% on {1}", yr15, datetime);
             }
             catch (Exception ex1)
             {
@@ -145,7 +145,7 @@ namespace LightningOffer.Controllers
             string userId = new string(_userManager.GetUserId(User));
             newFinancial.UserId = userId;
 
-            _logger.LogInformation("New financial section with ID {newFinancial.Financial_id} created with contract ID {contractId} by User {userId}", newFinancial.Financial_id, contractId, userId);
+            _logger.LogInformation("New financial section with ID {0} created with contract ID {1} by User {2}", newFinancial.Financial_id, contractId, userId);
 
             // Financial specific logic
             newFinancial.Purchase_Price = PurchasePrice;
