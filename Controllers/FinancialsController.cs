@@ -8,20 +8,25 @@ using Microsoft.EntityFrameworkCore;
 using LightningOffer.Data;
 using LightningOffer.Models;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Identity;
 
 namespace LightningOffer.Controllers
 {
     public class FinancialsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger _logger;
 
 
         public FinancialsController(ApplicationDbContext context,
-                                     ILogger<FinancialsController> logger)
+                            UserManager<IdentityUser> userManager,
+                            ILogger<FinancialsController> logger)
         {
             _context = context;
+            _userManager = userManager;
             _logger = logger;
+           
         }
 
 
@@ -62,14 +67,24 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Financial_id,CreatedDate,Purchase_Price,EMD,Cash,LineOfEquity,Gift,Other_Financing,Conventional,FHA,VA,Fixed_Rate,Loan_Length,Interest_Rate,ARM_Limits,Buyer_Loan_Application_Start,EMD_With_ListingBroker,EMD_With_SellingBroker")] Financial financial)
+        public async Task<IActionResult> Create(Guid Id, [Bind("Financial_id,CreatedDate,Purchase_Price,EMD,Cash,LineOfEquity,Gift,Other_Financing,Conventional,FHA,VA,Fixed_Rate,Loan_Length,Interest_Rate,ARM_Limits,Buyer_Loan_Application_Start,EMD_With_ListingBroker,EMD_With_SellingBroker")] Financial financial)
         {
+            // Assign GUIDs and userID
+            
             Financial newFinancial = new();
             newFinancial.Financial_id = Guid.NewGuid();
 
-            // Guid contractId = Id; // Passed from Appliances
-            
-            
+            Guid contractId = Id; // pass from appliances
+            newFinancial.ContractId = Id;
+
+            // Find and assign logged in user id
+            string userId = new string(_userManager.GetUserId(User));
+            newFinancial.UserId = userId;
+
+            _logger.LogInformation("New financial section with ID {newFinancial.Financial_id} created with contract ID {contractId} by User {userId}", newFinancial.Financial_id, contractId, userId);
+
+            // Financial specific logic
+
             if (ModelState.IsValid)
             {
                 financial.Financial_id = Guid.NewGuid();
