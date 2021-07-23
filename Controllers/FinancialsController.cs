@@ -60,6 +60,7 @@ namespace LightningOffer.Controllers
         // GET: Financials/Create
         public IActionResult Create()
         
+        
         {
             // Get the 15 and 30 yr mortgage rate
 
@@ -71,13 +72,18 @@ namespace LightningOffer.Controllers
                           .SetBasePath(Directory.GetCurrentDirectory())
                           .AddJsonFile("appsettings.json");
             var configuration = builder.Build();
-            var apikeys = configuration["APIKeys:IEX_Prod"];
+            var apikeys = configuration["APIKeys:IEX_Test"];
+
+            
+            ///
+            /// To switch to prod, changes the api key to API_Prod, and replace sandbox30/sandbox15 with mortgage30/mortgage15
+            /// 
 
             string token = "";
             token = apikeys.ToString();
 
-            string sandbox30 = "https://sandbox.iexapis.comstable/data-points/market/MORTGAGE30US?token=" + token;
-            string sandbox15 = "https://sandbox.iexapis.comstable/data-points/market/MORTGAGE15US?token=" + token;
+            string sandbox30 = "https://sandbox.iexapis.com/stable/data-points/market/MORTGAGE30US?token=" + token;
+            string sandbox15 = "https://sandbox.iexapis.com/stable/data-points/market/MORTGAGE30US?token=" + token;
 
 
             string mortgage30 = "https://cloud.iexapis.com/stable/data-points/market/MORTGAGE30US?token=" + token;
@@ -88,7 +94,7 @@ namespace LightningOffer.Controllers
             try
             {
                 //30 yr
-                var client30 = new RestClient(mortgage30);
+                var client30 = new RestClient(sandbox30);
                 client30.Timeout = -1;
                 var request30 = new RestRequest(Method.GET);
                 request30.AddHeader("Cookie", "ctoken=4c301396d1a6446b9ae42c7894164293");
@@ -105,7 +111,7 @@ namespace LightningOffer.Controllers
             try
             {
                 //15 yr
-                var client15 = new RestClient(mortgage15);
+                var client15 = new RestClient(sandbox15);
                 client15.Timeout = -1;
                 var request15 = new RestRequest(Method.GET);
                 request15.AddHeader("Cookie", "ctoken=4c301396d1a6446b9ae42c7894164293");
@@ -114,9 +120,9 @@ namespace LightningOffer.Controllers
                 ViewBag.yr15 = yr15;
                 _logger.LogInformation("The current 15 year mortgage rate is {0}% on {1}", yr15, datetime);
             }
-            catch (Exception ex1)
+            catch (Exception ex)
             {
-                _logger.LogCritical("Unable to get the 15 year mortgage.  Please see the following error: " + ex1.Message);
+                _logger.LogCritical("Unable to get the 15 year mortgage.  Please see the following error: " + ex.Message);
 
             }
 
