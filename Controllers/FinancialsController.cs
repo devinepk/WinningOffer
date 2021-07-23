@@ -51,6 +51,7 @@ namespace LightningOffer.Controllers
 
         // GET: Financials/Create
         public IActionResult Create()
+        
         {
             _logger.LogInformation("Beginning the financial section");
             return View();
@@ -63,12 +64,19 @@ namespace LightningOffer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Financial_id,CreatedDate,Purchase_Price,EMD,Cash,LineOfEquity,Gift,Other_Financing,Conventional,FHA,VA,Fixed_Rate,Loan_Length,Interest_Rate,ARM_Limits,Buyer_Loan_Application_Start,EMD_With_ListingBroker,EMD_With_SellingBroker")] Financial financial)
         {
+            Financial newFinancial = new();
+            newFinancial.Financial_id = Guid.NewGuid();
+
+            // Guid contractId = Id; // Passed from Appliances
+            
+            
             if (ModelState.IsValid)
             {
                 financial.Financial_id = Guid.NewGuid();
                 _context.Add(financial);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                
+                return RedirectToAction("Create", "Appraisals");
             }
             return View(financial);
         }
