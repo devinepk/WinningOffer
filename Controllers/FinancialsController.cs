@@ -58,11 +58,7 @@ namespace LightningOffer.Controllers
         }
 
         // GET: Financials/Create
-        public IActionResult Create()
-        
-        
-        
-        
+        public IActionResult Create()        
         {
             // Get the 15 and 30 yr mortgage rate
 
@@ -105,11 +101,11 @@ namespace LightningOffer.Controllers
                 double ThirtyYr = Convert.ToDouble(current30Yr) + 0.25;
                 ViewBag.yr30 = ThirtyYr;
 
-                _logger.LogInformation("The current 30 year mortgage rate is {0}% on {1}.", current30Yr, datetime);
+                _logger.LogInformation("The 30 year mortage API call was successful.  The current 30 year mortgage rate is {0}% on {1}.", current30Yr, datetime);
             }
             catch (Exception ex)
             {
-                _logger.LogCritical("Unable to get the 30 year mortgage.  Please see the following error: " + ex.Message);
+                _logger.LogCritical("Unable to get the 30 year mortgage because something failed with the API.  Please see the following error: " + ex.Message);
             }
 
             try
@@ -122,16 +118,15 @@ namespace LightningOffer.Controllers
                 IRestResponse response15 = client15.Execute(request15);
                 string current15Yr = response15.Content;
                 double FifteenYr = Convert.ToDouble(current15Yr) + 0.25;
-                ViewBag.yr30 = FifteenYr;
+                ViewBag.yr15 = FifteenYr;
 
-                _logger.LogInformation("The current 15 year mortgage rate is {0}% on {1}.", current15Yr, datetime);
+                _logger.LogInformation("The 15 year mortgage API call was successful.  The current 15 year mortgage rate is {0}% on {1}.", current15Yr, datetime);
             }
             catch (Exception ex)
             {
-                _logger.LogCritical("Unable to get the 15 year mortgage.  Please see the following error: " + ex.Message);
+                _logger.LogCritical("Unable to get the 15 year mortgage because something failed with the API.  Please see the following error: " + ex.Message);
 
             }
-
 
             return View();
         }
