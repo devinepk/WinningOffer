@@ -59,13 +59,21 @@
     };
 
     function ShowPreapprovalUpload() {
-        console.log("Show the preapproval button");
+        
         var showuploadbutton = document.getElementById("PreApprovalUpLoad");
 
         if (showuploadbutton.style.display == "none") {
+            console.log("Show the preapproval button");
             showuploadbutton.style.display = "block";
-        } else {
-            showuploadbutton.style.disaply = "none";
+        };
+    };
+
+    function HidePreapprovalUpload() {
+        var showuploadbutton = document.getElementById("PreApprovalUpLoad");
+
+        if (showuploadbutton.style.display == "block") {
+            console.log("Hide the preapproval button");
+            showuploadbutton.style.display = "none";
         };
     };
 
@@ -75,10 +83,8 @@
         var InterestRate = document.getElementById("Interest_Rate");
         var js15 = '@(ViewBag.yr15)';
         var js30 = '@(ViewBag.yr30)';
-        console.log("15 yr = " + js15);
-        console.log("30 yr = " + js30);
-
-
+        console.log("js15 = " + js15);
+        console.log("js30 = " + js30);
 
         if (FifteenYearRadio.checked == true) {
 
@@ -274,7 +280,7 @@
                     </label>
                 </div>
                 <div class="form-check" id="Buyer_Loan_Application_Start">
-                    <input asp-for="Buyer_Loan_Application_Start" type="radio" class="form-check-input" name="Buyer_Loan_Application_Start" id="Buyer_Loan_Application_Start" value="No" />
+                    <input asp-for="Buyer_Loan_Application_Start" type="radio" class="form-check-input" onclick="HidePreapprovalUpload()" name="Buyer_Loan_Application_Start" id="Buyer_Loan_Application_Start" value="No" />
                     <label asp-for="Buyer_Loan_Application_Start" class="form-check-label" for="Buyer_Loan_Application_Start">
                         <!--This should default to 14 for the Buyer_Loan_Application_Start column-->
                         No, they're working on it.
