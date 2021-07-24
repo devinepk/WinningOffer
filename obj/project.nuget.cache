@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "knnAOOiaddtekPfeAKdKEuDFRfxcOS8M1egRfN/N4atH1WShyT5S/wj27Ohi9sMPWngh540MEDVtev5pXA1Lhg==",
+  "dgSpecHash": "YcRVxi4YqNFsUf2pLvg58H2l8QU6tf340QBAGfaEE/ehqmmI47BMVR2Ya0AE0BaK+ejNBbA1zvWgZFZGe13Yog==",
   "success": true,
   "projectFilePath": "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\Lightning Offer\\LightningOffer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pdevine\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\pdevine\\.nuget\\packages\\jquery\\2.1.1\\jquery.2.1.1.nupkg.sha512",
+    "C:\\Users\\pdevine\\.nuget\\packages\\materialize\\0.97.6\\materialize.0.97.6.nupkg.sha512",
     "C:\\Users\\pdevine\\.nuget\\packages\\microsoft.aspnet.identity.core\\2.2.3\\microsoft.aspnet.identity.core.2.2.3.nupkg.sha512",
     "C:\\Users\\pdevine\\.nuget\\packages\\microsoft.aspnet.identity.owin\\2.2.3\\microsoft.aspnet.identity.owin.2.2.3.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

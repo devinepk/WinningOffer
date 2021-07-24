@@ -105,6 +105,10 @@
               "target": "Package",
               "version": "[9.23.2, )"
             },
+            "materialize": {
+              "target": "Package",
+              "version": "[0.97.6, )"
+            },
             "selenium.webdriver": {
               "target": "Package",
               "version": "[3.141.0, )"
