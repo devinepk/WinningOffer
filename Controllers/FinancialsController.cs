@@ -59,6 +59,7 @@ namespace LightningOffer.Controllers
 
         // GET: Financials/Create
         public IActionResult Create()        
+        
         {
             //Messages
             ViewBag.RequiredField = "This is required, please make a selection.";
@@ -195,7 +196,19 @@ namespace LightningOffer.Controllers
             //TODO: API Call for current rate
 
             newFinancial.ARM_Limits = ARM_Limits;
-            newFinancial.Buyer_Loan_Application_Start = Buyer_Loan_Application_Start;
+
+            if (Buyer_Loan_Application_Start == "No")
+            {
+
+                newFinancial.Buyer_Loan_Application_Start = DateTime.Today.AddDays(10).ToString("dd/MM/yyyy");
+
+            } else if (Buyer_Loan_Application_Start == "Yes")
+            {
+
+                newFinancial.Buyer_Loan_Application_Start = DateTime.Today.ToString("dd/MM/yyyy");
+
+            }
+        
 
 
 
