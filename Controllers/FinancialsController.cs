@@ -138,11 +138,14 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(int ARM_Limits, string Buyer_Loan_Application_Start, int Interest_Rate, int Loan_Length, string RateType, string LoanType, string DownPaymentFormat, Guid Id, int PurchasePrice, string EMD, string DownPaymentSource, string DownPaymentAmount,[Bind("Financial_id,CreatedDate,Purchase_Price,EMD,Cash,LineOfEquity,Gift,Other_Financing,Conventional,FHA,VA,Fixed_Rate,Loan_Length,Interest_Rate,ARM_Limits,Buyer_Loan_Application_Start,EMD_With_ListingBroker,EMD_With_SellingBroker")] Financial financial)
+        public async Task<IActionResult> Create(int ARM_Limits, string Buyer_Loan_Application_Start, int Interest_Rate, int Loan_Length, string Rate_Type, string LoanType, string DownPaymentFormat, Guid Id, int Purchase_Price, string EMD, string DownPaymentSource, string DownPaymentAmount,[Bind("Financial_id,CreatedDate,Purchase_Price,EMD,Loan_Length,Interest_Rate,ARM_Limits,Buyer_Loan_Application_Start,EMD_With_ListingBroker,EMD_With_SellingBroker,DownPaymentAmount,LoanType, Rate_Type,ContractId, UserId")] Financial financial)
         {
             // Assign GUIDs and userID
             // TODO: Purchase price, EMD with listing broker/selling broker, save
+
             
+
+
             Financial newFinancial = new();
             newFinancial.Financial_id = Guid.NewGuid();
             newFinancial.CreatedDate = DateTime.Now;
@@ -162,7 +165,7 @@ namespace LightningOffer.Controllers
             _logger.LogInformation("New financial section with ID {0} created with contract ID {1} by User {2}", newFinancial.Financial_id, contractId, username);
 
             // Financial specific logic
-            newFinancial.Purchase_Price = PurchasePrice;
+            newFinancial.Purchase_Price = Purchase_Price;
             newFinancial.EMD = EMD;
             newFinancial.EMD_With_ListingBroker = true; // set listing broker to true
             newFinancial.EMD_With_SellingBroker = false; // and selling broker to false
@@ -188,9 +191,20 @@ namespace LightningOffer.Controllers
 
             // Financing
             newFinancial.LoanType = LoanType;
-            newFinancial.Rate_Type = RateType;
+            newFinancial.Rate_Type = Rate_Type;
             newFinancial.Loan_Length = Loan_Length;
 
+            if (newFinancial.Loan_Length == 15)
+            {
+
+                newFinancial.Interest_Rate = ;
+
+            } else if (newFinancial.Loan_Length == 30)
+            {
+
+                newFinancial.Interest_Rate = ViewBag.yr30;
+
+            }
             newFinancial.Interest_Rate = Interest_Rate;
 
             //TODO: API Call for current rate
@@ -211,12 +225,10 @@ namespace LightningOffer.Controllers
         
 
 
-
-
             if (ModelState.IsValid)
             {
-                financial.Financial_id = Guid.NewGuid();
-                _context.Add(financial);
+      
+                _context.Add(newFinancial);
                 await _context.SaveChangesAsync();
                 
                 return RedirectToAction("Create", "Appraisals");
