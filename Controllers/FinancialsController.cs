@@ -158,7 +158,7 @@ namespace LightningOffer.Controllers
             string username = new string (_userManager.GetUserName(User));
             newFinancial.UserId = userId;
 
-            _logger.LogInformation("New financial section with ID {0} created with contract ID {1} by User {2}", newFinancial.Financial_id, contractId, userId);
+            _logger.LogInformation("New financial section with ID {0} created with contract ID {1} by User {2}", newFinancial.Financial_id, contractId, username);
 
             // Financial specific logic
             newFinancial.Purchase_Price = PurchasePrice;
