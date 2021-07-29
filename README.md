@@ -19,6 +19,7 @@ A web application that let's the agent make an offer from their phone, while the
 - Amazon RDS (SQL db)
 - RestSharp (API calls to multiple 3rd party services)
 - Datafiniti API (real-time real estate listings)
+- Vanilla JS
 - ...more will be added as I use them
 
 ##  In Closing...
