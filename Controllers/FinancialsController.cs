@@ -138,7 +138,7 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(int ARM_Limits, string Buyer_Loan_Application_Start, int Interest_Rate, int Loan_Length, string RateType, string LoanType, string DownPaymentFormat, Guid Id, int PurchasePrice, string EMD, bool EMD_With_ListingBroker, bool EMD_With_SellingBroker, string DownPaymentSource, string DownPaymentAmount,[Bind("Financial_id,CreatedDate,Purchase_Price,EMD,Cash,LineOfEquity,Gift,Other_Financing,Conventional,FHA,VA,Fixed_Rate,Loan_Length,Interest_Rate,ARM_Limits,Buyer_Loan_Application_Start,EMD_With_ListingBroker,EMD_With_SellingBroker")] Financial financial)
+        public async Task<IActionResult> Create(int ARM_Limits, string Buyer_Loan_Application_Start, int Interest_Rate, int Loan_Length, string RateType, string LoanType, string DownPaymentFormat, Guid Id, int PurchasePrice, string EMD, string DownPaymentSource, string DownPaymentAmount,[Bind("Financial_id,CreatedDate,Purchase_Price,EMD,Cash,LineOfEquity,Gift,Other_Financing,Conventional,FHA,VA,Fixed_Rate,Loan_Length,Interest_Rate,ARM_Limits,Buyer_Loan_Application_Start,EMD_With_ListingBroker,EMD_With_SellingBroker")] Financial financial)
         {
             // Assign GUIDs and userID
             // TODO: Purchase price, EMD with listing broker/selling broker, save
