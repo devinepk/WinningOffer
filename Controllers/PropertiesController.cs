@@ -21,12 +21,15 @@ namespace LightningOffer.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly ILogger _logger;
 
         public PropertiesController(ApplicationDbContext context,
-                                    UserManager<IdentityUser> userManager)
+                                    UserManager<IdentityUser> userManager,
+                                    ILogger<PropertiesController> logger)
         {
             _context = context;
             _userManager = userManager;
+            _logger = logger;
         }
 
         [TempData]
@@ -112,8 +115,7 @@ namespace LightningOffer.Controllers
             //
             newContract.Person = newPerson;
 
-
-
+    
             // Get the api key
             var builder = new ConfigurationBuilder()
                           .SetBasePath(Directory.GetCurrentDirectory())

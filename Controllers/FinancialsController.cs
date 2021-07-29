@@ -59,12 +59,10 @@ namespace LightningOffer.Controllers
 
         // GET: Financials/Create
         public IActionResult Create()        
-        {
+        {           
             // Get the 15 and 30 yr mortgage rate
-
             DateTime datetime = DateTime.Now;
             
-
             // Get the api key
             var builder = new ConfigurationBuilder()
                           .SetBasePath(Directory.GetCurrentDirectory())
@@ -145,7 +143,11 @@ namespace LightningOffer.Controllers
             newFinancial.Financial_id = Guid.NewGuid();
             newFinancial.CreatedDate = DateTime.Now;
 
-            Guid contractId = Id; // pass from appliances
+            Guid contractId = Id; // passd from appliances
+            //Set the contractGUID as the viewdata and use that to pass it to the next controller.
+            ViewBag.ContractId = Id;
+            _logger.LogInformation("{0} is the contract and viewbag id", Id);
+
             newFinancial.ContractId = Id;
 
             // Find and assign logged in user id
