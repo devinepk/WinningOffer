@@ -59,7 +59,10 @@ namespace LightningOffer.Controllers
 
         // GET: Financials/Create
         public IActionResult Create()        
-        {           
+        {
+            //Messages
+            ViewBag.RequiredField = "This is required, please make a selection.";
+            
             // Get the 15 and 30 yr mortgage rate
             DateTime datetime = DateTime.Now;
             
@@ -152,6 +155,7 @@ namespace LightningOffer.Controllers
 
             // Find and assign logged in user id
             string userId = new string(_userManager.GetUserId(User));
+            string username = new string (_userManager.GetUserName(User));
             newFinancial.UserId = userId;
 
             _logger.LogInformation("New financial section with ID {0} created with contract ID {1} by User {2}", newFinancial.Financial_id, contractId, userId);
@@ -159,17 +163,9 @@ namespace LightningOffer.Controllers
             // Financial specific logic
             newFinancial.Purchase_Price = PurchasePrice;
             newFinancial.EMD = EMD;
+            newFinancial.EMD_With_ListingBroker = true; // set listing broker to true
+            newFinancial.EMD_With_SellingBroker = false; // and selling broker to false
             
-            if (EMD_With_ListingBroker == true) // if EMD is with listing broker...
-            { 
-                newFinancial.EMD_With_ListingBroker = EMD_With_ListingBroker; // set listing broker to true
-                newFinancial.EMD_With_SellingBroker = false; // and selling broker to false
-            } else if (EMD_With_ListingBroker == false) // otherwise, if the listng broker is false...
-            {
-                newFinancial.EMD_With_ListingBroker = false; // set it to false
-                newFinancial.EMD_With_SellingBroker = true; // and set the selling broker to true
-            }
-
             newFinancial.DownPaymentSource = DownPaymentSource;
             newFinancial.DownPaymentAmount = DownPaymentAmount;
 

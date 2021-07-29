@@ -60,11 +60,11 @@ namespace LightningOffer.Models
 
 
         //Earnest Money Deposit
-        [Required]
+        [Required(ErrorMessage = "This is required, please make a selection.")]
         [Display(Name = "Listing Broker")]
         public bool EMD_With_ListingBroker { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "This is required, please make a selection.")]
         [Display(Name = "Selling Broker")]
         public bool EMD_With_SellingBroker { get; set; }
 

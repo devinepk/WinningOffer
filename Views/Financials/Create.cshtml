@@ -14,6 +14,7 @@
             document.getElementById("PercentDP").style.display = 'none';
             document.getElementById("ARMLimits").style.display = 'none';
             document.getElementById("PreApprovalUpLoad").style.display = 'none';
+            document.getElementById("EMD_Holding").style.display = 'none'; //set automatically in the controller to seller.
         };
     };
 
@@ -119,36 +120,34 @@
             </div>
             <div class="form-group">
                 <h5>How much is the earnest money deposit?</h5>
+                <span asp-validation-for="EMD" class="text-danger"></span>
+
                 <div class="form-check" id="EMD">
                     <input asp-for="EMD" class="form-check-input" type="radio" name="EMD" value="500" id="EMD" />
                     <label asp-for="EMD" class="form-check-label control-label" for="EMD">
                         $500
                     </label>
-                    <span asp-validation-for="EMD" class="text-danger"></span>
                 </div>
                 <div class="form-check">
                     <input asp-for="EMD" class="form-check-input" type="radio" name="EMD" value="1000" id="EMD" />
                     <label asp-for="EMD" class="form-check-label control-label" for="EMD">
                         $1000
                     </label>
-                    <span asp-validation-for="EMD" class="text-danger"></span>
                 </div>
                 <div class="form-check">
                     <input asp-for="EMD" class="form-check-input" type="radio" name="EMD" value="2500" id="EMD" />
                     <label asp-for="EMD" class="form-check-label control-label" for="EMD">
                         $2500
                     </label>
-                    <span asp-validation-for="EMD" class="text-danger"></span>
                 </div>
                 <div class="form-check">
                     <input asp-for="EMD" class="form-check-input" type="radio" name="EMD" value="5000" id="EMD" />
                     <label asp-for="EMD" class="form-check-label control-label" for="EMD">
                         $5000
                     </label>
-                    <span asp-validation-for="EMD" class="text-danger"></span>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="EMD_Holding" onload="hideDiv()" style="display: none">
                 <h5>Where is the earnest money deposit being held?</h5>
                 <div class="form-check" id="EMD_Holding">
                     <label class="form-check-label control-label" for="EMD_Holding">
@@ -163,6 +162,7 @@
             </div>
             <div class="form-group">
                 <h5>Where is the down payment coming from?</h5>
+                <span asp-validation-for="DownPaymentSource" class="text-danger"></span>
                 <div class="form-check" id="DownPaymentSource">
                     <label class="form-check-label control-label" for="DownPaymentSource">
                         <input class="form-check-input" type="radio" name="DownPaymentSource" value="Cash" asp-for="DownPaymentSource" />Cash
@@ -213,6 +213,7 @@
             </div>
             <div class="form-group">
                 <h5>What kind of financing is being used?</h5>
+                <span asp-validation-for="LoanType" class="text-danger"></span>
                 <div class="form-check" id="LoanType">
                     <input asp-for="LoanType" class="form-check-input" type="radio" name="LoanType" value="Conventional" id="LoanType" />
                     <label asp-for="LoanType" class="form-check-label control-label" for="LoanType">
@@ -234,6 +235,7 @@
             </div>
             <div class="form-group">
                 <h5>Is it a fixed or adjustable rate mortgage?</h5>
+                <span asp-validation-for="Rate_Type" class="text-danger"></span>
                 <div class="form-check" id="Rate_Type">
                     <input asp-for="Rate_Type" class="form-check-input" type="radio" name="Rate_Type" onclick="ShowFixedOptions()" value="Fixed" id="Rate_Type" />
                     <label asp-for="Rate_Type" class="form-check-label control-label" for="Rate_Type">
@@ -249,6 +251,7 @@
             </div>
             <div class="form-group" onload="hideDiv()" id="ARMLimits" style="display: none">
                 <h5>How long is the loan?</h5>
+                <!--<span asp-validation-for="ARM_Limits" class="text-danger"></span>-->
                 <div>
                     <label asp-for="ARM_Limits" class="control-label">15 years</label>
                     <input asp-for="ARM_Limits" class="form-control" />
@@ -277,6 +280,7 @@
             </div>
             <div class="form-group">
                 <h5>Has the buyer applied for the loan?</h5>
+                <span asp-validation-for="Buyer_Loan_Application_Start" class="text-danger"></span>
                 <div class="form-check" id="Buyer_Loan_Application_Start">
                     <input asp-for="Buyer_Loan_Application_Start" type="radio" class="form-check-input" onclick="ShowPreapprovalUpload()" name="Buyer_Loan_Application_Start" id="Buyer_Loan_Application_Start" value="Yes" />
                     <label asp-for="Buyer_Loan_Application_Start" class="form-check-label" for="Buyer_Loan_Application_Start">
@@ -286,7 +290,7 @@
                 <div class="form-check" id="Buyer_Loan_Application_Start">
                     <input asp-for="Buyer_Loan_Application_Start" type="radio" class="form-check-input" onclick="HidePreapprovalUpload()" name="Buyer_Loan_Application_Start" id="Buyer_Loan_Application_Start" value="No" />
                     <label asp-for="Buyer_Loan_Application_Start" class="form-check-label" for="Buyer_Loan_Application_Start">
-                        <!--This should default to 14 for the Buyer_Loan_Application_Start column-->
+                        <!--This should default to today's date + 10 for the Buyer_Loan_Application_Start column-->
                         No, they're working on it.
                     </label>
                 </div>
