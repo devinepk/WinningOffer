@@ -49,7 +49,7 @@ namespace LightningOffer.Models
 
         [Required]
         [Display(Name = "The interest rate will not exceed the following:")]
-        public int Interest_Rate { get; set; }
+        public double Interest_Rate { get; set; }
 
         [Display(Name = "ARM Interest Rate Limit")]
         public int ARM_Limits { get; set; }

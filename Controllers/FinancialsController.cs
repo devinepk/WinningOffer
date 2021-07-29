@@ -22,6 +22,7 @@ namespace LightningOffer.Controllers
         private readonly ILogger _logger;
 
 
+
         public FinancialsController(ApplicationDbContext context,
                             UserManager<IdentityUser> userManager,
                             ILogger<FinancialsController> logger)
@@ -102,6 +103,7 @@ namespace LightningOffer.Controllers
                 string current30Yr = response30.Content;
                 double ThirtyYr = Convert.ToDouble(current30Yr) + 0.25;
                 ViewBag.yr30 = ThirtyYr;
+           
 
                 _logger.LogInformation("The 30 year mortage API call was successful.  The current 30 year mortgage rate is {0}% on {1}.", current30Yr, datetime);
             }
@@ -121,6 +123,7 @@ namespace LightningOffer.Controllers
                 string current15Yr = response15.Content;
                 double FifteenYr = Convert.ToDouble(current15Yr) + 0.25;
                 ViewBag.yr15 = FifteenYr;
+                
 
                 _logger.LogInformation("The 15 year mortgage API call was successful.  The current 15 year mortgage rate is {0}% on {1}.", current15Yr, datetime);
             }
@@ -131,6 +134,7 @@ namespace LightningOffer.Controllers
             }
 
             return View();
+            
         }
 
         // POST: Financials/Create
@@ -138,7 +142,7 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(int ARM_Limits, string Buyer_Loan_Application_Start, int Interest_Rate, int Loan_Length, string Rate_Type, string LoanType, string DownPaymentFormat, Guid Id, int Purchase_Price, string EMD, string DownPaymentSource, string DownPaymentAmount,[Bind("Financial_id,CreatedDate,Purchase_Price,EMD,Loan_Length,Interest_Rate,ARM_Limits,Buyer_Loan_Application_Start,EMD_With_ListingBroker,EMD_With_SellingBroker,DownPaymentAmount,LoanType, Rate_Type,ContractId, UserId")] Financial financial)
+        public async Task<IActionResult> Create(int ARM_Limits, string Buyer_Loan_Application_Start, double Interest_Rate, int Loan_Length, string Rate_Type, string LoanType, string DownPaymentFormat, Guid Id, int Purchase_Price, string EMD, string DownPaymentSource, string DownPaymentAmount,[Bind("Financial_id,CreatedDate,Purchase_Price,EMD,Loan_Length,Interest_Rate,ARM_Limits,Buyer_Loan_Application_Start,EMD_With_ListingBroker,EMD_With_SellingBroker,DownPaymentAmount,LoanType, Rate_Type,ContractId, UserId")] Financial financial)
         {
             // Assign GUIDs and userID
             // TODO: Purchase price, EMD with listing broker/selling broker, save
@@ -197,12 +201,12 @@ namespace LightningOffer.Controllers
             if (newFinancial.Loan_Length == 15)
             {
 
-                newFinancial.Interest_Rate = ;
+                newFinancial.Interest_Rate = Interest_Rate;
 
             } else if (newFinancial.Loan_Length == 30)
             {
 
-                newFinancial.Interest_Rate = ViewBag.yr30;
+                newFinancial.Interest_Rate = Interest_Rate;
 
             }
             newFinancial.Interest_Rate = Interest_Rate;
