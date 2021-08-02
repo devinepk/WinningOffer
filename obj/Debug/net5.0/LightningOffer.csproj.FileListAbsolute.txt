@@ -341,3 +341,9 @@ C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightnin
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml.g.cs
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml.g.cs
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\bin\Debug\net5.0\libman.json
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\bin\Debug\net5.0\web.config
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\bin\Debug\net5.0\Azure.Core.dll
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\bin\Debug\net5.0\Azure.Extensions.AspNetCore.Configuration.Secrets.dll
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\bin\Debug\net5.0\Azure.Identity.dll
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\bin\Debug\net5.0\Azure.Security.KeyVault.Secrets.dll
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\bin\Debug\net5.0\Microsoft.Identity.Client.Extensions.Msal.dll

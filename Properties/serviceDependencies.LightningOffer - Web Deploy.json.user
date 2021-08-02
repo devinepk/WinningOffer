@@ -1,0 +1,38 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "restored": true,
+      "restoreTime": "2021-08-02T20:21:14.5402953Z"
+    },
+    "mssql2": {
+      "restored": true,
+      "restoreTime": "2021-08-02T20:18:30.3228926Z"
+    },
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2021-08-02T20:07:14.4821Z"
+    }
+  },
+  "parameters": {
+    "secrets1.resourceGroupName": {
+      "Name": "secrets1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "DefaultResourceGroup-EUS"
+    },
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "7e81d106-0062-47d2-9a58-e04c40399b6d"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "Lightning_Offer"
+    },
+    "secrets1.subscriptionId": {
+      "Name": "secrets1.subscriptionId",
+      "Type": "subscription",
+      "Value": "7e81d106-0062-47d2-9a58-e04c40399b6d"
+    }
+  }
+}
