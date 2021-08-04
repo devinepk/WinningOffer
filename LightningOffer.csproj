@@ -73,6 +73,7 @@
 
   <ItemGroup>
     <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Properties\ServiceDependencies\LightningOffer - Web Deploy\" />
   </ItemGroup>
 
 </Project>
