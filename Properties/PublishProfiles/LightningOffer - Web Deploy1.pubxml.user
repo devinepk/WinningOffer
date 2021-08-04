@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAT+3btdEkjEO4/3uVT/et6QAAAAACAAAAAAADZgAAwAAAABAAAADlGPZ03LDaSj2ZjMO9zgDqAAAAAASAAACgAAAAEAAAACNG72H6WSodpFXodrqRGy2AAAAABT5FdUSW2mlvP6PI3IoM8qT1IFHrtZDwyZ0fKSH1qeF/KYVswnEOwkRgVLUvCzu3x+nMPWhgJflpeddVfD/fiIzW3n4/aMi6f0ha9iZle3/Gz0QLOwGk3ygJIt9F2gboU0IsMl2jH+rzTqU12wjofdlgu4jg/GurBT4uzdYc6tcUAAAAPDPxoNxr1MrytT2N9zVJMzdntoQ=</EncryptedPassword>
+    <History>True|2021-08-04T11:17:07.8183661Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <AzureDBConnectionStrings Include="Data Source=tcp:lightningoffer.database.windows.net,1433;Initial Catalog=RealTimeOffer;User Id=vasa@lightningoffer;Password=***REMOVED***" />
+    <AzureDBConnectionStrings Include="Data Source=tcp:lightningoffer.database.windows.net,1433;Initial Catalog=rtobackup;User Id=admin@lightningoffer;Password=***REMOVED***" />
+  </ItemGroup>
+</Project>

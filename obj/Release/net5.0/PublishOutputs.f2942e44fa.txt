@@ -48,7 +48,6 @@ C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightnin
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\materialize\dist\css\site.css
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\materialize\LICENSE
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\materialize\README.md
-C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Release\net5.0\PubTmp\Out\web.config
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Release\net5.0\PubTmp\Out\appsettings.Development.json
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Release\net5.0\PubTmp\Out\appsettings.json
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\obj\Release\net5.0\PubTmp\Out\libman.json
