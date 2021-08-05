@@ -19,16 +19,24 @@ namespace LightningOffer
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-.ConfigureAppConfiguration((context, config) =>
-{
-var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("VaultUri"));
-config.AddAzureKeyVault(
-keyVaultEndpoint,
-new DefaultAzureCredential());
-})
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+
+                            // TODO: Figure out how to set these based on debug vs release.
+                        
+                           // For pushing to production
+                           /*
+                         .ConfigureAppConfiguration((context, config) =>
+                         {
+                            var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("VaultUri"));
+                            config.AddAzureKeyVault(
+                            keyVaultEndpoint,
+                            new DefaultAzureCredential());
+                         })
+                           */
+
+                            // For inhouse testing
+                         .ConfigureWebHostDefaults(webBuilder =>
+                         {
+                            webBuilder.UseStartup<Startup>();
+                         });
     }
 }
