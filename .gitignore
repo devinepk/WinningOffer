@@ -4,7 +4,8 @@ appsettings.json
 appsettings
 TextFile.txt
 Debug
-
+.pubxml
+.pubxml.user
 
 # Odds and Ends
 bin/Debug
