@@ -21,6 +21,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Properties\ServiceDependencies\LightningOffer - Web Deploy\mssql.arm.json" />
+    <Content Remove="Properties\ServiceDependencies\LightningOffer - Web Deploy\secrets.arm.json" />
     <Content Remove="wwwroot\lib\materialize\dist\css\materialize.css" />
     <Content Remove="wwwroot\lib\materialize\dist\css\materialize.min.css" />
     <Content Remove="wwwroot\lib\materialize\dist\js\materialize.js" />
@@ -29,6 +31,11 @@
 
   <ItemGroup>
     <None Remove="Properties\PublishProfiles\LightningOffer - Web Deploy.pubxml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_WebToolingArtifacts Remove="Properties\ServiceDependencies\LightningOffer - Web Deploy\mssql.arm.json" />
+    <_WebToolingArtifacts Remove="Properties\ServiceDependencies\LightningOffer - Web Deploy\secrets.arm.json" />
   </ItemGroup>
 
   <ItemGroup>

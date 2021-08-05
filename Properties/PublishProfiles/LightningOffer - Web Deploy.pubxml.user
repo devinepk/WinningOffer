@@ -7,7 +7,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAT+3btdEkjEO4/3uVT/et6QAAAAACAAAAAAADZgAAwAAAABAAAADer4HjHJAw74cnl5LGrh21AAAAAASAAACgAAAAEAAAAGM3iCX5rvV6mO39Btqeq1uAAAAA/PAN3cId1c4+wioUg+5y4MhpWOWZNzVCDuyZCKOFoTPk12Prtc8GBxfA/D5NFznoZIM2YqiJLKxF78/vEX6bEddX5iKi1cHld1zsuBRkkeswA9HSp1pxWfmvE3bVBj5okWV9GKiM23mLXWnysqY//lIPXcJHS3ZKyb0ue2ht5xQUAAAA0kh4HaqaWcFY3CLpR0alhbBQ4N8=</EncryptedPassword>
-    <History>True|2021-08-05T18:18:10.9989259Z;True|2021-08-05T11:26:18.0101437-04:00;</History>
+    <History>True|2021-08-05T18:32:21.9158414Z;True|2021-08-05T14:27:02.3859473-04:00;True|2021-08-05T14:18:10.9989259-04:00;True|2021-08-05T11:26:18.0101437-04:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <AzureDBConnectionStrings Include="Data Source=tcp:lightningoffer.database.windows.net,1433;Initial Catalog=RealTimeOffer;User Id=vasa@lightningoffer;Password=PHilip12#$" />
