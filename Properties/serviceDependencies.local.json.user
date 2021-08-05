@@ -7,7 +7,22 @@
     "mssql1": {
       "restored": true,
       "restoreTime": "2021-08-04T20:48:50.6826325Z"
+    },
+    "secrets2": {
+      "restored": true,
+      "restoreTime": "2021-08-05T15:55:35.4639482Z"
     }
   },
-  "parameters": {}
+  "parameters": {
+    "secrets2.resourceGroupName": {
+      "Name": "secrets2.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "Lightning_Offer"
+    },
+    "secrets2.subscriptionId": {
+      "Name": "secrets2.subscriptionId",
+      "Type": "subscription",
+      "Value": "7e81d106-0062-47d2-9a58-e04c40399b6d"
+    }
+  }
 }

@@ -12,7 +12,7 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
-        "VaultUri": "https://lightningoffervault.vault.azure.net/",
+        "VaultUri": "https://lightningoffer.vault.azure.net/",
         "AZURE_USERNAME": "philip@devineandcompany.com",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -21,7 +21,7 @@
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
-        "VaultUri": "https://lightningoffervault.vault.azure.net/",
+        "VaultUri": "https://lightningoffer.vault.azure.net/",
         "AZURE_USERNAME": "philip@devineandcompany.com",
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
