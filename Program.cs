@@ -29,7 +29,7 @@ namespace LightningOffer
                             webBuilder.UseStartup<Startup>();
                         });
 #else
-
+              
                         // For pushing to production
 
                         .ConfigureAppConfiguration((context, config) =>

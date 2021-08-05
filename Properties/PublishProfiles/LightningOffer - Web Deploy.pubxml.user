@@ -10,7 +10,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <History>True|2021-08-05T15:26:18.0101437Z;</History>
   </PropertyGroup>
   <ItemGroup>
-    <AzureDBConnectionStrings Include="Data Source=tcp:lightningoffer.database.windows.net,1433;Initial Catalog=RealTimeOffer;User Id=vasa@lightningoffer;Password=***REMOVED***" />
-    <AzureDBConnectionStrings Include="Data Source=tcp:lightningoffer.database.windows.net,1433;Initial Catalog=rtobackup;User Id=admin@lightningoffer;Password=***REMOVED***" />
+    <AzureDBConnectionStrings Include="Data Source=tcp:lightningoffer.database.windows.net,1433;Initial Catalog=RealTimeOffer;User Id=vasa@lightningoffer;Password=PHilip12#$" />
+    <AzureDBConnectionStrings Include="Data Source=tcp:lightningoffer.database.windows.net,1433;Initial Catalog=rtobackup;User Id=admin@lightningoffer;Password=PHilip12#$" />
   </ItemGroup>
 </Project>
