@@ -4,9 +4,9 @@ appsettings.json
 appsettings
 TextFile.txt
 Debug
-.pubxml
-.pubxml.user
-.mak
+*.pubxml
+*.pubxml.user
+*.mak
 
 
 
