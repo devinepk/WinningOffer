@@ -6,6 +6,7 @@ TextFile.txt
 Debug
 *.pubxml
 *.pubxml.user
+*.user
 *.mak
 
 
