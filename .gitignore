@@ -6,6 +6,8 @@ TextFile.txt
 Debug
 .pubxml
 .pubxml.user
+.mak
+
 
 
 # Odds and Ends
