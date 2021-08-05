@@ -32,10 +32,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <_WebToolingArtifacts Remove="Properties\PublishProfiles\LightningOfferWebDeploy.pubxml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\css\materialize.css" />
     <None Include="wwwroot\css\materialize.min.css" />
     <None Include="wwwroot\js\materialize.js" />
