@@ -12,6 +12,7 @@ namespace LightningOffer
 {
     public class Program
     {
+
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
@@ -20,23 +21,24 @@ namespace LightningOffer
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
 
-                            // TODO: Figure out how to set these based on debug vs release.
-                        
-                           // For pushing to production
-                           /*
-                         .ConfigureAppConfiguration((context, config) =>
-                         {
-                            var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("VaultUri"));
-                            config.AddAzureKeyVault(
-                            keyVaultEndpoint,
-                            new DefaultAzureCredential());
-                         })
-                           */
+                          // TODO: Figure out how to set these based on debug vs release.
 
-                            // For inhouse testing
-                         .ConfigureWebHostDefaults(webBuilder =>
-                         {
-                            webBuilder.UseStartup<Startup>();
-                         });
+                        // For pushing to production
+                        /*
+                        .ConfigureAppConfiguration((context, config) =>
+                        {
+                          var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("VaultUri"));
+                          config.AddAzureKeyVault(
+                          keyVaultEndpoint,
+                          new DefaultAzureCredential());
+                        })
+                        */
+
+
+                        // For inhouse testing
+                        .ConfigureWebHostDefaults(webBuilder =>
+                        {
+                          webBuilder.UseStartup<Startup>();
+                        });
     }
 }
