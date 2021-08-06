@@ -142,7 +142,7 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(int ARM_Limits, string Buyer_Loan_Application_Start, double Interest_Rate, int Loan_Length, string Rate_Type, string LoanType, string DownPaymentFormat, Guid Id, int Purchase_Price, string EMD, string DownPaymentSource, string DownPaymentAmount,[Bind("Financial_id,CreatedDate,Purchase_Price,EMD,Loan_Length,Interest_Rate,ARM_Limits,Buyer_Loan_Application_Start,EMD_With_ListingBroker,EMD_With_SellingBroker,DownPaymentAmount,LoanType, Rate_Type,ContractId, UserId")] Financial financial)
+        public async Task<IActionResult> Create(int ARM_Limits, string Buyer_Loan_Application_Start, double Interest_Rate, int Loan_Length, string Rate_Type, string LoanType, string DownPaymentFormat, Guid Id, int Purchase_Price, string EMD, string DownPaymentSource, string DownPaymentAmount, [Bind("Financial_id,CreatedDate,Purchase_Price,EMD,Loan_Length,Interest_Rate,ARM_Limits,Buyer_Loan_Application_Start,EMD_With_ListingBroker,EMD_With_SellingBroker,DownPaymentAmount,LoanType, Rate_Type,ContractId, UserId")] Financial financial)
         {
             // Assign GUIDs and userID
             // TODO: Purchase price, EMD with listing broker/selling broker, save
@@ -176,22 +176,7 @@ namespace LightningOffer.Controllers
             
             newFinancial.DownPaymentSource = DownPaymentSource;
             newFinancial.DownPaymentAmount = DownPaymentAmount;
-
-            string DownPaymentPercent = newFinancial.DownPaymentAmount;
-            string DownpaymentDollar = newFinancial.DownPaymentAmount;
-
-            // Append or prepend the down payment method to the down payment amount
-            if (DownPaymentFormat == "%")
-            {
-
-                newFinancial.DownPaymentAmount = DownPaymentPercent + DownPaymentFormat;
-
-            } else if (DownPaymentFormat == "$")
-            {
-
-                newFinancial.DownPaymentAmount = DownPaymentFormat + DownpaymentDollar;
-
-            }
+            newFinancial.DownPaymentFormat = DownPaymentFormat;
 
             // Financing
             newFinancial.LoanType = LoanType;
@@ -212,13 +197,13 @@ namespace LightningOffer.Controllers
             newFinancial.Interest_Rate = Interest_Rate;
 
             //TODO: API Call for current rate
-
+            
             newFinancial.ARM_Limits = ARM_Limits;
 
             if (Buyer_Loan_Application_Start == "No")
             {
 
-                newFinancial.Buyer_Loan_Application_Start = DateTime.Today.AddDays(10).ToString("dd/MM/yyyy");
+                newFinancial.Buyer_Loan_Application_Start = DateTime.Today.AddDays(10).ToString("MM/dd/yyyy");
 
             } else if (Buyer_Loan_Application_Start == "Yes")
             {
@@ -226,7 +211,6 @@ namespace LightningOffer.Controllers
                 newFinancial.Buyer_Loan_Application_Start = DateTime.Today.ToString("dd/MM/yyyy");
 
             }
-        
 
 
             if (ModelState.IsValid)

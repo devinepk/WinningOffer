@@ -1,16 +1,16 @@
 {
   "dependencies": {
-    "mssql1": {
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/lightningoffer/databases/RealTimeOffer",
-      "type": "mssql.azure",
-      "connectionId": "lightningoffer.database.windows.net,1433",
-      "secretStore": "AzureAppSettings"
-    },
     "secrets1": {
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.KeyVault/vaults/LightningOffer",
       "type": "secrets.keyVault",
       "connectionId": "VaultUri",
       "secretStore": "AzureAppSettings"
+    },
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/lightningoffer/databases/RealTimeOffer",
+      "type": "mssql.azure",
+      "connectionId": "lightningoffer.database.windows.net,1433",
+      "secretStore": "AzureKeyVault"
     }
   }
 }

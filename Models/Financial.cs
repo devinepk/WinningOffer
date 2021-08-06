@@ -30,11 +30,12 @@ namespace LightningOffer.Models
         public string EMD { get; set; } // will be radio options: $500, $1000, Other
 
         //Payment of purchase price 
-        [Required(ErrorMessage = "This is required, please make a selection.")]
         public string DownPaymentSource { get; set; }
 
-        [Required(ErrorMessage = "This is required, please make a selection.")]
         public string DownPaymentAmount { get; set; }
+
+
+        public string DownPaymentFormat { get; set; }
 
         // Financing remaining section -- conventional, FHA, VA, ARM, Other
         public string LoanType { get; set; } // Conventional, FHA, VA, TODO: Other
