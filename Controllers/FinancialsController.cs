@@ -65,73 +65,6 @@ namespace LightningOffer.Controllers
             //Messages
             ViewBag.RequiredField = "This is required, please make a selection.";
             
-            // Get the 15 and 30 yr mortgage rate
-            DateTime datetime = DateTime.Now;
-            
-            // Get the api key
-            var builder = new ConfigurationBuilder()
-                          .SetBasePath(Directory.GetCurrentDirectory())
-                          .AddJsonFile("appsettings.json");
-            var configuration = builder.Build();
-            var apikeys = configuration["APIKeys:IEX_Test"];
-
-            
-            ///
-            /// To switch to prod, changes the api key to API_Prod, and replace sandbox30/sandbox15 with mortgage30/mortgage15
-            /// 
-
-            string token = "";
-            token = apikeys.ToString();
-
-            string sandbox30 = "https://sandbox.iexapis.com/stable/data-points/market/MORTGAGE30US?token=" + token;
-            string sandbox15 = "https://sandbox.iexapis.com/stable/data-points/market/MORTGAGE30US?token=" + token;
-
-
-            string mortgage30 = "https://cloud.iexapis.com/stable/data-points/market/MORTGAGE30US?token=" + token;
-            string mortgage15 = "https://cloud.iexapis.com/stable/data-points/market/MORTGAGE15US?token=" + token;
-
-
-
-            try
-            {
-                //30 yr
-                var client30 = new RestClient(sandbox30);
-                client30.Timeout = -1;
-                var request30 = new RestRequest(Method.GET);
-                request30.AddHeader("Cookie", "ctoken=4c301396d1a6446b9ae42c7894164293");
-                IRestResponse response30 = client30.Execute(request30);
-                string current30Yr = response30.Content;
-                double ThirtyYr = Convert.ToDouble(current30Yr) + 0.25;
-                ViewBag.yr30 = ThirtyYr;
-           
-
-                _logger.LogInformation("The 30 year mortage API call was successful.  The current 30 year mortgage rate is {0}% on {1}.", current30Yr, datetime);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogCritical("Unable to get the 30 year mortgage because something failed with the API.  Please see the following error: " + ex.Message);
-            }
-
-            try
-            {
-                //15 yr
-                var client15 = new RestClient(sandbox15);
-                client15.Timeout = -1;
-                var request15 = new RestRequest(Method.GET);
-                request15.AddHeader("Cookie", "ctoken=4c301396d1a6446b9ae42c7894164293");
-                IRestResponse response15 = client15.Execute(request15);
-                string current15Yr = response15.Content;
-                double FifteenYr = Convert.ToDouble(current15Yr) + 0.25;
-                ViewBag.yr15 = FifteenYr;
-                
-
-                _logger.LogInformation("The 15 year mortgage API call was successful.  The current 15 year mortgage rate is {0}% on {1}.", current15Yr, datetime);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogCritical("Unable to get the 15 year mortgage because something failed with the API.  Please see the following error: " + ex.Message);
-
-            }
 
             return View();
             
@@ -194,7 +127,80 @@ namespace LightningOffer.Controllers
                 newFinancial.Interest_Rate = Interest_Rate;
 
             }
-            newFinancial.Interest_Rate = Interest_Rate;
+
+
+            // Get the 15 and 30 yr mortgage rate
+            DateTime datetime = DateTime.Now;
+
+            // Get the api key
+            var builder = new ConfigurationBuilder()
+                          .SetBasePath(Directory.GetCurrentDirectory())
+                          .AddJsonFile("appsettings.json");
+            var configuration = builder.Build();
+            var apikeys = configuration["APIKeys:IEX_Test"];
+
+
+            ///
+            /// To switch to prod, changes the api key to API_Prod, and replace sandbox30/sandbox15 with mortgage30/mortgage15
+            /// 
+
+            string token = "";
+            token = apikeys.ToString();
+
+            string sandbox30 = "https://sandbox.iexapis.com/stable/data-points/market/MORTGAGE30US?token=" + token;
+            string sandbox15 = "https://sandbox.iexapis.com/stable/data-points/market/MORTGAGE30US?token=" + token;
+
+
+            string mortgage30 = "https://cloud.iexapis.com/stable/data-points/market/MORTGAGE30US?token=" + token;
+            string mortgage15 = "https://cloud.iexapis.com/stable/data-points/market/MORTGAGE15US?token=" + token;
+
+
+            if (newFinancial.Loan_Length == 30)
+            {
+
+                try
+                {
+                    //30 yr
+                    var client30 = new RestClient(sandbox30);
+                    client30.Timeout = -1;
+                    var request30 = new RestRequest(Method.GET);
+                    request30.AddHeader("Cookie", "ctoken=4c301396d1a6446b9ae42c7894164293");
+                    IRestResponse response30 = client30.Execute(request30);
+                    string current30Yr = response30.Content;
+                    double ThirtyYr = Convert.ToDouble(current30Yr);
+                    newFinancial.Interest_Rate = ThirtyYr;
+
+                    _logger.LogInformation("The 30 year mortage API call was successful.  The current 30 year mortgage rate is {0}% on {1}.", current30Yr, datetime);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogCritical("Unable to get the 30 year mortgage because something failed with the API.  Please see the following error: " + ex.Message);
+                }
+
+            } else if (newFinancial.Loan_Length == 15) 
+            {
+
+                try
+                {
+                    //15 yr
+                    var client15 = new RestClient(sandbox15);
+                    client15.Timeout = -1;
+                    var request15 = new RestRequest(Method.GET);
+                    request15.AddHeader("Cookie", "ctoken=4c301396d1a6446b9ae42c7894164293");
+                    IRestResponse response15 = client15.Execute(request15);
+                    string current15Yr = response15.Content;
+                    double FifteenYr = Convert.ToDouble(current15Yr);
+                    newFinancial.Interest_Rate = FifteenYr;
+
+                    _logger.LogInformation("The 15 year mortgage API call was successful.  The current 15 year mortgage rate is {0}% on {1}.", current15Yr, datetime);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogCritical("Unable to get the 15 year mortgage because something failed with the API.  Please see the following error: " + ex.Message);
+
+                }
+            }
+
 
             //TODO: API Call for current rate
             

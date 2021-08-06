@@ -115,7 +115,7 @@
             <h5>What's the purchase price?</h5>
             <div class="form-group">
                 <!--<label asp-for="Purchase_Price" class="control-label"></label>-->
-                <input asp-for="Purchase_Price" class="form-control" placeholder="$230,000" />
+                <input asp-for="Purchase_Price" class="form-control" placeholder="Example: $230,000" />
                 <span asp-validation-for="Purchase_Price" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -273,11 +273,11 @@
                     </label>
                 </div>
             </div>
-            <!--This should be a readonly field that autopopulates today's market rate + .25 point via api call. This should probably be hidden? -->
+            <!--This should be a readonly field that autopopulates today's market rate + .25 point via api call. This should probably be hidden? 
             <div class="form-group">
                 <label asp-for="Interest_Rate" class="control-label"></label>
-                <input asp-for="Interest_Rate" class="form-control" name="Interest_Rate" id="Interest_Rate" readonly placeholder="@ViewBag.yr30" value="@ViewBag.yr30"/>
-            </div> 
+                <input asp-for="Interest_Rate" class="form-control" name="Interest_Rate" id="Interest_Rate" readonly placeholder="ViewBag.yr30" value="ViewBag.yr30" />
+            </div> -->
             <div class="form-group">
                 <h5>Has the buyer applied for the loan?</h5>
                 <span asp-validation-for="Buyer_Loan_Application_Start" class="text-danger"></span>
