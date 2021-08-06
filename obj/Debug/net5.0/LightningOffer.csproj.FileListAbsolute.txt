@@ -346,3 +346,6 @@ C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightnin
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\bin\Debug\net5.0\Azure.Identity.dll
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\bin\Debug\net5.0\Azure.Security.KeyVault.Secrets.dll
 C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\bin\Debug\net5.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\bin\Debug\net5.0\Azure.Storage.Blobs.dll
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\bin\Debug\net5.0\Azure.Storage.Common.dll
+C:\Users\pdevine\OneDrive - Bastian Solutions\Desktop\Personal Projects\Lightning Offer\bin\Debug\net5.0\System.Memory.Data.dll

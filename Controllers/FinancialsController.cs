@@ -78,8 +78,9 @@ namespace LightningOffer.Controllers
         public async Task<IActionResult> Create(int ARM_Limits, string Buyer_Loan_Application_Start, double Interest_Rate, int Loan_Length, string Rate_Type, string LoanType, string DownPaymentFormat, Guid Id, int Purchase_Price, string EMD, string DownPaymentSource, string DownPaymentAmount, [Bind("Financial_id,CreatedDate,Purchase_Price,EMD,Loan_Length,Interest_Rate,ARM_Limits,Buyer_Loan_Application_Start,EMD_With_ListingBroker,EMD_With_SellingBroker,DownPaymentAmount,LoanType, Rate_Type,ContractId, UserId")] Financial financial)
         {
             // Assign GUIDs and userID
-            // TODO: Purchase price, EMD with listing broker/selling broker, save
+            // TODO: Upload
 
+            
             
 
 
@@ -214,8 +215,11 @@ namespace LightningOffer.Controllers
             } else if (Buyer_Loan_Application_Start == "Yes")
             {
 
-                newFinancial.Buyer_Loan_Application_Start = DateTime.Today.ToString("dd/MM/yyyy");
+                //assign todays date
+                newFinancial.Buyer_Loan_Application_Start = DateTime.Today.ToString("MM/dd/yyyy");
 
+                //upload the preapproval letter
+     
             }
 
 
