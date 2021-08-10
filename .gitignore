@@ -8,7 +8,7 @@ Debug
 *.pubxml.user
 *.user
 *.mak
-
+.DS_Store
 
 
 # Odds and Ends
