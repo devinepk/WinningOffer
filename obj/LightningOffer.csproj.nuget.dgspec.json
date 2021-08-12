@@ -1,31 +1,40 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Home/Documents/GitHub/LightningOffer/LightningOffer.csproj": {}
+    "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\Lightning Offer\\LightningOffer.csproj": {}
   },
   "projects": {
-    "/Users/Home/Documents/GitHub/LightningOffer/LightningOffer.csproj": {
+    "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\Lightning Offer\\LightningOffer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Home/Documents/GitHub/LightningOffer/LightningOffer.csproj",
+        "projectUniqueName": "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\Lightning Offer\\LightningOffer.csproj",
         "projectName": "LightningOffer",
-        "projectPath": "/Users/Home/Documents/GitHub/LightningOffer/LightningOffer.csproj",
-        "packagesPath": "/Users/Home/.nuget/packages/",
-        "outputPath": "/Users/Home/Documents/GitHub/LightningOffer/obj/",
+        "projectPath": "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\Lightning Offer\\LightningOffer.csproj",
+        "packagesPath": "C:\\Users\\pdevine\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\Lightning Offer\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/Home/.config/NuGet/NuGet.Config"
+          "C:\\Users\\pdevine\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\TestProject1\\TestProject1.csproj": {
+                "projectPath": "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\TestProject1\\TestProject1.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -100,6 +109,10 @@
               "target": "Package",
               "version": "[5.0.2, )"
             },
+            "Microsoft.WindowsAzure.ConfigurationManager": {
+              "target": "Package",
+              "version": "[3.2.3, )"
+            },
             "RestSharp": {
               "target": "Package",
               "version": "[106.11.8-alpha.0.13, )"
@@ -107,6 +120,10 @@
             "SendGrid": {
               "target": "Package",
               "version": "[9.23.2, )"
+            },
+            "WindowsAzure.Storage": {
+              "target": "Package",
+              "version": "[9.3.3, )"
             },
             "materialize": {
               "target": "Package",
@@ -135,7 +152,94 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.302/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\TestProject1\\TestProject1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\TestProject1\\TestProject1.csproj",
+        "projectName": "TestProject1",
+        "projectPath": "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\TestProject1\\TestProject1.csproj",
+        "packagesPath": "C:\\Users\\pdevine\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pdevine\\OneDrive - Bastian Solutions\\Desktop\\Personal Projects\\TestProject1\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\pdevine\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.7.1, )"
+            },
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[3.141.0, )"
+            },
+            "Selenium.WebDriver.ChromeDriver": {
+              "target": "Package",
+              "version": "[91.0.4472.10100, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.3.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LightningOffer.Models
 {
@@ -68,6 +70,9 @@ namespace LightningOffer.Models
         [Required(ErrorMessage = "This is required, please make a selection.")]
         [Display(Name = "Selling Broker")]
         public bool EMD_With_SellingBroker { get; set; }
+
+        [NotMapped]  
+        public IFormFile File { get; set; }
 
         public Contract Contract { get; set; }
         
