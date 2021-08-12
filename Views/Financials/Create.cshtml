@@ -300,7 +300,7 @@
             <div class="form-group" id="PreApprovalUpLoad" onload="hideDiv()" style="display: none">
                 <div class="form-control-file" id="PreApprovalUpLoad">
                     <h5>Add the preapproval letter to the offer.</h5>
-                    <input asp-for="Buyer_Loan_Application_Start" type="file" class="form-control-file" id="customFile" value="Done" />
+                    <input asp-for="Buyer_Loan_Application_Start" type="file" enctype = "multipart/form-data" asp-action="Create" asp-controller="Financials" name="File" class="form-control-file" id="File" value="Done" />
                 </div>
             </div>
 

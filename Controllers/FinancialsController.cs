@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Identity;
 using RestSharp;
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace LightningOffer.Controllers
 {
@@ -75,18 +76,21 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(int ARM_Limits, string Buyer_Loan_Application_Start, double Interest_Rate, int Loan_Length, string Rate_Type, string LoanType, string DownPaymentFormat, Guid Id, int Purchase_Price, string EMD, string DownPaymentSource, string DownPaymentAmount, [Bind("Financial_id,CreatedDate,Purchase_Price,EMD,Loan_Length,Interest_Rate,ARM_Limits,Buyer_Loan_Application_Start,EMD_With_ListingBroker,EMD_With_SellingBroker,DownPaymentAmount,LoanType, Rate_Type,ContractId, UserId")] Financial financial)
+        public async Task<IActionResult> Create(IFormFile File, int ARM_Limits, string Buyer_Loan_Application_Start, double Interest_Rate, int Loan_Length, string Rate_Type, string LoanType, string DownPaymentFormat, Guid Id, int Purchase_Price, string EMD, string DownPaymentSource, string DownPaymentAmount, [Bind("Financial_id,CreatedDate,Purchase_Price,EMD,Loan_Length,Interest_Rate,ARM_Limits,Buyer_Loan_Application_Start,EMD_With_ListingBroker,EMD_With_SellingBroker,DownPaymentAmount,LoanType, Rate_Type,ContractId, UserId")] Financial financial)
         {
             // Assign GUIDs and userID
             // TODO: Upload
 
-            
-            
+            if (File != null)
+            {
+                _logger.LogInformation("It worked!");
+            }
 
 
             Financial newFinancial = new();
             newFinancial.Financial_id = Guid.NewGuid();
             newFinancial.CreatedDate = DateTime.Now;
+            newFinancial.File = File;
 
             Guid contractId = Id; // passd from appliances
             //Set the contractGUID as the viewdata and use that to pass it to the next controller.
