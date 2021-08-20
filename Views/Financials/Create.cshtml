@@ -112,7 +112,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create"  enctype = "multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <h5>What's the purchase price?</h5>
             <div class="form-group">
@@ -300,7 +300,7 @@
             <div class="form-group" id="PreApprovalUpLoad" onload="hideDiv()" style="display: none">
                 <div class="form-control-file" id="PreApprovalUpLoad">
                     <h5>Add the preapproval letter to the offer.</h5>
-                    <input asp-for="Buyer_Loan_Application_Start" type="file" enctype = "multipart/form-data" asp-action="Create" asp-controller="Financials" name="File" class="form-control-file" id="File" value="Done" />
+                    <input asp-for="Buyer_Loan_Application_Start" type="file" asp-action="Create" asp-controller="Financials" name="File" class="form-control-file" id="File" value="Done" />
                 </div>
             </div>
 

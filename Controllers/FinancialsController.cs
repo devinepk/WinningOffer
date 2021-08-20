@@ -14,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 
+
 namespace LightningOffer.Controllers
 {
     public class FinancialsController : Controller
@@ -21,19 +22,21 @@ namespace LightningOffer.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger _logger;
+        //private readonly IFileManagerLogic _fileManagerLogic;
 
 
 
         public FinancialsController(ApplicationDbContext context,
                             UserManager<IdentityUser> userManager,
                             ILogger<FinancialsController> logger)
+                           // IFileManagerLogic fileManagerLogic)
         {
             _context = context;
             _userManager = userManager;
             _logger = logger;
+            //_fileManagerLogic = fileManagerLogic;
            
         }
-
 
         // GET: Financials
         public async Task<IActionResult> Index()
@@ -79,20 +82,14 @@ namespace LightningOffer.Controllers
         public async Task<IActionResult> Create(IFormFile File, int ARM_Limits, string Buyer_Loan_Application_Start, double Interest_Rate, int Loan_Length, string Rate_Type, string LoanType, string DownPaymentFormat, Guid Id, int Purchase_Price, string EMD, string DownPaymentSource, string DownPaymentAmount, [Bind("Financial_id,CreatedDate,Purchase_Price,EMD,Loan_Length,Interest_Rate,ARM_Limits,Buyer_Loan_Application_Start,EMD_With_ListingBroker,EMD_With_SellingBroker,DownPaymentAmount,LoanType, Rate_Type,ContractId, UserId")] Financial financial)
         {
             // Assign GUIDs and userID
-            // TODO: Upload
-
-            if (File != null)
-            {
-                _logger.LogInformation("It worked!");
-            }
-
 
             Financial newFinancial = new();
             newFinancial.Financial_id = Guid.NewGuid();
             newFinancial.CreatedDate = DateTime.Now;
-            newFinancial.File = File;
+            //newFinancial.File = File;
 
             Guid contractId = Id; // passd from appliances
+
             //Set the contractGUID as the viewdata and use that to pass it to the next controller.
             ViewBag.ContractId = Id;
             _logger.LogInformation("{0} is the contract and viewbag id", Id);
@@ -226,6 +223,10 @@ namespace LightningOffer.Controllers
      
             }
 
+            //upload controller
+            var addendumUpload = new UploadController();
+            await addendumUpload.Upload(File);
+
 
             if (ModelState.IsValid)
             {
@@ -237,6 +238,7 @@ namespace LightningOffer.Controllers
             }
             return View(financial);
         }
+
 
         // GET: Financials/Edit/5
         public async Task<IActionResult> Edit(Guid? id)

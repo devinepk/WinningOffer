@@ -17,6 +17,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using LightningOffer.Services;
 using LightningOffer.Models;
+using Azure.Storage.Blobs;
+using LightningOffer.Controllers;
 
 namespace LightningOffer
 {
@@ -57,7 +59,7 @@ namespace LightningOffer
             // Adds the API configuration
             services.AddOptions();
 
-            // Google authentication
+            // TODO Google authentication
             services.AddAuthentication()
                 .AddGoogle(options =>
                 {
@@ -73,6 +75,14 @@ namespace LightningOffer
             // using WebPWrecover.Services;
             services.AddTransient<IEmailSender, EmailSender>();
             services.Configure<AuthMessageSenderOptions>(Configuration);
+
+            // Adds Azure Blob service connection string
+            services.AddScoped(_ =>
+            {
+                return new BlobServiceClient(Configuration.GetConnectionString("BlobStorage"));
+            });
+
+            services.AddScoped<IFileManagerLogic.FileManagerLogic>();
 
         }
 

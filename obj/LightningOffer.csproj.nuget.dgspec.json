@@ -121,10 +121,6 @@
               "target": "Package",
               "version": "[9.23.2, )"
             },
-            "WindowsAzure.Storage": {
-              "target": "Package",
-              "version": "[9.3.3, )"
-            },
             "materialize": {
               "target": "Package",
               "version": "[0.97.6, )"
