@@ -223,9 +223,10 @@ namespace LightningOffer.Controllers
      
             }
 
-            //upload controller
-            var addendumUpload = new UploadController();
-            await addendumUpload.Upload(File);
+            //upload using Helper class
+  
+            Helper.Upload(File);
+       
 
 
             if (ModelState.IsValid)
@@ -324,5 +325,6 @@ namespace LightningOffer.Controllers
         {
             return _context.Financial.Any(e => e.Financial_id == id);
         }
+
     }
 }

@@ -28,10 +28,12 @@ namespace LightningOffer
 
         public Startup(IConfiguration configuration)
         {
+            StaticConfiguration = configuration;
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        public static IConfiguration StaticConfiguration { get; private set; }
+        public IConfiguration Configuration { get; private set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -82,7 +84,7 @@ namespace LightningOffer
                 return new BlobServiceClient(Configuration.GetConnectionString("BlobStorage"));
             });
 
-            services.AddScoped<IFileManagerLogic.FileManagerLogic>();
+            //services.AddScoped<IFileManagerLogic>();
 
         }
 
