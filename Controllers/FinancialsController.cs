@@ -211,7 +211,7 @@ namespace LightningOffer.Controllers
             if (Buyer_Loan_Application_Start == "No")
             {
 
-                newFinancial.Buyer_Loan_Application_Start = DateTime.Today.AddDays(10).ToString("MM/dd/yyyy");
+                newFinancial.Buyer_Loan_Application_Start = DateTime.Today.AddDays(7).ToString("MM/dd/yyyy");
 
             } else if (Buyer_Loan_Application_Start == "Yes")
             {
@@ -219,14 +219,10 @@ namespace LightningOffer.Controllers
                 //assign todays date
                 newFinancial.Buyer_Loan_Application_Start = DateTime.Today.ToString("MM/dd/yyyy");
 
-                //upload the preapproval letter
-     
-            }
+                //upload the preapproval letter using the Helper class.
+                Helper.Upload(File);
 
-            //upload using Helper class
-  
-            Helper.Upload(File);
-       
+            }
 
 
             if (ModelState.IsValid)

@@ -17,13 +17,13 @@ namespace LightningOffer
         
         private static readonly IFileManagerLogic _fileManagerLogic;
         private static readonly BlobServiceClient _blobServiceClient;
-       //TODO private static ILogger _logger;
+        
 
         static Helper()
         {
             _blobServiceClient = new BlobServiceClient(Startup.StaticConfiguration.GetConnectionString("BlobStorage"));
             _fileManagerLogic = new FileManagerLogic(_blobServiceClient);
-            //_logger = new Logger();
+    
         }
         public static async void Upload(IFormFile file)
         {
@@ -32,14 +32,14 @@ namespace LightningOffer
                 try
                 {
                     await _fileManagerLogic.Upload(file);
-                    _logger.LogInformation("It worked!");
+                    //_logger.LogInformation("It worked!");
                     return;
                 }
                 catch (Exception ex)
                 {
 
                     {
-                        _logger.LogCritical("Unable to upload file.  Please see the following error: " + ex.Message);
+                        
 
                     }
 

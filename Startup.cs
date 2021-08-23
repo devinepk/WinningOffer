@@ -29,11 +29,11 @@ namespace LightningOffer
         public Startup(IConfiguration configuration)
         {
             StaticConfiguration = configuration;
-            Configuration = configuration;
+           
         }
 
         public static IConfiguration StaticConfiguration { get; private set; }
-        public IConfiguration Configuration { get; private set; }
+        //public IConfiguration Configuration { get; private set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -41,7 +41,7 @@ namespace LightningOffer
             // This is the db connection string
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("Azure")));
+                    StaticConfiguration.GetConnectionString("Azure")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -66,7 +66,7 @@ namespace LightningOffer
                 .AddGoogle(options =>
                 {
                     IConfigurationSection googleAuthNSection =
-                        Configuration.GetSection("Authentication:Google");
+                        StaticConfiguration.GetSection("Authentication:Google");
 
                     options.ClientId = googleAuthNSection["ClientId"];
                     options.ClientSecret = googleAuthNSection["ClientSecret"];
@@ -76,15 +76,15 @@ namespace LightningOffer
             // using Microsoft.AspNetCore.Identity.UI.Services;
             // using WebPWrecover.Services;
             services.AddTransient<IEmailSender, EmailSender>();
-            services.Configure<AuthMessageSenderOptions>(Configuration);
+            services.Configure<AuthMessageSenderOptions>(StaticConfiguration);
 
             // Adds Azure Blob service connection string
             services.AddScoped(_ =>
             {
-                return new BlobServiceClient(Configuration.GetConnectionString("BlobStorage"));
+                return new BlobServiceClient(StaticConfiguration.GetConnectionString("BlobStorage"));
             });
 
-            //services.AddScoped<IFileManagerLogic>();
+          
 
         }
 
