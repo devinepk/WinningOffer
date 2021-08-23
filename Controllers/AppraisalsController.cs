@@ -64,22 +64,60 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Guid Id, [Bind("Appraisal_id,CreatedDate,Lender_Appraisal_Required,Buyer_Appraisal_Required,No_Appraisal_Required")] Appraisal appraisal)
+        public async Task<IActionResult> Create(Guid Id, int appraisalType,[Bind("Appraisal_id,CreatedDate,Lender_Appraisal_Required,Buyer_Appraisal_Required,No_Appraisal_Required,AppraisalCompletedBy")] Appraisal appraisal)
         {
+            
+
+            // Find and assign logged in user id
+            string userId = new string(_userManager.GetUserId(User));
+            string username = new string(_userManager.GetUserName(User));
+
             // Assign GUIDs and userID
             Appraisal newAppraisal = new();
             newAppraisal.Appraisal_id = Guid.NewGuid();
-            newAppraisal.CreatedDate = DateTime.Now;
-
-            Guid contractId = Id;
+            newAppraisal.CreatedDate = DateTime.UtcNow;
             newAppraisal.ContractId = Id; // passed from financials
+
+            if (appraisalType == 1)
+            {
+
+                newAppraisal.Lender_Appraisal_Required = 1;
+                newAppraisal.Buyer_Appraisal_Required = 0;
+                newAppraisal.No_Appraisal_Required = 0;
+                newAppraisal.AppraisalCompletedBy = DateTime.Now;
+
+            } else if (appraisalType == 2)
+            {
+
+                newAppraisal.Lender_Appraisal_Required = 0;
+                newAppraisal.Buyer_Appraisal_Required = 2;
+                newAppraisal.No_Appraisal_Required = 0;
+                newAppraisal.AppraisalCompletedBy = DateTime.Now;
+
+            } else if (appraisalType == 3)
+            {
+
+                newAppraisal.Lender_Appraisal_Required = 0;
+                newAppraisal.Buyer_Appraisal_Required = 0;
+                newAppraisal.No_Appraisal_Required = 3;
+                newAppraisal.AppraisalCompletedBy = DateTime.Now;
+
+            }
+
 
             if (ModelState.IsValid)
             {
-                appraisal.Appraisal_id = Guid.NewGuid();
-                _context.Add(appraisal);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    _context.Add(appraisal);
+                    await _context.SaveChangesAsync();
+                    _logger.LogInformation("{0} finished the appraisal section for contract {1} on {2}", username, newAppraisal.ContractId, newAppraisal.CreatedDate);
+                    return RedirectToAction("Create", "HomeWarranties", new { Id = newAppraisal.ContractId });
+                } catch (Exception ex)
+                {
+                    _logger.LogCritical("Appraisal changes by {0} for contract {1} did not save.  See error: " + ex.InnerException + ".", username, newAppraisal.ContractId);
+                }
+                
             }
             return View(appraisal);
         }

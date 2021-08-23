@@ -23,8 +23,8 @@ namespace LightningOffer.Models
         public int No_Appraisal_Required { get; set; }
 
         public DateTime AppraisalCompletedBy { get; set; } 
+        
         public Contract Contract { get; set; }
-
         public Guid ContractId { get; set; }
 
     }

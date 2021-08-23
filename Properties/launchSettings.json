@@ -15,7 +15,8 @@
         "VaultUri": "https://lightningoffer.vault.azure.net/",
         "AZURE_USERNAME": "philip@devineandcompany.com",
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "nativeDebugging": false
     },
     "LightningOffer": {
       "commandName": "Project",
