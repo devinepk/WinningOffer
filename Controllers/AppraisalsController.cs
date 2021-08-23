@@ -7,16 +7,26 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LightningOffer.Data;
 using LightningOffer.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
+
 
 namespace LightningOffer.Controllers
 {
     public class AppraisalsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly Microsoft.AspNetCore.Identity.UserManager<IdentityUser> _userManager;
+        private readonly ILogger _logger;
 
-        public AppraisalsController(ApplicationDbContext context)
+        public AppraisalsController(ApplicationDbContext context,
+                            Microsoft.AspNetCore.Identity.UserManager<IdentityUser> userManager,
+                            ILogger<AppraisalsController> logger)
         {
             _context = context;
+            _userManager = userManager;
+            _logger = logger;
         }
 
         // GET: Appraisals
