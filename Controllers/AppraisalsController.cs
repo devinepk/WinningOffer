@@ -75,7 +75,7 @@ namespace LightningOffer.Controllers
             // Assign GUIDs and userID
             Appraisal newAppraisal = new();
             newAppraisal.Appraisal_id = Guid.NewGuid();
-            newAppraisal.CreatedDate = DateTime.UtcNow;
+            newAppraisal.CreatedDate = DateTime.Now;
             newAppraisal.ContractId = Id; // passed from financials
 
             if (appraisalType == 1)
@@ -116,6 +116,7 @@ namespace LightningOffer.Controllers
                 } catch (Exception ex)
                 {
                     _logger.LogCritical("Appraisal changes by {0} for contract {1} did not save.  See error: " + ex.InnerException + ".", username, newAppraisal.ContractId);
+                    return RedirectToAction("Error", "Home");
                 }
                 
             }
