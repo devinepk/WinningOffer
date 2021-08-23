@@ -64,8 +64,16 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Appraisal_id,CreatedDate,Lender_Appraisal_Required,Buyer_Appraisal_Required,No_Appraisal_Required")] Appraisal appraisal)
+        public async Task<IActionResult> Create(Guid Id, [Bind("Appraisal_id,CreatedDate,Lender_Appraisal_Required,Buyer_Appraisal_Required,No_Appraisal_Required")] Appraisal appraisal)
         {
+            // Assign GUIDs and userID
+            Appraisal newAppraisal = new();
+            newAppraisal.Appraisal_id = Guid.NewGuid();
+            newAppraisal.CreatedDate = DateTime.Now;
+
+            Guid contractId = Id;
+            newAppraisal.ContractId = Id; // passed from financials
+
             if (ModelState.IsValid)
             {
                 appraisal.Appraisal_id = Guid.NewGuid();

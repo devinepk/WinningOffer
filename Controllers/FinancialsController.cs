@@ -230,7 +230,7 @@ namespace LightningOffer.Controllers
                 await _context.SaveChangesAsync();
                 _logger.LogInformation("Successfully created the financial section of the contract. Next step: appraisal.");
                 
-                return RedirectToAction("Create", "Appraisals");
+                return RedirectToAction("Create", "Appraisals", new { Id = newFinancial.ContractId });
             }
             return View(financial);
         }
