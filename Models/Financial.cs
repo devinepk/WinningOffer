@@ -15,9 +15,9 @@ namespace LightningOffer.Models
         [Key]
         public Guid Financial_id { get; set; }
 
-        public IdentityUser User { get; set; }
+        public string User { get; set; } //username
 
-        public string UserId { get; set; }
+        public string UserId { get; set; } //userid
 
         [Display(Name = "Created Date")]
         public DateTime CreatedDate { get; set; }
@@ -35,7 +35,6 @@ namespace LightningOffer.Models
         public string DownPaymentSource { get; set; }
 
         public string DownPaymentAmount { get; set; }
-
 
         public string DownPaymentFormat { get; set; }
 
@@ -70,9 +69,6 @@ namespace LightningOffer.Models
         [Required(ErrorMessage = "This is required, please make a selection.")]
         [Display(Name = "Selling Broker")]
         public bool EMD_With_SellingBroker { get; set; }
-
-        [NotMapped]  
-        public IFormFile File { get; set; }
 
         public Contract Contract { get; set; }
         

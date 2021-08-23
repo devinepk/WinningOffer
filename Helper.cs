@@ -18,12 +18,14 @@ namespace LightningOffer
         private static readonly IFileManagerLogic _fileManagerLogic;
         private static readonly BlobServiceClient _blobServiceClient;
         
+   
 
         static Helper()
         {
             _blobServiceClient = new BlobServiceClient(Startup.StaticConfiguration.GetConnectionString("BlobStorage"));
             _fileManagerLogic = new FileManagerLogic(_blobServiceClient);
-    
+         
+
         }
         public static async void Upload(IFormFile file)
         {
@@ -32,14 +34,14 @@ namespace LightningOffer
                 try
                 {
                     await _fileManagerLogic.Upload(file);
-                    //_logger.LogInformation("It worked!");
+                    //TODO:  _logger.LogInformation("It worked!");
                     return;
                 }
                 catch (Exception ex)
                 {
 
                     {
-                        
+                       // TODO: _logger.LogCritical("Azure file upload failed: " + ex.Message);
 
                     }
 

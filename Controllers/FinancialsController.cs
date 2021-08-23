@@ -22,20 +22,18 @@ namespace LightningOffer.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger _logger;
-        //private readonly IFileManagerLogic _fileManagerLogic;
 
 
 
         public FinancialsController(ApplicationDbContext context,
                             UserManager<IdentityUser> userManager,
                             ILogger<FinancialsController> logger)
-                           // IFileManagerLogic fileManagerLogic)
+                          
         {
             _context = context;
             _userManager = userManager;
             _logger = logger;
-            //_fileManagerLogic = fileManagerLogic;
-           
+                      
         }
 
         // GET: Financials
@@ -86,22 +84,21 @@ namespace LightningOffer.Controllers
             Financial newFinancial = new();
             newFinancial.Financial_id = Guid.NewGuid();
             newFinancial.CreatedDate = DateTime.Now;
-            //newFinancial.File = File;
+                        
 
-            Guid contractId = Id; // passd from appliances
+            newFinancial.ContractId = Id; // passed from appliances
 
             //Set the contractGUID as the viewdata and use that to pass it to the next controller.
             ViewBag.ContractId = Id;
             _logger.LogInformation("{0} is the contract and viewbag id", Id);
 
-            newFinancial.ContractId = Id;
-
             // Find and assign logged in user id
             string userId = new string(_userManager.GetUserId(User));
             string username = new string (_userManager.GetUserName(User));
             newFinancial.UserId = userId;
+            newFinancial.User = username;
 
-            _logger.LogInformation("New financial section with ID {0} created with contract ID {1} by User {2}", newFinancial.Financial_id, contractId, username);
+            _logger.LogInformation("New financial section with ID {0} created with contract ID {1} by User {2}", newFinancial.Financial_id, Id, username);
 
             // Financial specific logic
             newFinancial.Purchase_Price = Purchase_Price;
@@ -221,6 +218,7 @@ namespace LightningOffer.Controllers
 
                 //upload the preapproval letter using the Helper class.
                 Helper.Upload(File);
+                _logger.LogInformation("Uploaded the preapproval letter.");
 
             }
 
@@ -230,6 +228,7 @@ namespace LightningOffer.Controllers
       
                 _context.Add(newFinancial);
                 await _context.SaveChangesAsync();
+                _logger.LogInformation("Successfully created the financial section of the contract");
                 
                 return RedirectToAction("Create", "Appraisals");
             }
