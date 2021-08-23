@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LightningOffer.Models
 {
-    public class Appraisal //1 = lender, 2 = buyer, 3 = n/a
+    public class Appraisal //1 = lender, 2 = buyer, 3 = no apprsaisal
     {
         [Key]
         public Guid Appraisal_id { get; set; }

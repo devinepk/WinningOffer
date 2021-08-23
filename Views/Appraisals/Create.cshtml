@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Appraisal [icon]</h1>
+<h1>Appraisal Contingency [icon]</h1>
 
 <div class="progress">
     <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 45%" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100">45% Completed</div>
@@ -13,23 +13,33 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Lender_Appraisal_Required" class="control-label"></label>
-                <input asp-for="Lender_Appraisal_Required" class="form-control" />
-                <span asp-validation-for="Lender_Appraisal_Required" class="text-danger"></span>
+                <h5>Is this contingent on an appraisal?</h5>
+                <div class="form-check" id="appraisal">
+                    <input class="form-check-input" type="radio" name="appraisal" id="appraisal" value="1" />
+                    <label class="form-check-label control-lable" for="appraisal">
+                        Yes (APPRAISAL REQUIRED): This transaction involves a lender's appraisal.
+                    </label>
+                    <span asp-validation-for="Lender_Appraisal_Required" class="text-danger"></span>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="appraisal" id="appraisal" value="2" />
+                    <label class="form-check-label" for="appraisal">
+                        Yes (APPRAISAL REQUIRED): This is a cash, private financing, or contract for deed transaction.
+                    </label>
+                    <span asp-validation-for="Buyer_Appraisal_Required" class="text-danger"></span>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="appraisal" id="appraisal" value="3" />
+                    <label class="form-check-label" for="appraisal">
+                        No (NO APPRAISAL REQUIRED): This is a cash, private financing, or contract for deed transaction.
+                    </label>
+                    <span asp-validation-for="No_Appraisal_Required" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-group">
-                <label asp-for="Buyer_Appraisal_Required" class="control-label"></label>
-                <input asp-for="Buyer_Appraisal_Required" class="form-control" />
-                <span asp-validation-for="Buyer_Appraisal_Required" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="No_Appraisal_Required" class="control-label"></label>
-                <input asp-for="No_Appraisal_Required" class="form-control" />
-                <span asp-validation-for="No_Appraisal_Required" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Next" class="btn btn-primary" />
             </div>
         </form>
     </div>
