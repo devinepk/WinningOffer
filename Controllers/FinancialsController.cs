@@ -228,7 +228,7 @@ namespace LightningOffer.Controllers
       
                 _context.Add(newFinancial);
                 await _context.SaveChangesAsync();
-                _logger.LogInformation("Successfully created the financial section of the contract");
+                _logger.LogInformation("Successfully created the financial section of the contract. Next step: appraisal.");
                 
                 return RedirectToAction("Create", "Appraisals");
             }

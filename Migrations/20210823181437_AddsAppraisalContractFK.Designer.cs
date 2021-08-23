@@ -4,14 +4,16 @@ using LightningOffer.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace LightningOffer.Data.Migrations
+namespace LightningOffer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210823181437_AddsAppraisalContractFK")]
+    partial class AddsAppraisalContractFK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -96,9 +98,6 @@ namespace LightningOffer.Data.Migrations
                     b.Property<Guid>("Appraisal_id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("AppraisalCompletedBy")
-                        .HasColumnType("datetime2");
 
                     b.Property<int>("Buyer_Appraisal_Required")
                         .HasColumnType("int");

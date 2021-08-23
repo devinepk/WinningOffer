@@ -11,14 +11,21 @@ namespace LightningOffer.Models
         [Key]
         public Guid Appraisal_id { get; set; }
         public DateTime CreatedDate { get; set; }
-        [Display(Name = "This transaction involves a lender")]
+
+
+        [Display(Name = "(APPRAISAL REQUIRED) This transaction involves a lender's appraisal.")]
         public int Lender_Appraisal_Required { get; set; }
 
-        [Display(Name = "This is a cash, private financing, or contract for deed transaction")]
+        [Display(Name = "(APPRAISAL REQUIRED) This is a cash, private financing, or contract for deed transaction.")]
         public int Buyer_Appraisal_Required { get; set; }
 
-        [Display(Name = "This is a cash, private financing, or contract for deed transaction")]
+        [Display(Name = "(NO APPRAISAL REQUIRED) This is a cash, private financing, or contract for deed transaction")]
         public int No_Appraisal_Required { get; set; }
+
+        public DateTime AppraisalCompletedBy { get; set; } 
+        public Contract Contract { get; set; }
+
+        public Guid ContractId { get; set; }
 
     }
 }
