@@ -20,12 +20,15 @@ namespace LightningOffer.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly ILogger _logger;
 
         public AppliancesController(ApplicationDbContext context,
-                            UserManager<IdentityUser> userManager)
+                            UserManager<IdentityUser> userManager,
+                            ILogger<AppliancesController> logger)
         {
             _context = context;
             _userManager = userManager;
+            _logger = logger;
         }
 
         // GET: Appliances
@@ -83,6 +86,7 @@ namespace LightningOffer.Controllers
 
             // User (userId)
             string userId = new string(_userManager.GetUserId(User));
+            string userName = new string(_userManager.GetUserName(User));
             newAppliance.UserId = userId;
 
             // Contract id == Contract created in the previous properties controller
@@ -99,21 +103,32 @@ namespace LightningOffer.Controllers
             newAppliance.ClothesDryer = ClothesDryer;
             newAppliance.Other = Other;
 
-            if (propane == 1 && ModelState.IsValid) //redirect to fuelpropane page
-            {
-                
-                _context.Add(newAppliance);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Create", "FuelPropanes", new { Id = contractId });
+            if (propane == 1 && ModelState.IsValid)
+            {//redirect to fuelpropane page
+                try
+                { 
+                     _context.Add(newAppliance);
+                     await _context.SaveChangesAsync();
+                     return RedirectToAction("Create", "FuelPropanes", new { Id = contractId });
 
+                } catch (Exception ex)
+                {
+                    _logger.LogCritical("Appliance changes by {0} for contract {1} did not save.  See error: " + ex.InnerException + ".", userName, newAppliance.ContractId);
+                    return RedirectToAction("Error", "Home");
+                }
             } else if (propane == 2 && ModelState.IsValid) //skip fuelpropane and go to financial section
+                try 
+                {
 
-            {
-                
-                _context.Add(newAppliance);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Create", "Financials", new { Id = contractId });
-            }
+                    _context.Add(newAppliance);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Create", "Financials", new { Id = contractId });
+                } catch (Exception ex)
+                {
+                    _logger.LogCritical("Appliance changes by {0} for contract {1} did not save.  See error: " + ex.InnerException + ".", userName, newAppliance.ContractId);
+                    return RedirectToAction("Error", "Home");
+                }
+            
 
             return View(appliance);
         }

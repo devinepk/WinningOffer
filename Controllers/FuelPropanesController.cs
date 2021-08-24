@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using LightningOffer.Data;
 using LightningOffer.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 
 namespace LightningOffer.Controllers
 {
@@ -15,12 +16,15 @@ namespace LightningOffer.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly ILogger _logger;
 
         public FuelPropanesController(ApplicationDbContext context,
-                                    UserManager<IdentityUser> userManager)
+                                    UserManager<IdentityUser> userManager,
+                                    ILogger<FuelPropanesController> logger)
         {
             _context = context;
             _userManager = userManager;
+            _logger = logger;
         }
 
         // GET: FuelPropanes
@@ -60,35 +64,45 @@ namespace LightningOffer.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Guid Id, string Propane_Tank_Ownership, string Propane_Tank_Status, [Bind("FuelPropane_id,CreatedDate,Propane_Tank_Ownership,Propane_Tank_Status")] FuelPropane fuelPropane)
         {
+
+            // new instance
+            FuelPropane newFuelPropane = new();
+
+            // new guid
+            newFuelPropane.FuelPropane_id = Guid.NewGuid();
+
+            // User (userId)
+            string userId = new string(_userManager.GetUserId(User));
+            string userName = new string(_userManager.GetUserName(User));
+            newFuelPropane.UserId = userId;
+
+            // date
+            newFuelPropane.CreatedDate = DateTime.Now;
+
+            // Contract id from properties > appliances
+            Guid contractId = Id;
+            newFuelPropane.ContractId = Id;
+
+            // tank ownership
+            newFuelPropane.Propane_Tank_Ownership = Propane_Tank_Ownership;
+
+            // tank status 
+            newFuelPropane.Propane_Tank_Status = Propane_Tank_Status;
+
             if (ModelState.IsValid)
-            {
-                // new instance
-                FuelPropane newFuelPropane = new();
+                try
+                {
+                    {
+                        _context.Add(newFuelPropane);
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction("Create", "Financials", new { Id = contractId }); // Send to FINANCIAL
+                    }
+                } catch (Exception ex)
+                {
+                    _logger.LogCritical("FuelPropane changes by {0} for contract {1} did not save.  See error: " + ex.InnerException + ".", userName, newFuelPropane.ContractId);
+                    return RedirectToAction("Error", "Home");
+                }
 
-                // new guid
-                newFuelPropane.FuelPropane_id = Guid.NewGuid();
-
-                // User (userId)
-                string userId = new string(_userManager.GetUserId(User));
-                newFuelPropane.UserId = userId;
-
-                // date
-                newFuelPropane.CreatedDate = DateTime.Now;
-  
-                // Contract id from properties > appliances
-                Guid contractId = Id;
-                newFuelPropane.ContractId = Id;
-
-                // tank ownership
-                newFuelPropane.Propane_Tank_Ownership = Propane_Tank_Ownership;
-
-                // tank status 
-                newFuelPropane.Propane_Tank_Status = Propane_Tank_Status;
-
-                _context.Add(newFuelPropane);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Create", "Financials", new { Id = contractId }); // Send to FINANCIAL
-            }
             return View(fuelPropane);
         }
 

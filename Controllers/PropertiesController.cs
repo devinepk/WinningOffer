@@ -93,6 +93,7 @@ namespace LightningOffer.Controllers
         {
             // User (userId)
             string userId = new string(_userManager.GetUserId(User));
+            string userName = new string(_userManager.GetUserName(User));
             
             // Contract (Guid, User)
             Contract newContract = new();
@@ -286,13 +287,19 @@ namespace LightningOffer.Controllers
 
 
             if (ModelState.IsValid)
-            {
-                _context.Add(newProperty);
-                _context.Add(newContract);
-                _context.Add(newPerson);
-
-                await _context.SaveChangesAsync(); //the changes get saved to the db 
-                return RedirectToAction("Create","Appliances", new { Id = contractId }); //redirect to adding the appliances
+            {  
+                try 
+                { 
+                    _context.Add(newProperty);
+                    _context.Add(newContract);
+                    _context.Add(newPerson);
+                    await _context.SaveChangesAsync(); //the changes get saved to the db 
+                    return RedirectToAction("Create","Appliances", new { Id = contractId }); //redirect to adding the appliances
+                } catch (Exception ex)
+                {
+                    _logger.LogCritical("Property changes by {0} for contract {1} did not save.  See error: " + ex.InnerException + ".", userName, newPerson.ContractId);
+                    return RedirectToAction("Error", "Home");
+                }
 
             } else
             {
