@@ -84,7 +84,7 @@ namespace LightningOffer.Controllers
                 newAppraisal.Lender_Appraisal_Required = 1;
                 newAppraisal.Buyer_Appraisal_Required = 0;
                 newAppraisal.No_Appraisal_Required = 0;
-                newAppraisal.AppraisalCompletedBy = DateTime.Now;
+                newAppraisal.AppraisalCompletedBy = DateTime.Today.AddDays(20).ToString("MM/dd/yyyy");
 
             } else if (appraisalType == 2)
             {
@@ -92,7 +92,7 @@ namespace LightningOffer.Controllers
                 newAppraisal.Lender_Appraisal_Required = 0;
                 newAppraisal.Buyer_Appraisal_Required = 2;
                 newAppraisal.No_Appraisal_Required = 0;
-                newAppraisal.AppraisalCompletedBy = DateTime.Now;
+                newAppraisal.AppraisalCompletedBy = DateTime.Today.AddDays(20).ToString("MM/dd/yyyy");
 
             } else if (appraisalType == 3)
             {
@@ -100,7 +100,7 @@ namespace LightningOffer.Controllers
                 newAppraisal.Lender_Appraisal_Required = 0;
                 newAppraisal.Buyer_Appraisal_Required = 0;
                 newAppraisal.No_Appraisal_Required = 3;
-                newAppraisal.AppraisalCompletedBy = DateTime.Now;
+                newAppraisal.AppraisalCompletedBy = "N/A";
 
             }
 

@@ -22,7 +22,7 @@ namespace LightningOffer.Models
         [Display(Name = "(NO APPRAISAL REQUIRED) This is a cash, private financing, or contract for deed transaction")]
         public int No_Appraisal_Required { get; set; }
 
-        public DateTime AppraisalCompletedBy { get; set; } 
+        public string AppraisalCompletedBy { get; set; } 
         
         public Contract Contract { get; set; }
         public Guid ContractId { get; set; }
