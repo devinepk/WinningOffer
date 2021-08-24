@@ -4,6 +4,36 @@
     ViewData["Title"] = "Create";
 }
 
+
+<script>
+    function hideDiv() {
+        window.onload = function () {
+            document.getElementById("HWPrice").style.display = 'none';
+        };
+    };
+
+    function showPrice() {
+        console.log("show the price ");
+
+        var price = document.getElementById("HWPrice");
+      
+        if (price.style.display == "none") {
+            price.style.display = "block";
+        };
+    };
+
+    function hidePrice() {
+        console.log("hide the price");
+
+        var price = document.getElementById("HWPrice");
+
+        if (price.style.display == "block") {
+            price.style.display = "none";
+        };
+    };
+
+</script>
+
 <h1>Home Warranty [icon]</h1>
 
 <div class="progress">
@@ -16,23 +46,26 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <h5>Is the seller paying anything towards a home warranty?</h5>
-                <div class="form-check" id="whoPays">
-                    <input class="form-check-input" asp-for="Who_Pays" type="radio" name="whoPays" value="yes" id="whoPays" />
-                    <label class="form-check-label control-label" asp-for="Who_Pays" for="whoPays">
-                        Yes
-                    </label>
-                </div>
                 <div class="form-check">
-                    <input class="form-check-input" asp-for="Who_Pays" type="radio" name="whoPays" value="no" id="whoPays" />
+                    <input class="form-check-input" asp-for="Who_Pays" type="radio" name="whoPays" value="no" id="whoPaysNo" onclick="hidePrice()" />
                     <label class="form-check-label control-label" asp-for="Who_Pays" for="whoPays">
                         No
                     </label>
                 </div>
+                <div class="form-check" id="whoPays">
+                    <input class="form-check-input" asp-for="Who_Pays" type="radio" name="whoPays" value="yes" id="whoPaysYes" onclick="showPrice()" />
+                    <label class="form-check-label control-label" asp-for="Who_Pays" for="whoPays">
+                        Yes
+                    </label>
+                </div>
             </div>
-            <div class="form-group form-check">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
+            <div class="form-group" id="HWPrice" onload="hideDiv()" style="display: none">
+                <h5>How much is the seller paying towards the home warranty?</h5>
+                <div class="form-group" id="price">
+                    <input asp-for="Price" class="form-control" />
+                    <label asp-for="Price" class="control-label"></label>
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
