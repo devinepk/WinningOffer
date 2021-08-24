@@ -21,14 +21,7 @@ namespace LightningOffer.Models
         [Display(Name = "Home Warranty Price")]
         public double Price { get; set; }
 
-        [Display(Name = "New Construction")]
-        public bool New_Construction_HW { get; set; }
-
-        [Display(Name = "Buyer Waves Right to Purchase Home Warranty")]
-        public bool Buyer_Waves_Right_To_HW { get; set; }
-
-        [Display(Name = "Buyer Reserves Right to Purchase Home Warranty Later")]
-        public bool Buyer_To_Purchase_HW_Later { get; set; }
+        public string Buyer_Final_Options { get; set; } //buyerAgreesToPurchase, propertyIsNewConstruction, buyerWaivesRight, buyerReservesRight
 
         public Contract Contract { get; set; }
         public Guid ContractId { get; set; }
