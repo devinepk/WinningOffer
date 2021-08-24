@@ -13,38 +13,27 @@
         };
     };
 
-    function showPrice() {
-        console.log("show the price ");      
+    function togglePrice() {
+        console.log("toggle the price ");      
 
-        var priceButton = document.getElementById("HWPrice");
-      
-        if (priceButton.style.display == "none") {
-            priceButton.style.display = "block"; // show price div
-     
-        };
-    };
-
-    function hidePrice() {
-        console.log("hide the price ");
-
+        var buyerFinalPriceButton = document.getElementById("buyerFinalOptions");
         var priceButton = document.getElementById("HWPrice");
 
-        if (priceButton.style.display == "block") {
-            priceButton.style.display = "none"; // show price div
+        priceButton.style.display = 'block'; // show price div
+        buyerFinalPriceButton.style.display = 'none'; // hide buyer fina option div
 
-        };
+ 
     };
 
-    function showHideBuyerFinalOptions() {
+
+    function toggleBuyerFinalOptions() {
         console.log("toggle buyer final options");
 
-        var priceButton = document.getElementById("HWPrice");
         var buyerFinalPriceButton = document.getElementById("buyerFinalOptions");
+        var priceButton = document.getElementById("HWPrice");
 
-        if (buyerFinalPriceButton.style.display == "none") {
-            buyerFinalPriceButton.stlye.display = "block"; // show buyer final option div
-            priceButton.style.display = "none"; //hide price div
-        };
+        priceButton.style.display = 'none'; // show price div
+        buyerFinalPriceButton.style.display = 'block'; // hide buyer final option div
     };
 
 
@@ -63,13 +52,13 @@
             <div class="form-group">
                 <h5>Is the seller paying anything towards a home warranty?</h5>
                 <div class="form-check">
-                    <input class="form-check-input" asp-for="Who_Pays" type="radio" name="whoPays" value="no" id="whoPaysNo" onclick="hidePrice()" />
+                    <input class="form-check-input" asp-for="Who_Pays" type="radio" name="whoPays" value="no" id="whoPaysNo" onclick="toggleBuyerFinalOptions()" />
                     <label class="form-check-label control-label" asp-for="Who_Pays" for="whoPays">
                         No
                     </label>
                 </div>
                 <div class="form-check" id="whoPays">
-                    <input class="form-check-input" asp-for="Who_Pays" type="radio" name="whoPays" value="yes" id="whoPaysYes" onclick="showPrice()" />
+                    <input class="form-check-input" asp-for="Who_Pays" type="radio" name="whoPays" value="yes" id="whoPaysYes" onclick="togglePrice()" />
                     <label class="form-check-label control-label" asp-for="Who_Pays" for="whoPays">
                         Yes
                     </label>
