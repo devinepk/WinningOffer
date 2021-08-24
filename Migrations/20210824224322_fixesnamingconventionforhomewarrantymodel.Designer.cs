@@ -353,7 +353,7 @@ namespace LightningOffer.Migrations
                     b.Property<string>("Who_Pays")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Who_chooses")
+                    b.Property<string>("Who_Chooses")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("HomeWarranty_id");

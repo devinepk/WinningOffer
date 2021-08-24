@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LightningOffer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210824135953_UpdatesHomeWarrantyAddsWhoPays")]
-    partial class UpdatesHomeWarrantyAddsWhoPays
+    [Migration("20210824135953_UpdatesHomeWarrantyAddsWho_Pays")]
+    partial class UpdatesHomeWarrantyAddsWho_Pays
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -359,7 +359,7 @@ namespace LightningOffer.Migrations
                     b.Property<string>("Who_Pays")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Who_chooses")
+                    b.Property<string>("Who_Chooses")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("HomeWarranty_id");

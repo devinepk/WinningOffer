@@ -348,10 +348,10 @@ namespace LightningOffer.Data.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<string>("Who_Pays")
+                    b.Property<string>("Who_Chooses")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Who_chooses")
+                    b.Property<string>("Who_Pays")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("HomeWarranty_id");

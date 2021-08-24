@@ -67,7 +67,7 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Guid Id, string Who_Pays, string Who_chooses, double Price, string Buyer_Final_Options, [Bind("HomeWarranty_id,CreatedDate,Who_Pays, Who_chooses, Price, Buyer_Final_Options, ContractId")] HomeWarranty homeWarranty)
+        public async Task<IActionResult> Create(Guid Id, string Who_Pays, string Who_Chooses, double Price, string Buyer_Final_Options, [Bind("HomeWarranty_id,CreatedDate,Who_Pays, Who_Chooses, Price, Buyer_Final_Options, ContractId")] HomeWarranty homeWarranty)
         {
             // Assign GUIDS and UserId
             HomeWarranty newHomeWarranty = new();
@@ -81,23 +81,27 @@ namespace LightningOffer.Controllers
             _logger.LogInformation("New home warranty section with ID {0} created with contract ID {1} by User {2}", newHomeWarranty.HomeWarranty_id, Id, username);
 
             // Who pays and chooses logic
-            if (Who_Pays == "sellerPaysNo")
+            if (Who_Pays.Equals("sellerPaysNo"))
             {
 
                 newHomeWarranty.Who_Pays = Who_Pays;
                 newHomeWarranty.Price = 0;
-                newHomeWarranty.Who_chooses = "N/A";
+                newHomeWarranty.Who_Chooses = "N/A";
+                newHomeWarranty.Buyer_Final_Options = Buyer_Final_Options;
 
-            } else if (Who_Pays == "sellerPaysYes")
+
+            }
+            else if (Who_Pays.Equals("sellerPaysYes"))
             {
 
                 newHomeWarranty.Who_Pays = Who_Pays;
                 newHomeWarranty.Price = Price;
-                newHomeWarranty.Who_chooses = Who_chooses;
+                newHomeWarranty.Who_Chooses = Who_Chooses;
+                newHomeWarranty.Buyer_Final_Options = null;
+
 
             }
 
-            newHomeWarranty.Buyer_Final_Options = Buyer_Final_Options;
 
             if (ModelState.IsValid)
             {

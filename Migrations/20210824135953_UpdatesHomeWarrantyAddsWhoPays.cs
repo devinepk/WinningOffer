@@ -2,12 +2,12 @@
 
 namespace LightningOffer.Migrations
 {
-    public partial class UpdatesHomeWarrantyAddsWhoPays : Migration
+    public partial class UpdatesHomeWarrantyAddsWho_Pays : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "Who_chooses",
+                name: "Who_Chooses",
                 table: "HomeWarranty",
                 type: "nvarchar(max)",
                 nullable: true);
@@ -16,7 +16,7 @@ namespace LightningOffer.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Who_chooses",
+                name: "Who_Chooses",
                 table: "HomeWarranty");
         }
     }

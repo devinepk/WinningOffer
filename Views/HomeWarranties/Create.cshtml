@@ -52,14 +52,14 @@
             <div class="form-group">
                 <h5>Is the seller paying anything towards a home warranty?</h5>
                 <div class="form-check">
-                    <input class="form-check-input" asp-for="Who_Pays" type="radio" name="whoPays" value="sellerPaysNo" id="whoPaysNo" onclick="toggleBuyerFinalOptions()" />
-                    <label class="form-check-label control-label" asp-for="Who_Pays" for="whoPays">
+                    <input class="form-check-input" asp-for="Who_Pays" type="radio" name="Who_Pays" value="sellerPaysNo" id="Who_Pays" onclick="toggleBuyerFinalOptions()" />
+                    <label class="form-check-label control-label" asp-for="Who_Pays" for="Who_Pays">
                         No
                     </label>
                 </div>
-                <div class="form-check" id="whoPays">
-                    <input class="form-check-input" asp-for="Who_Pays" type="radio" name="whoPays" value="sellerPaysYes" id="whoPaysYes" onclick="togglePrice()" />
-                    <label class="form-check-label control-label" asp-for="Who_Pays" for="whoPays">
+                <div class="form-check" id="Who_Pays">
+                    <input class="form-check-input" asp-for="Who_Pays" type="radio" name="Who_Pays" value="sellerPaysYes" id="Who_Pays" onclick="togglePrice()" />
+                    <label class="form-check-label control-label" asp-for="Who_Pays" for="Who_Pays">
                         Yes
                     </label>
                 </div>
@@ -72,14 +72,14 @@
                 </div>
                 <h5>Who is choosing/ordering the home warranty?</h5>
                 <div class="form-check">
-                    <input class="form-check-input" asp-for="Who_chooses" type="radio" name="Who_chooses" value="buyer" id="Who_chooses"/>
-                    <label class="form-check-label control-label" asp-for="Who_chooses" for="Who_chooses">
+                    <input class="form-check-input" asp-for="Who_Chooses" type="radio" name="Who_Chooses" value="buyer" id="Who_Chooses"/>
+                    <label class="form-check-label control-label" asp-for="Who_Chooses" for="Who_Chooses">
                         The Buyer
                     </label>
                 </div>
-                <div class="form-check" id="whoPays">
-                    <input class="form-check-input" asp-for="Who_chooses" type="radio" name="Who_chooses" value="seller" id="Who_chooses" />
-                    <label class="form-check-label control-label" asp-for="Who_chooses" for="Who_chooses">
+                <div class="form-check" id="Who_Chooses">
+                    <input class="form-check-input" asp-for="Who_Chooses" type="radio" name="Who_Chooses" value="seller" id="Who_Chooses" />
+                    <label class="form-check-label control-label" asp-for="Who_Chooses" for="Who_Chooses">
                         The Seller
                     </label>
                 </div>
@@ -89,7 +89,7 @@
                 <div class="form-check">
                     <input class="form-check-input" asp-for="Buyer_Final_Options" type="radio" name="Buyer_Final_Options" value="buyerAgreesToPurchase" />
                     <label class="form-check-label control-label" asp-for="Buyer_Final_Options" for="Buyer_Final_Options">
-                        Buyer agrees to purchase a home warranty
+                        Buyer agrees to purchase a limited home warranty.
                     </label>
                 </div>
                 <div class="form-check">
@@ -107,7 +107,7 @@
                 <div class="form-check">
                     <input class="form-check-input" asp-for="Buyer_Final_Options" type="radio" name="Buyer_Final_Options" value="buyerReservesRight" />
                     <label class="form-check-label control-label" asp-for="Buyer_Final_Options" for="Buyer_Final_Options">
-                        Buyer reservces right to purchase a home warranty at a later date.
+                        Buyer reserves right to purchase a home warranty at a later date.
                     </label>
                 </div>
             </div>

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LightningOffer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210824184007_SimplifiesHomeWarrantyModel")]
-    partial class SimplifiesHomeWarrantyModel
+    [Migration("20210824224522_fixesnamingconventionforhomewarrantymodelagain")]
+    partial class fixesnamingconventionforhomewarrantymodelagain
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -350,10 +350,10 @@ namespace LightningOffer.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<string>("Who_Pays")
+                    b.Property<string>("Who_Chooses")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Who_Chooses")
+                    b.Property<string>("Who_Pays")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("HomeWarranty_id");
