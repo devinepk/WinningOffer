@@ -19,23 +19,13 @@
                 <span asp-validation-for="CreatedDate" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="HW" /> @Html.DisplayNameFor(model => model.HW)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="HW_Price" class="control-label"></label>
-                <input asp-for="HW_Price" class="form-control" />
-                <span asp-validation-for="HW_Price" class="text-danger"></span>
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Seller_To_Pay_HW" /> @Html.DisplayNameFor(model => model.Seller_To_Pay_HW)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Buyer_To_Pay_HW" /> @Html.DisplayNameFor(model => model.Buyer_To_Pay_HW)
+                    <input class="form-check-input" asp-for="Who_Pays" /> @Html.DisplayNameFor(model => model.Who_Pays)
                 </label>
             </div>
             <div class="form-group form-check">

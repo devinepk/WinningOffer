@@ -30,7 +30,8 @@ namespace LightningOffer.Models
 
         public FuelPropane FuelPropane { get; set; } // FuelPropane FK
         public Financial Financial { get; set; } // Financial FK
-
         public Appraisal Appraisal { get; set; } // Appraisal FK
+
+        public HomeWarranty HomeWarranty { get; set; } // HomeWarranty FK
     }
 }
