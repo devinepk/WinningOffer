@@ -9,28 +9,44 @@
     function hideDiv() {
         window.onload = function () {
             document.getElementById("HWPrice").style.display = 'none';
+            document.getElementById("buyerFinalOptions").style.display = 'none';
         };
     };
 
     function showPrice() {
-        console.log("show the price ");
+        console.log("show the price ");      
 
-        var price = document.getElementById("HWPrice");
+        var priceButton = document.getElementById("HWPrice");
       
-        if (price.style.display == "none") {
-            price.style.display = "block";
+        if (priceButton.style.display == "none") {
+            priceButton.style.display = "block"; // show price div
+     
         };
     };
 
     function hidePrice() {
-        console.log("hide the price");
+        console.log("hide the price ");
 
-        var price = document.getElementById("HWPrice");
+        var priceButton = document.getElementById("HWPrice");
 
-        if (price.style.display == "block") {
-            price.style.display = "none";
+        if (priceButton.style.display == "block") {
+            priceButton.style.display = "none"; // show price div
+
         };
     };
+
+    function showHideBuyerFinalOptions() {
+        console.log("toggle buyer final options");
+
+        var priceButton = document.getElementById("HWPrice");
+        var buyerFinalPriceButton = document.getElementById("buyerFinalOptions");
+
+        if (buyerFinalPriceButton.style.display == "none") {
+            buyerFinalPriceButton.stlye.display = "block"; // show buyer final option div
+            priceButton.style.display = "none"; //hide price div
+        };
+    };
+
 
 </script>
 
@@ -79,12 +95,30 @@
                     </label>
                 </div>
             </div>
-            <div class="form-group" id="buyerOptions" onload="hideDiv()" style="display: none">
+            <div class="form-group" id="buyerFinalOptions" name="buyerFinalOptions" onload="hideDiv()" style="display: none">
                 <h5>Select an option for home warranty below:</h5>
-                <div class="form-group" id="buyerWarranties">
-                    <input class="form-check-input" asp-for="Buyer_Final_Options" type="radio" name="buyerPurchasesLimited" value="buyerPurchasesLimited" />
-                    <label class="form-check-label control-label" asp-for="Buyer_Final_Options" for="buyerPurchasesLimited">
+                <div class="form-check">
+                    <input class="form-check-input" asp-for="Buyer_Final_Options" type="radio" name="Buyer_Final_Options" value="buyerAgreesToPurchase" />
+                    <label class="form-check-label control-label" asp-for="Buyer_Final_Options" for="Buyer_Final_Options">
                         Buyer agrees to purchase a home warranty
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" asp-for="Buyer_Final_Options" type="radio" name="Buyer_Final_Options" value="propertyIsNewConstruction" />
+                    <label class="form-check-label control-label" asp-for="Buyer_Final_Options" for="Buyer_Final_Options">
+                        Property is new construction and will come with a minimum 1 year home warranty, provided by the builder.
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" asp-for="Buyer_Final_Options" type="radio" name="Buyer_Final_Options" value="buyerWaivesRight" />
+                    <label class="form-check-label control-label" asp-for="Buyer_Final_Options" for="Buyer_Final_Options">
+                        Buyer waives right to purchase a home warranty.
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" asp-for="Buyer_Final_Options" type="radio" name="Buyer_Final_Options" value="buyerReservesRight" />
+                    <label class="form-check-label control-label" asp-for="Buyer_Final_Options" for="Buyer_Final_Options">
+                        Buyer reservces right to purchase a home warranty at a later date.
                     </label>
                 </div>
             </div>
