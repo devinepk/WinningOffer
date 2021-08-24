@@ -226,14 +226,18 @@ namespace LightningOffer.Controllers
             if (ModelState.IsValid)
                 try
                 {        
+
                     _context.Add(newFinancial);
                     await _context.SaveChangesAsync();
                     _logger.LogInformation("Successfully created the financial section of the contract. Next step: appraisal.");
-                    return RedirectToAction("Create", "Appraisals", new { Id = newFinancial.ContractId });                   
+                    return RedirectToAction("Create", "Appraisals", new { Id = newFinancial.ContractId });    
+                    
                 } catch (Exception ex)
                 {
+
                     _logger.LogCritical("Financial changes by {0} for contract {1} did not save.  See error: " + ex.InnerException + ".", username, newFinancial.ContractId);
                     return RedirectToAction("Error", "Home");
+
                 }
 
 

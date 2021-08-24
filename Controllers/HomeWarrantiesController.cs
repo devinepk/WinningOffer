@@ -67,16 +67,57 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("HomeWarranty_id,CreatedDate,Who_Pays, who_chooses, Price, Buyer_Final_Options, ContractId")] HomeWarranty homeWarranty)
+        public async Task<IActionResult> Create(Guid Id, string Who_Pays, string Who_chooses, double Price, string Buyer_Final_Options, [Bind("HomeWarranty_id,CreatedDate,Who_Pays, Who_chooses, Price, Buyer_Final_Options, ContractId")] HomeWarranty homeWarranty)
         {
-           
+            // Assign GUIDS and UserId
+            HomeWarranty newHomeWarranty = new();
+            newHomeWarranty.HomeWarranty_id = Guid.NewGuid();
+            newHomeWarranty.CreatedDate = DateTime.Now;
+            newHomeWarranty.ContractId = Id;
             
+            string userId = new string(_userManager.GetUserId(User));
+            string username = new string(_userManager.GetUserName(User));
+
+            _logger.LogInformation("New home warranty section with ID {0} created with contract ID {1} by User {2}", newHomeWarranty.HomeWarranty_id, Id, username);
+
+            // Who pays and chooses logic
+            if (Who_Pays == "sellerPaysNo")
+            {
+
+                newHomeWarranty.Who_Pays = Who_Pays;
+                newHomeWarranty.Price = 0;
+                newHomeWarranty.Who_chooses = "N/A";
+
+            } else if (Who_Pays == "sellerPaysYes")
+            {
+
+                newHomeWarranty.Who_Pays = Who_Pays;
+                newHomeWarranty.Price = Price;
+                newHomeWarranty.Who_chooses = Who_chooses;
+
+            }
+
+            newHomeWarranty.Buyer_Final_Options = Buyer_Final_Options;
+
             if (ModelState.IsValid)
             {
-                homeWarranty.HomeWarranty_id = Guid.NewGuid();
-                _context.Add(homeWarranty);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                try
+                {
+
+                    _context.Add(homeWarranty);
+                    await _context.SaveChangesAsync();
+                    _logger.LogInformation("User {0} successfully created the home warranty section of the contract {1}. Next step: dislosures.", username, newHomeWarranty.ContractId);
+                    return RedirectToAction("Create", "Disclosures", new { Id = newHomeWarranty.ContractId });
+
+                }
+                catch (Exception ex)
+                {
+
+                    _logger.LogCritical("Home warranty changes by {0} for contract {1} did not save.  See error: " + ex.InnerException + ".", username, newHomeWarranty.ContractId);
+                    return RedirectToAction("Error", "Home");
+
+                }
+
             }
             return View(homeWarranty);
         }

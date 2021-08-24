@@ -52,13 +52,13 @@
             <div class="form-group">
                 <h5>Is the seller paying anything towards a home warranty?</h5>
                 <div class="form-check">
-                    <input class="form-check-input" asp-for="Who_Pays" type="radio" name="whoPays" value="no" id="whoPaysNo" onclick="toggleBuyerFinalOptions()" />
+                    <input class="form-check-input" asp-for="Who_Pays" type="radio" name="whoPays" value="sellerPaysNo" id="whoPaysNo" onclick="toggleBuyerFinalOptions()" />
                     <label class="form-check-label control-label" asp-for="Who_Pays" for="whoPays">
                         No
                     </label>
                 </div>
                 <div class="form-check" id="whoPays">
-                    <input class="form-check-input" asp-for="Who_Pays" type="radio" name="whoPays" value="yes" id="whoPaysYes" onclick="togglePrice()" />
+                    <input class="form-check-input" asp-for="Who_Pays" type="radio" name="whoPays" value="sellerPaysYes" id="whoPaysYes" onclick="togglePrice()" />
                     <label class="form-check-label control-label" asp-for="Who_Pays" for="whoPays">
                         Yes
                     </label>
@@ -72,14 +72,14 @@
                 </div>
                 <h5>Who is choosing/ordering the home warranty?</h5>
                 <div class="form-check">
-                    <input class="form-check-input" asp-for="who_chooses" type="radio" name="who_chooses" value="buyer" id="who_chooses"/>
-                    <label class="form-check-label control-label" asp-for="who_chooses" for="who_chooses">
+                    <input class="form-check-input" asp-for="Who_chooses" type="radio" name="Who_chooses" value="buyer" id="Who_chooses"/>
+                    <label class="form-check-label control-label" asp-for="Who_chooses" for="Who_chooses">
                         The Buyer
                     </label>
                 </div>
                 <div class="form-check" id="whoPays">
-                    <input class="form-check-input" asp-for="who_chooses" type="radio" name="who_chooses" value="seller" id="who_chooses" />
-                    <label class="form-check-label control-label" asp-for="who_chooses" for="who_chooses">
+                    <input class="form-check-input" asp-for="Who_chooses" type="radio" name="Who_chooses" value="seller" id="Who_chooses" />
+                    <label class="form-check-label control-label" asp-for="Who_chooses" for="Who_chooses">
                         The Seller
                     </label>
                 </div>

@@ -7,7 +7,7 @@ namespace LightningOffer.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "who_chooses",
+                name: "Who_chooses",
                 table: "HomeWarranty",
                 type: "nvarchar(max)",
                 nullable: true);
@@ -16,7 +16,7 @@ namespace LightningOffer.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "who_chooses",
+                name: "Who_chooses",
                 table: "HomeWarranty");
         }
     }
