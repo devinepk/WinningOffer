@@ -16,6 +16,7 @@ namespace LightningOffer.Models
         [Display(Name = "Is the seller paying anything towards a home warranty?")]
         public string Who_Pays { get; set; } //buyer or seller. if Seller, ask how much. If buyer, make price null.
 
+
         [Display(Name = "Home Warranty Price")]
         public double Price { get; set; }
 

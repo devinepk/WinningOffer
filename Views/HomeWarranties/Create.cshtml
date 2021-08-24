@@ -15,19 +15,24 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="CreatedDate" class="control-label"></label>
-                <input asp-for="CreatedDate" class="form-control" />
-                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+                <h5>Is the seller paying anything towards a home warranty?</h5>
+                <div class="form-check" id="whoPays">
+                    <input class="form-check-input" asp-for="Who_Pays" type="radio" name="whoPays" value="yes" id="whoPays" />
+                    <label class="form-check-label control-label" asp-for="Who_Pays" for="whoPays">
+                        Yes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" asp-for="Who_Pays" type="radio" name="whoPays" value="no" id="whoPays" />
+                    <label class="form-check-label control-label" asp-for="Who_Pays" for="whoPays">
+                        No
+                    </label>
+                </div>
             </div>
             <div class="form-group form-check">
                 <label asp-for="Price" class="control-label"></label>
                 <input asp-for="Price" class="form-control" />
                 <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Who_Pays" /> @Html.DisplayNameFor(model => model.Who_Pays)
-                </label>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
@@ -44,6 +49,8 @@
                     <input class="form-check-input" asp-for="Buyer_To_Purchase_HW_Later" /> @Html.DisplayNameFor(model => model.Buyer_To_Purchase_HW_Later)
                 </label>
             </div>
+            
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
