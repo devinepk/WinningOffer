@@ -7,16 +7,29 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LightningOffer.Data;
 using LightningOffer.Models;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Identity;
+using RestSharp;
+using Microsoft.Extensions.Configuration;
+using System.IO;
+using Microsoft.AspNetCore.Http;
+
 
 namespace LightningOffer.Controllers
 {
     public class HomeWarrantiesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly ILogger _logger;
 
-        public HomeWarrantiesController(ApplicationDbContext context)
+        public HomeWarrantiesController(ApplicationDbContext context,
+                                UserManager<IdentityUser> userManager,
+                                ILogger<FinancialsController> logger)
         {
             _context = context;
+            _userManager = userManager;
+            _logger = logger;
         }
 
         // GET: HomeWarranties
@@ -54,8 +67,10 @@ namespace LightningOffer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("HomeWarranty_id,CreatedDate,HW,HW_Price,Seller_To_Pay_HW,Buyer_To_Pay_HW,New_Construction_HW,Buyer_Waves_Right_To_HW,Buyer_To_Purchase_HW_Later")] HomeWarranty homeWarranty)
+        public async Task<IActionResult> Create([Bind("HomeWarranty_id,CreatedDate,Who_Pays, who_chooses, Price, Buyer_Final_Options, ContractId")] HomeWarranty homeWarranty)
         {
+           
+            
             if (ModelState.IsValid)
             {
                 homeWarranty.HomeWarranty_id = Guid.NewGuid();
